@@ -1,6 +1,6 @@
 export const blogsData = [
   {
-    slug: "understanding-the-importance-of-emergency-care-&-response-time",
+    slug: "understanding-the-importance-of-emergency-care-and-response-time",
     title: "Understanding the Importance of Emergency Care & Rapid Response Time",
     category: "Emergency & Critical Care",
     date: "August 5, 2026",
@@ -11,13 +11,15 @@ export const blogsData = [
     content: `
 Medical emergencies strike unexpectedly, and when they do, the speed of healthcare response can mean the difference between life and death. At Citizens Medical Centre (CMC Dhanbad), our 24/7 Emergency & Trauma Center is built on the principle of the "Golden Hour" — the critical initial timeframe following a traumatic injury or sudden acute medical condition.
 
-### What is the "Golden Hour"?
+<h3>What is the "Golden Hour"?</h3>
 The Golden Hour refers to the first 60 minutes following a severe traumatic injury or acute onset illness (such as cardiac arrest or stroke). If rapid medical assessment, resuscitation, and stabilization occur within this window, the likelihood of avoiding brain damage, organ failure, and fatal complications increases exponentially.
 
-### Key Emergency Response Protocols at CMC Dhanbad:
-1. **Instant Triage Assessment:** Arriving patients are immediately triaged by emergency physicians to prioritize high-risk conditions without delays.
-2. **Dedicated Stroke & Cardiac Protocols:** Patients presenting chest pain or stroke symptoms receive instant ECG, CT imaging, and thrombolysis within minutes.
-3. **Advanced Mobile ICUs:** Our state-of-the-art ambulances feature life-support ventilators, defibrillators, and trained paramedics to initiate care before reaching the hospital.
+<h3>Key Emergency Response Protocols at CMC Dhanbad:</h3>
+<ol>
+  <li><strong>Instant Triage Assessment:</strong> Arriving patients are immediately triaged by emergency physicians to prioritize high-risk conditions without delays.</li>
+  <li><strong>Dedicated Stroke & Cardiac Protocols:</strong> Patients presenting chest pain or stroke symptoms receive instant ECG, CT imaging, and thrombolysis within minutes.</li>
+  <li><strong>Advanced Mobile ICUs:</strong> Our state-of-the-art ambulances feature life-support ventilators, defibrillators, and trained paramedics to initiate care before reaching the hospital.</li>
+</ol>
     `
   },
   {
@@ -32,11 +34,13 @@ The Golden Hour refers to the first 60 minutes following a severe traumatic inju
     content: `
 Diabetes mellitus and hypertension (high blood pressure) affect millions of individuals nationwide. Left unmanaged, they can damage vital organs, leading to heart disease, kidney impairment, stroke, and vision loss.
 
-### Essential Tips for Managing Blood Sugar & Blood Pressure:
-* **Routine Self-Monitoring:** Track your fasting blood glucose and blood pressure numbers weekly. Keep a digital log to share during consultations.
-* **Balanced Nutrition:** Adopt a Mediterranean-style diet low in processed sugars and sodium, rich in fiber, whole grains, and lean proteins.
-* **Consistent Physical Activity:** 30 minutes of moderate aerobic exercise (brisk walking, swimming, cycling) 5 days a week improves insulin sensitivity and arterial flexibility.
-* **Medication Adherence:** Never skip prescribed doses without consulting your doctor. Regular follow-ups ensure treatment plan adjustments as your body changes.
+<h3>Essential Tips for Managing Blood Sugar & Blood Pressure:</h3>
+<ul>
+  <li><strong>Routine Self-Monitoring:</strong> Track your fasting blood glucose and blood pressure numbers weekly. Keep a digital log to share during consultations.</li>
+  <li><strong>Balanced Nutrition:</strong> Adopt a Mediterranean-style diet low in processed sugars and sodium, rich in fiber, whole grains, and lean proteins.</li>
+  <li><strong>Consistent Physical Activity:</strong> 30 minutes of moderate aerobic exercise (brisk walking, swimming, cycling) 5 days a week improves insulin sensitivity and arterial flexibility.</li>
+  <li><strong>Medication Adherence:</strong> Never skip prescribed doses without consulting your doctor. Regular follow-ups ensure treatment plan adjustments as your body changes.</li>
+</ul>
     `
   },
   {
@@ -51,11 +55,13 @@ Diabetes mellitus and hypertension (high blood pressure) affect millions of indi
     content: `
 Gone are the days when abdominal surgeries required long, painful open incisions. Modern surgical techniques allow doctors to perform complex procedures through keyhole openings measuring just 5 to 10 millimeters.
 
-### Why Choose Minimally Invasive Surgery (MIS)?
-1. **Less Post-Operative Pain:** Small keyhole incisions cause significantly less muscle disruption, resulting in lower requirement for painkillers.
-2. **Minimal Scarring & Superior Cosmetics:** Tiny incisions heal quickly with minimal visible scars compared to traditional open surgeries.
-3. **Faster Hospital Discharge:** Patients often return home within 24 to 48 hours post-surgery.
-4. **Reduced Risk of Wound Infections:** Smaller surgical fields lower exposure to environmental pathogens.
+<h3>Why Choose Minimally Invasive Surgery (MIS)?</h3>
+<ol>
+  <li><strong>Less Post-Operative Pain:</strong> Small keyhole incisions cause significantly less muscle disruption, resulting in lower requirement for painkillers.</li>
+  <li><strong>Minimal Scarring & Superior Cosmetics:</strong> Tiny incisions heal quickly with minimal visible scars compared to traditional open surgeries.</li>
+  <li><strong>Faster Hospital Discharge:</strong> Patients often return home within 24 to 48 hours post-surgery.</li>
+  <li><strong>Reduced Risk of Wound Infections:</strong> Smaller surgical fields lower exposure to environmental pathogens.</li>
+</ol>
     `
   },
   {
@@ -70,10 +76,12 @@ Gone are the days when abdominal surgeries required long, painful open incisions
     content: `
 Many serious health conditions — including hypertension, high cholesterol, early-stage diabetes, and thyroid disorders — develop quietly without noticeable early symptoms. Regular health packages act as a vital safety net.
 
-### Essential Annual Screenings by Age Group:
-* **20s & 30s:** Blood pressure check, Lipid profile, Fasting Blood Sugar, BMI assessment, Complete Blood Count (CBC).
-* **40s & 50s:** Mammogram (Women), PSA Test (Men), Liver & Kidney Function Tests, ECG, Cardiac Stress Test, Thyroid Panel.
-* **60s and Above:** Bone Density Scan (DEXA), Vision & Hearing Screenings, Annual Diabetes & Cardiac Reviews.
+<h3>Essential Annual Screenings by Age Group:</h3>
+<ul>
+  <li><strong>20s & 30s:</strong> Blood pressure check, Lipid profile, Fasting Blood Sugar, BMI assessment, Complete Blood Count (CBC).</li>
+  <li><strong>40s & 50s:</strong> Mammogram (Women), PSA Test (Men), Liver & Kidney Function Tests, ECG, Cardiac Stress Test, Thyroid Panel.</li>
+  <li><strong>60s and Above:</strong> Bone Density Scan (DEXA), Vision & Hearing Screenings, Annual Diabetes & Cardiac Reviews.</li>
+</ul>
     `
   },
   {
@@ -88,14 +96,16 @@ Many serious health conditions — including hypertension, high cholesterol, ear
     content: `
 Nutrition is a fundamental component of healing. Following surgery or acute illness, the metabolic demands of tissue repair require specific nutrient density.
 
-### Key Nutrients for Faster Recovery:
-* **High-Quality Protein:** Essential for cell regeneration and surgical wound closure (lean meats, eggs, legumes, paneer).
-* **Vitamin C & Zinc:** Crucial for collagen synthesis and immune cell response (citrus fruits, bell peppers, nuts, seeds).
-* **Hydration & Fiber:** Prevents post-surgical constipation caused by inactivity and pain medications.
+<h3>Key Nutrients for Faster Recovery:</h3>
+<ul>
+  <li><strong>High-Quality Protein:</strong> Essential for cell regeneration and surgical wound closure (lean meats, eggs, legumes, paneer).</li>
+  <li><strong>Vitamin C & Zinc:</strong> Crucial for collagen synthesis and immune cell response (citrus fruits, bell peppers, nuts, seeds).</li>
+  <li><strong>Hydration & Fiber:</strong> Prevents post-surgical constipation caused by inactivity and pain medications.</li>
+</ul>
     `
   },
   {
-    slug: "rani’s-journey-of-strength-and-hope",
+    slug: "ranis-journey-of-strength-and-hope",
     title: "Patient Story: Rani’s Journey of Strength and Hope at CMC",
     category: "Patient Stories",
     date: "July 10, 2026",
@@ -106,11 +116,11 @@ Nutrition is a fundamental component of healing. Following surgery or acute illn
     content: `
 When Rani arrived at Citizens Medical Centre in her 31st week of pregnancy with severe complications, her family was anxious. Thanks to the immediate intervention of Dr. Isha Rani Mishra (Obstetrics) and Dr. Shashank Shekhar (Neonatology), both mother and child received emergency care.
 
-Today, baby Aarav is a healthy, smiling infant. Rani shares: *"The doctors and nurses at CMC treating us like family made all the difference. Their expertise gave us hope when we needed it most."*
+Today, baby Aarav is a healthy, smiling infant. Rani shares: <em>"The doctors and nurses at CMC treating us like family made all the difference. Their expertise gave us hope when we needed it most."</em>
     `
   },
   {
-    slug: "best-heart-surgery-hospital-in-india-top-ctvs-surgery-hospital-in-india-|-fortis-healthcare",
+    slug: "understanding-cardiovascular-health-and-when-to-consult-a-specialist",
     title: "Understanding Cardiovascular Health & When to Consult a Specialist",
     category: "Cardiac Science",
     date: "July 01, 2026",

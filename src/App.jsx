@@ -12,6 +12,14 @@ import BlogListPage from './pages/BlogListPage';
 import BlogDetailPage from './pages/BlogDetailPage';
 import FAQPage from './pages/FAQPage';
 import ContactPage from './pages/ContactPage';
+import InternationalPatientsPage from './pages/InternationalPatientsPage';
+import GalleryPage from './pages/GalleryPage';
+import HealthPackagesPage from './pages/HealthPackagesPage';
+import DoctorProfilePage from './pages/DoctorProfilePage';
+import NotFoundPage from './pages/NotFoundPage';
+import WhatsAppButton from './components/WhatsAppButton';
+import ScrollToTopButton from './components/ScrollToTopButton';
+import ScrollToTop from './components/ScrollToTop';
 
 export default function App() {
   const [appointmentOpen, setAppointmentOpen] = useState(false);
@@ -20,42 +28,54 @@ export default function App() {
   const handleCloseAppointment = () => setAppointmentOpen(false);
 
   return (
-    <div className="app-container">
-      <Header onOpenAppointment={handleOpenAppointment} />
+    <>
+      <ScrollToTop />
+      <div className="app-container">
+        <Header onOpenAppointment={handleOpenAppointment} />
 
-      <main>
-        <Routes>
-          <Route path="/" element={<HomePage onOpenAppointment={handleOpenAppointment} />} />
-          <Route path="/index" element={<HomePage onOpenAppointment={handleOpenAppointment} />} />
+        <main>
+          <Routes>
+            <Route path="/" element={<HomePage onOpenAppointment={handleOpenAppointment} />} />
+            <Route path="/index" element={<HomePage onOpenAppointment={handleOpenAppointment} />} />
 
-          {/* About Routes */}
-          <Route path="/about-us" element={<AboutPage onOpenAppointment={handleOpenAppointment} />} />
-          <Route path="/about" element={<AboutPage onOpenAppointment={handleOpenAppointment} />} />
-          <Route path="/director-message" element={<AboutPage onOpenAppointment={handleOpenAppointment} />} />
-          <Route path="/mission-vision" element={<AboutPage onOpenAppointment={handleOpenAppointment} />} />
-          <Route path="/goals" element={<AboutPage onOpenAppointment={handleOpenAppointment} />} />
-          <Route path="/international" element={<AboutPage onOpenAppointment={handleOpenAppointment} />} />
+            {/* About Routes */}
+            <Route path="/about-us" element={<AboutPage onOpenAppointment={handleOpenAppointment} />} />
+            <Route path="/about" element={<AboutPage onOpenAppointment={handleOpenAppointment} />} />
+            <Route path="/director-message" element={<AboutPage onOpenAppointment={handleOpenAppointment} />} />
+            <Route path="/mission-vision" element={<AboutPage onOpenAppointment={handleOpenAppointment} />} />
+            <Route path="/goals" element={<AboutPage onOpenAppointment={handleOpenAppointment} />} />
+            <Route path="/gallery" element={<GalleryPage />} />
+            <Route path="/packages" element={<HealthPackagesPage onOpenAppointment={handleOpenAppointment} />} />
 
-          {/* Doctors Route */}
-          <Route path="/doctor" element={<DoctorsPage onOpenAppointment={handleOpenAppointment} />} />
-          <Route path="/our-doctors" element={<DoctorsPage onOpenAppointment={handleOpenAppointment} />} />
+            {/* Doctors Route */}
+            <Route path="/doctor" element={<DoctorsPage onOpenAppointment={handleOpenAppointment} />} />
+            <Route path="/doctor/:id" element={<DoctorProfilePage onOpenAppointment={handleOpenAppointment} />} />
+            <Route path="/our-doctors" element={<DoctorsPage onOpenAppointment={handleOpenAppointment} />} />
 
-          {/* Department / Centers of Care Routes */}
-          <Route path="/:slug" element={<DepartmentDetailPage onOpenAppointment={handleOpenAppointment} />} />
+            {/* Patient Portal & Blog Routes */}
+            <Route path="/faq" element={<FAQPage onOpenAppointment={handleOpenAppointment} />} />
+            <Route path="/blog" element={<BlogListPage onOpenAppointment={handleOpenAppointment} />} />
+            <Route path="/blog-detail/:slug" element={<BlogDetailPage onOpenAppointment={handleOpenAppointment} />} />
+            <Route path="/international" element={<InternationalPatientsPage onOpenAppointment={handleOpenAppointment} />} />
 
-          {/* Patient Portal & Blog Routes */}
-          <Route path="/faq" element={<FAQPage onOpenAppointment={handleOpenAppointment} />} />
-          <Route path="/blog" element={<BlogListPage />} />
-          <Route path="/blog-detail/:slug" element={<BlogDetailPage onOpenAppointment={handleOpenAppointment} />} />
+            {/* Contact Us Route */}
+            <Route path="/contact-us" element={<ContactPage onOpenAppointment={handleOpenAppointment} />} />
 
-          {/* Contact Us Route */}
-          <Route path="/contact-us" element={<ContactPage />} />
-        </Routes>
-      </main>
+            {/* Department / Centers of Care Routes (Catch-all for departments) */}
+            <Route path="/:slug" element={<DepartmentDetailPage onOpenAppointment={handleOpenAppointment} />} />
+            
+            {/* 404 Route */}
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </main>
 
-      <Footer onOpenAppointment={handleOpenAppointment} />
+        <Footer onOpenAppointment={handleOpenAppointment} />
 
-      <AppointmentModal isOpen={appointmentOpen} onClose={handleCloseAppointment} />
-    </div>
+        <WhatsAppButton />
+        <ScrollToTopButton />
+
+        <AppointmentModal isOpen={appointmentOpen} onClose={handleCloseAppointment} />
+      </div>
+    </>
   );
 }

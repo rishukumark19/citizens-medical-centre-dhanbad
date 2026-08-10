@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Citizens Medical Centre | Dhanbad</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "tertiary": "#003d38",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#576867",
+                        "surface-variant": "#e2e2ea",
+                        "secondary-container": "#d4e6e5",
+                        "surface-container": "#ededf5",
+                        "on-primary-fixed-variant": "#00429c",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#0e1e1e",
+                        "surface-container-high": "#e8e7f0",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#f0f0f8",
+                        "on-background": "#1a1b21",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#a1bbff",
+                        "secondary": "#516161",
+                        "on-surface-variant": "#434652",
+                        "primary-fixed": "#d9e2ff",
+                        "secondary-fixed-dim": "#b8cac9",
+                        "outline": "#737783",
+                        "inverse-primary": "#b0c6ff",
+                        "surface-container-highest": "#e2e2ea",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#001945",
+                        "surface": "#faf8ff",
+                        "tertiary-container": "#00564f",
+                        "tertiary-fixed-dim": "#66d9cc",
+                        "background": "#faf8ff",
+                        "tertiary-fixed": "#84f5e8",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#005049",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#0d47a1",
+                        "surface-tint": "#2b5bb5",
+                        "on-tertiary-container": "#5bcfc2",
+                        "surface-bright": "#faf8ff",
+                        "primary-fixed-dim": "#b0c6ff",
+                        "on-surface": "#1a1b21",
+                        "primary": "#003178",
+                        "inverse-surface": "#2e3036",
+                        "surface-dim": "#d9d9e1",
+                        "surface-container-low": "#f3f3fb",
+                        "secondary-fixed": "#d4e6e5",
+                        "on-secondary-fixed-variant": "#3a4a49",
+                        "outline-variant": "#c3c6d4",
+                        "on-tertiary-fixed": "#00201d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "stack-sm": "8px",
+                        "stack-lg": "24px",
+                        "section-gap": "80px",
+                        "margin-mobile": "16px",
+                        "stack-md": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "label-bold": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                        "label-bold": ["14px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .soft-shadow {
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<nav class="bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none sticky top-0 z-50 transition-all duration-300">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-gutter max-w-container-max mx-auto h-20">
+<!-- Brand -->
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary text-3xl" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-inverse-primary">Citizens Medical Centre</span>
+</div>
+<!-- Desktop Nav Links -->
+<div class="hidden md:flex items-center gap-6">
+<a class="text-tertiary-container dark:text-tertiary-fixed font-bold border-b-2 border-tertiary-container py-2 text-label-bold font-label-bold transition-all duration-200 opacity-80" href="#">Home</a>
+<a class="text-on-surface-variant dark:text-surface-variant text-label-bold font-label-bold hover:text-tertiary-container dark:hover:text-tertiary-fixed transition-colors duration-200" href="#">About Us</a>
+<a class="text-on-surface-variant dark:text-surface-variant text-label-bold font-label-bold hover:text-tertiary-container dark:hover:text-tertiary-fixed transition-colors duration-200" href="#">Centers of Care</a>
+<a class="text-on-surface-variant dark:text-surface-variant text-label-bold font-label-bold hover:text-tertiary-container dark:hover:text-tertiary-fixed transition-colors duration-200" href="#">Patient Portal</a>
+<a class="text-on-surface-variant dark:text-surface-variant text-label-bold font-label-bold hover:text-tertiary-container dark:hover:text-tertiary-fixed transition-colors duration-200" href="#">Contact US</a>
+</div>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center gap-2 text-on-surface-variant">
+<button aria-label="call" class="p-2 hover:bg-surface-variant rounded-full transition-colors">
+<span class="material-symbols-outlined text-xl text-primary">call</span>
+</button>
+<button aria-label="location_on" class="p-2 hover:bg-surface-variant rounded-full transition-colors">
+<span class="material-symbols-outlined text-xl text-primary">location_on</span>
+</button>
+</div>
+<a class="hidden md:inline-flex items-center justify-center bg-primary text-on-primary rounded-lg px-6 py-2 text-label-bold font-label-bold hover:bg-primary-container hover:text-on-primary-container transition-colors duration-300 shadow-sm" href="#">
+                    Book Appointment
+                </a>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden p-2 text-on-surface" id="mobile-menu-btn">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Emergency Header (Floating on mobile, sticky under nav on desktop) -->
+<div class="bg-error-container text-on-error-container py-3 px-margin-mobile md:px-gutter z-40 relative shadow-sm border-b border-outline-variant">
+<div class="max-w-container-max mx-auto flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-3 text-center sm:text-left">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="text-label-bold font-label-bold">24/7 Emergency &amp; Trauma Unit Open</span>
+</div>
+<a class="inline-flex items-center gap-2 bg-error text-on-error px-4 py-1.5 rounded-full text-sm font-bold hover:bg-opacity-90 transition-colors shadow-sm" href="tel:+918802248261">
+<span class="material-symbols-outlined text-sm">phone_in_talk</span>
+                Call Hotline: +91 8802248261
+            </a>
+</div>
+</div>
+<!-- Main Content -->
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="relative w-full overflow-hidden bg-surface-container-lowest">
+<!-- Background Image -->
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center opacity-30" data-alt="A bright, modern hospital reception area with soft, natural light streaming through large windows. Professional medical staff in crisp white coats interacting warmly with patients. Teal and navy color accents in the interior design. The mood is calm, trustworthy, and empathetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBcPxJSt53teZ2Hvz33h7eCpg7Zb9EShicnDuh771Jxkhgutb39zXLAdU3_wLq8WD0HcJtBoyaut05YeFaho8AZEjvTZ_25aydl3T4Ur0Zdopg2nYWQjuuMzzIg0ti7z6aZz_QA6zGYM2x7VUJNH6VxCTLh5TXOIKls05v76QiGbWdgrzgB29Jyv7oMl7uP6ol-dBn7k5-IIswUx4HH4HMnuYv700-nyY0nwjyhN9kOHSUjqJrSyssUsw')"></div>
+<!-- Gradient Overlay -->
+<div class="absolute inset-0 bg-gradient-to-r from-surface-lowest via-surface-lowest/90 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-gap flex flex-col lg:flex-row items-center gap-stack-lg">
+<!-- Hero Content -->
+<div class="flex-1 flex flex-col gap-stack-lg lg:pr-8">
+<span class="inline-block px-3 py-1 bg-tertiary-container/10 text-tertiary-container rounded-full text-sm font-bold w-max border border-tertiary-container/20">Advanced Healthcare</span>
+<h1 class="text-display-lg font-display-lg text-primary text-balance">
+                        Your Health, Our Global Care — <span class="text-tertiary-container">Compassion Across Borders</span>
+</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">
+                        Citizens Medical Centre (CMC Dhanbad) brings world-class medical expertise, Level-III NICU &amp; ICU critical care, advanced laparoscopic surgeries, and 24/7 emergency care right to your region.
+                    </p>
+<div class="flex flex-wrap gap-4 mt-2">
+<a class="bg-primary text-on-primary px-8 py-3 rounded-lg text-label-bold font-label-bold hover:shadow-md transition-all duration-300 flex items-center gap-2" href="#">
+                            Book Appointment
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+<a class="bg-secondary-container text-on-secondary-container border border-outline-variant px-8 py-3 rounded-lg text-label-bold font-label-bold hover:bg-surface-variant transition-all duration-300" href="#doctors">
+                            Find a Specialist
+                        </a>
+</div>
+</div>
+<!-- Hero Sidebar Card -->
+<div class="w-full lg:w-[400px] shrink-0 mt-8 lg:mt-0">
+<div class="glass-card rounded-xl p-8 soft-shadow border border-outline-variant relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-error-container/30 rounded-bl-full -z-10 transition-transform group-hover:scale-110"></div>
+<div class="w-12 h-12 bg-error-container text-error rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">emergency</span>
+</div>
+<h3 class="text-headline-md font-headline-md text-on-surface mb-2">Immediate Assistance</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mb-6">Our 24/7 Emergency &amp; Trauma Unit is equipped to handle critical situations with expert care.</p>
+<div class="bg-surface-container-lowest p-4 rounded-lg border border-outline-variant flex flex-col gap-1">
+<span class="text-xs font-bold text-outline uppercase tracking-wider">Emergency Helpline</span>
+<a class="text-xl font-bold text-primary hover:text-tertiary-container transition-colors" href="tel:+918802248261">
+                                +91 8802248261
+                            </a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Key Stats Ribbon -->
+<section class="bg-primary text-on-primary border-y border-outline-variant/30">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-outline-variant/30 text-center">
+<div class="flex flex-col items-center justify-center pt-4 md:pt-0">
+<span class="text-4xl font-extrabold text-inverse-primary mb-2">10+</span>
+<span class="text-label-bold font-label-bold uppercase tracking-wider text-surface-variant">Specialist Doctors</span>
+</div>
+<div class="flex flex-col items-center justify-center pt-4 md:pt-0">
+<span class="text-4xl font-extrabold text-inverse-primary mb-2">18+</span>
+<span class="text-label-bold font-label-bold uppercase tracking-wider text-surface-variant">Centers of Care</span>
+</div>
+<div class="flex flex-col items-center justify-center pt-4 md:pt-0">
+<span class="text-4xl font-extrabold text-inverse-primary mb-2">24/7</span>
+<span class="text-label-bold font-label-bold uppercase tracking-wider text-surface-variant">ICU &amp; Emergency</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Centers of Care Grid -->
+<section class="py-section-gap bg-surface-container-lowest" id="centers-of-care">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+<div class="text-center mb-12">
+<span class="text-tertiary-container font-bold text-sm tracking-wider uppercase mb-2 block">Our Specialties</span>
+<h2 class="text-headline-lg font-headline-lg text-primary md:text-display-lg md:font-display-lg">Centers of Excellence</h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl mx-auto mt-4">Comprehensive medical services delivered by expert specialists using state-of-the-art technology.</p>
+</div>
+<div class="bento-grid">
+<!-- Card 1 -->
+<div class="bg-surface rounded-xl p-6 border border-outline-variant soft-shadow hover:-translate-y-1 transition-all duration-300 group cursor-pointer flex flex-col h-full">
+<div class="w-14 h-14 bg-secondary-container text-tertiary-container rounded-lg flex items-center justify-center mb-4 group-hover:bg-tertiary-container group-hover:text-on-tertiary-container transition-colors">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">pregnant_woman</span>
+</div>
+<h3 class="text-headline-md font-headline-md text-on-surface mb-2">Women's Health</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mb-4 flex-grow line-clamp-2">Comprehensive gynecological and obstetric care, from routine exams to complex surgeries.</p>
+<a class="text-tertiary-container font-bold text-sm inline-flex items-center gap-1 group-hover:underline mt-auto" href="#">
+                            Read More <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</a>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface rounded-xl p-6 border border-outline-variant soft-shadow hover:-translate-y-1 transition-all duration-300 group cursor-pointer flex flex-col h-full">
+<div class="w-14 h-14 bg-secondary-container text-tertiary-container rounded-lg flex items-center justify-center mb-4 group-hover:bg-tertiary-container group-hover:text-on-tertiary-container transition-colors">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">child_care</span>
+</div>
+<h3 class="text-headline-md font-headline-md text-on-surface mb-2">Child &amp; Neonatal Care</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mb-4 flex-grow line-clamp-2">Advanced Level-III NICU and expert pediatricians ensuring the best start for your little ones.</p>
+<a class="text-tertiary-container font-bold text-sm inline-flex items-center gap-1 group-hover:underline mt-auto" href="#">
+                            Read More <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</a>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface rounded-xl p-6 border border-outline-variant soft-shadow hover:-translate-y-1 transition-all duration-300 group cursor-pointer flex flex-col h-full">
+<div class="w-14 h-14 bg-secondary-container text-tertiary-container rounded-lg flex items-center justify-center mb-4 group-hover:bg-tertiary-container group-hover:text-on-tertiary-container transition-colors">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">cardiology</span>
+</div>
+<h3 class="text-headline-md font-headline-md text-on-surface mb-2">Cardiac Sciences</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mb-4 flex-grow line-clamp-2">State-of-the-art cardiology department for accurate diagnosis and effective treatment.</p>
+<a class="text-tertiary-container font-bold text-sm inline-flex items-center gap-1 group-hover:underline mt-auto" href="#">
+                            Read More <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</a>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface rounded-xl p-6 border border-outline-variant soft-shadow hover:-translate-y-1 transition-all duration-300 group cursor-pointer flex flex-col h-full">
+<div class="w-14 h-14 bg-secondary-container text-tertiary-container rounded-lg flex items-center justify-center mb-4 group-hover:bg-tertiary-container group-hover:text-on-tertiary-container transition-colors">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">radiology</span>
+</div>
+<h3 class="text-headline-md font-headline-md text-on-surface mb-2">Imaging &amp; Radio Diagnosis</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mb-4 flex-grow line-clamp-2">Advanced imaging technologies including MRI, CT scans, and high-resolution ultrasound.</p>
+<a class="text-tertiary-container font-bold text-sm inline-flex items-center gap-1 group-hover:underline mt-auto" href="#">
+                            Read More <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</a>
+</div>
+<!-- Card 5 -->
+<div class="bg-surface rounded-xl p-6 border border-outline-variant soft-shadow hover:-translate-y-1 transition-all duration-300 group cursor-pointer flex flex-col h-full">
+<div class="w-14 h-14 bg-secondary-container text-tertiary-container rounded-lg flex items-center justify-center mb-4 group-hover:bg-tertiary-container group-hover:text-on-tertiary-container transition-colors">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">neurology</span>
+</div>
+<h3 class="text-headline-md font-headline-md text-on-surface mb-2">Neurosciences</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mb-4 flex-grow line-clamp-2">Expert care for neurological disorders, spine conditions, and pain management.</p>
+<a class="text-tertiary-container font-bold text-sm inline-flex items-center gap-1 group-hover:underline mt-auto" href="#">
+                            Read More <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</a>
+</div>
+<!-- Card 6 -->
+<div class="bg-surface rounded-xl p-6 border border-outline-variant soft-shadow hover:-translate-y-1 transition-all duration-300 group cursor-pointer flex flex-col h-full">
+<div class="w-14 h-14 bg-secondary-container text-tertiary-container rounded-lg flex items-center justify-center mb-4 group-hover:bg-tertiary-container group-hover:text-on-tertiary-container transition-colors">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">format_h4</span>
+</div>
+<h3 class="text-headline-md font-headline-md text-on-surface mb-2">Bones &amp; Joints</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mb-4 flex-grow line-clamp-2">Orthopedic excellence ranging from joint replacements to sports injury management.</p>
+<a class="text-tertiary-container font-bold text-sm inline-flex items-center gap-1 group-hover:underline mt-auto" href="#">
+                            Read More <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="mt-10 text-center">
+<button class="bg-surface-variant text-on-surface px-6 py-2 rounded-lg text-label-bold font-label-bold hover:bg-outline-variant transition-colors inline-flex items-center gap-2">
+                        View All Specialties <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+</div>
+</section>
+<!-- About Section (Split Layout) -->
+<section class="py-section-gap bg-surface">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+<div class="flex flex-col lg:flex-row gap-stack-lg items-center">
+<!-- Image Side -->
+<div class="flex-1 w-full relative rounded-2xl overflow-hidden shadow-lg border border-outline-variant/50 group">
+<div class="w-full aspect-[4/3] bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A modern, high-tech hospital operating room with advanced surgical equipment. Doctors in scrubs performing a laparoscopic procedure. Bright, sterile lighting, stainless steel surfaces, showcasing clinical rigor and medical precision." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBB-BaK4X8rJ9u-Cc253VGuMIT_yNkomB9TEU3v_PqQt_tvr3PjzxcqS69Aj0fZlD2m4-NIjGZ7A6rmaNxt373A7j7YjwUEQPbz72Yvyiti2y-HzUWM_cWxSyOPQTbzMurzOzRn0auNBEB44Y-BTC8hSpPUlSN1v3C-_jeld1q-kZNVOyJxmNs4ltFea-krsx0SmgMhei_E54SwvNGhNw68S6jfAPsiBmDx0IIM9Ot68bbMSXm3-yV51Q')"></div>
+<!-- Overlay accent -->
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60"></div>
+<div class="absolute bottom-6 left-6 right-6">
+<span class="inline-block px-3 py-1 bg-surface-container-lowest text-primary rounded-full text-xs font-bold mb-2">Advanced Facilities</span>
+<h4 class="text-headline-md font-headline-md text-surface-container-lowest">International Standard Care</h4>
+</div>
+</div>
+<!-- Text Side -->
+<div class="flex-1 w-full lg:pl-12 flex flex-col gap-6">
+<div>
+<span class="text-tertiary-container font-bold text-sm tracking-wider uppercase mb-2 block">About CMC</span>
+<h2 class="text-headline-lg font-headline-lg text-primary md:text-display-lg md:font-display-lg">Advanced Healthcare With a Human Touch</h2>
+</div>
+<p class="text-body-lg font-body-lg text-on-surface-variant">
+                            At Citizens Medical Centre, we believe that world-class healthcare should be accessible. We combine cutting-edge technology with empathetic precision to deliver superior patient outcomes.
+                        </p>
+<ul class="space-y-4 mt-2">
+<li class="flex items-start gap-3">
+<div class="w-6 h-6 rounded-full bg-secondary-container text-tertiary-container flex items-center justify-center shrink-0 mt-1">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<div>
+<h4 class="text-label-bold font-label-bold text-on-surface">Level-III NICU</h4>
+<p class="text-body-md font-body-md text-on-surface-variant text-sm mt-1">Highest level of intensive care for premature and critically ill newborns.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<div class="w-6 h-6 rounded-full bg-secondary-container text-tertiary-container flex items-center justify-center shrink-0 mt-1">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<div>
+<h4 class="text-label-bold font-label-bold text-on-surface">Advanced Laparoscopic Surgeries</h4>
+<p class="text-body-md font-body-md text-on-surface-variant text-sm mt-1">Minimally invasive procedures for faster recovery and reduced pain.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<div class="w-6 h-6 rounded-full bg-secondary-container text-tertiary-container flex items-center justify-center shrink-0 mt-1">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<div>
+<h4 class="text-label-bold font-label-bold text-on-surface">International Standards</h4>
+<p class="text-body-md font-body-md text-on-surface-variant text-sm mt-1">Rigorous clinical protocols ensuring patient safety and care excellence.</p>
+</div>
+</li>
+</ul>
+<div class="mt-4">
+<a class="text-primary font-bold hover:text-tertiary-container transition-colors inline-flex items-center gap-2" href="#">
+                                Discover Our Facility <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Meet Our Doctors Section -->
+<section class="py-section-gap bg-surface-container-lowest" id="doctors">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+<div class="text-center mb-12 flex flex-col items-center">
+<span class="text-tertiary-container font-bold text-sm tracking-wider uppercase mb-2 block">Our Specialists</span>
+<h2 class="text-headline-lg font-headline-lg text-primary md:text-display-lg md:font-display-lg">Meet Our Doctors</h2>
+<div class="w-20 h-1 bg-tertiary-container mt-4 rounded-full"></div>
+</div>
+<!-- Doctor Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Doctor 1 -->
+<div class="bg-surface rounded-xl overflow-hidden border border-outline-variant soft-shadow hover:-translate-y-2 transition-transform duration-300">
+<div class="h-48 bg-secondary-container flex items-center justify-center relative">
+<!-- Abstract geometric background pattern for modern touch -->
+<div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 2px 2px, #003d38 1px, transparent 0); background-size: 16px 16px;"></div>
+<img class="w-32 h-32 object-cover rounded-full border-4 border-surface shadow-md relative z-10" data-alt="Professional studio headshot of a male doctor in a white coat and stethoscope. Clean, bright background. Confident, empathetic expression. Lighting is soft and even, typical of high-end corporate medical photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABw9IwhSgc7hAQDg9rEXr2ljaRuhRJeBDjJjXJARSRVNg-6PoQi0DLTn3XOCSl5n_sRf5bvtlcaKYu7xaGPS7op4uty_rKxYSlkwgAxIeIvCf_W5B2amr_fzMlIwfa16CQGi00Hac_-8w7f9AnAsJ70qsBJbs11RBU7p_GLfDk9IguI4m0kJIKBYZ_QPW4PISeBGQVngixxlnOIuHhlZbAHkZX4khGlHTZLGdSJXeRGnDhZ5chijUm3w"/>
+</div>
+<div class="p-6 text-center">
+<h3 class="text-headline-md font-headline-md text-primary mb-1">Dr. Abhishek Kumar Mishra</h3>
+<p class="text-tertiary-container text-sm font-bold mb-3">Emergency &amp; Critical Care</p>
+<p class="text-body-md font-body-md text-on-surface-variant text-sm line-clamp-2 mb-4">Consultant Family Medicine, Emergency &amp; Critical Care Specialist.</p>
+<a class="inline-block w-full text-center border border-primary text-primary px-4 py-2 rounded-lg text-label-bold font-label-bold hover:bg-primary hover:text-on-primary transition-colors" href="#">View Profile</a>
+</div>
+</div>
+<!-- Doctor 2 -->
+<div class="bg-surface rounded-xl overflow-hidden border border-outline-variant soft-shadow hover:-translate-y-2 transition-transform duration-300">
+<div class="h-48 bg-secondary-container flex items-center justify-center relative">
+<div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 2px 2px, #003d38 1px, transparent 0); background-size: 16px 16px;"></div>
+<img class="w-32 h-32 object-cover rounded-full border-4 border-surface shadow-md relative z-10" data-alt="Professional studio headshot of a female doctor in a white coat. Clean, bright background. Warm, approachable smile. Lighting is soft and even, typical of high-end corporate medical photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQEB_gN597qPnz7lCnIfyX0-ag_pS3lISGUthpDM32f5mmIlxgzNgux3A-QqjZkN2njy7lzhBsd3dGXvIcXYaXn7GJpF_AYfnoPwKfdl8_TDscnH5ebHyMNIM4yh3ravxcFW4BjqpLT0ynYYNNyzDfeOs7TRvwSnRhzNqeOJslVOrH8VcxoHEnocGxtuT4HA5TENL5XYaZ0o7XOFm3MRRaOhbvtje5cdU99wYmAA1KleO1lg4GqmFHJg"/>
+</div>
+<div class="p-6 text-center">
+<h3 class="text-headline-md font-headline-md text-primary mb-1">Dr. Isha Rani Mishra</h3>
+<p class="text-tertiary-container text-sm font-bold mb-3">Obstetrics &amp; Gynaecology</p>
+<p class="text-body-md font-body-md text-on-surface-variant text-sm line-clamp-2 mb-4">MB.B.B.S. (MAHE), DNB (OBG), MRCOG (UK). Specialist in Laparoscopy.</p>
+<a class="inline-block w-full text-center border border-primary text-primary px-4 py-2 rounded-lg text-label-bold font-label-bold hover:bg-primary hover:text-on-primary transition-colors" href="#">View Profile</a>
+</div>
+</div>
+<!-- Doctor 3 -->
+<div class="bg-surface rounded-xl overflow-hidden border border-outline-variant soft-shadow hover:-translate-y-2 transition-transform duration-300">
+<div class="h-48 bg-secondary-container flex items-center justify-center relative">
+<div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 2px 2px, #003d38 1px, transparent 0); background-size: 16px 16px;"></div>
+<img class="w-32 h-32 object-cover rounded-full border-4 border-surface shadow-md relative z-10" data-alt="Professional studio headshot of a female doctor in scrubs and a white coat. Clean, bright background. Focused, intelligent expression. Lighting is soft and even, typical of high-end corporate medical photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAMh9QXakqIzbjbVCzp5qqUd1xw223b5Xn9Hvqn3TYozQ2rdy9b61BSKWqKZtmahM_Ng_47YVcmzCVhdOcm_IDYkoBH9fRl4tARzCBNWyZEz9oHu5tPbO1-BF-dOIsXuXt2ge9MRbGtA-Zz5yNjGBU9EHbnEyYdb2ciYEDDW0hB1SeHGkBb1wiAEsNQuGvmiR8wfdgtGiG4YnBvq34DZSc9odKPtTrPm3chrfK_Rc3ZRODHTp08UDgmg"/>
+</div>
+<div class="p-6 text-center">
+<h3 class="text-headline-md font-headline-md text-primary mb-1">Dr. Vaishali Patel</h3>
+<p class="text-tertiary-container text-sm font-bold mb-3">Radiology</p>
+<p class="text-body-md font-body-md text-on-surface-variant text-sm line-clamp-2 mb-4">MBBS, DNB RADIODIAGNOSIS. Expert in advanced imaging techniques.</p>
+<a class="inline-block w-full text-center border border-primary text-primary px-4 py-2 rounded-lg text-label-bold font-label-bold hover:bg-primary hover:text-on-primary transition-colors" href="#">View Profile</a>
+</div>
+</div>
+<!-- Doctor 4 -->
+<div class="bg-surface rounded-xl overflow-hidden border border-outline-variant soft-shadow hover:-translate-y-2 transition-transform duration-300">
+<div class="h-48 bg-secondary-container flex items-center justify-center relative">
+<div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 2px 2px, #003d38 1px, transparent 0); background-size: 16px 16px;"></div>
+<img class="w-32 h-32 object-cover rounded-full border-4 border-surface shadow-md relative z-10" data-alt="Professional studio headshot of a male pediatrician in a white coat. Clean, bright background. Friendly, reassuring expression. Lighting is soft and even, typical of high-end corporate medical photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtclBSJxkmQ-BiRW7uVkhniWNowyBh55VM5Zk1LcCCMFl3HGELdKYd5JI7gXvjUCW3WABz6xHDbRq5FRWuLylvCK0fdOoYmB53ULttotXlShZcFw8Knaf5zMFcyFJWA5rdXt95NFOcM5FPpAf3NiCwqndGAVwzwRaPhukx01cv1ckdY9YU1ZBMqwtstoaMhHgL1I6kMyuN4zKdyNtu1Hp2LXRSJiZi4N3Jc1cv6m66SqLRI2S8kpRpAw"/>
+</div>
+<div class="p-6 text-center">
+<h3 class="text-headline-md font-headline-md text-primary mb-1">Dr. Shashank Shekhar</h3>
+<p class="text-tertiary-container text-sm font-bold mb-3">Pediatrics &amp; Neonatology</p>
+<p class="text-body-md font-body-md text-on-surface-variant text-sm line-clamp-2 mb-4">Dedicated to providing compassionate care for children and infants.</p>
+<a class="inline-block w-full text-center border border-primary text-primary px-4 py-2 rounded-lg text-label-bold font-label-bold hover:bg-primary hover:text-on-primary transition-colors" href="#">View Profile</a>
+</div>
+</div>
+<!-- Doctor 5 -->
+<div class="bg-surface rounded-xl overflow-hidden border border-outline-variant soft-shadow hover:-translate-y-2 transition-transform duration-300 hidden lg:block">
+<div class="h-48 bg-secondary-container flex items-center justify-center relative">
+<div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 2px 2px, #003d38 1px, transparent 0); background-size: 16px 16px;"></div>
+<img class="w-32 h-32 object-cover rounded-full border-4 border-surface shadow-md relative z-10" data-alt="Professional studio headshot of a male anesthesiologist in scrubs. Clean, bright background. Calm, focused expression. Lighting is soft and even, typical of high-end corporate medical photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCO5XV39CmNJSk8Zk2gXnCBaaFgBWjmUXQuP5rD6mz2mFtOB8eXU3yrGAwPt_6DJmnzSTasINUZjktKmkV0jKnp3d4H0FbKnnpXJENfFfv6o5h2vwUYnBcO3D16Z14eq87Uml62XCbKQrBFZIrAIBzBW8JsszN91D-kFeI2e7X8GEN0rSSJA-F6QEDorYrdkAhCC17nQmnxf9CTKgAf_SEGFzk47eXEfm060vKk1j8PyIKbySkIRowoyw"/>
+</div>
+<div class="p-6 text-center">
+<h3 class="text-headline-md font-headline-md text-primary mb-1">Dr. Pawan Kumar Sharma</h3>
+<p class="text-tertiary-container text-sm font-bold mb-3">Anesthesia</p>
+<p class="text-body-md font-body-md text-on-surface-variant text-sm line-clamp-2 mb-4">Ensuring patient safety and comfort during surgical procedures.</p>
+<a class="inline-block w-full text-center border border-primary text-primary px-4 py-2 rounded-lg text-label-bold font-label-bold hover:bg-primary hover:text-on-primary transition-colors" href="#">View Profile</a>
+</div>
+</div>
+<!-- Doctor 6 -->
+<div class="bg-surface rounded-xl overflow-hidden border border-outline-variant soft-shadow hover:-translate-y-2 transition-transform duration-300 hidden lg:block">
+<div class="h-48 bg-secondary-container flex items-center justify-center relative">
+<div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 2px 2px, #003d38 1px, transparent 0); background-size: 16px 16px;"></div>
+<img class="w-32 h-32 object-cover rounded-full border-4 border-surface shadow-md relative z-10" data-alt="Professional studio headshot of a male urologist in a white coat. Clean, bright background. Confident, approachable expression. Lighting is soft and even, typical of high-end corporate medical photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOOHBWsUyvMILOreR55T-OLMP2E_Wb1d2ZkkmYMCbzWwu33FkPb8sV6fx8OMfJ7GKQC6kOW7JUm6gWKkbqsuNAAPnXicXtNZ1w13nfCIycSYK3hlfQg286K0W0E8hpF2PPlW-Bfl-f_Eau_88Tgy94A24pl_ic8pVsvGYIhvLHUztYhw0uthhqV1rKAtbNE_3ZgKHIsYIYjS3Z751hwF-z9ubS4Ez65KodqkpAhuJ5dVrWr0WmkAnNUQ"/>
+</div>
+<div class="p-6 text-center">
+<h3 class="text-headline-md font-headline-md text-primary mb-1">Dr. Bishwarup Guha</h3>
+<p class="text-tertiary-container text-sm font-bold mb-3">Urology</p>
+<p class="text-body-md font-body-md text-on-surface-variant text-sm line-clamp-2 mb-4">Expert in comprehensive urological care and treatments.</p>
+<a class="inline-block w-full text-center border border-primary text-primary px-4 py-2 rounded-lg text-label-bold font-label-bold hover:bg-primary hover:text-on-primary transition-colors" href="#">View Profile</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Component Generated from JSON -->
+<footer class="bg-surface-container-lowest dark:bg-inverse-surface border-t border-outline-variant w-full">
+<div class="w-full py-section-gap px-margin-mobile md:px-gutter max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+<!-- Brand Info -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary text-3xl" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-inverse-primary">Citizens Medical Centre</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant dark:text-surface-variant">Compassion Across Borders. Providing advanced healthcare with a human touch.</p>
+<div class="flex gap-4 mt-2">
+<!-- Social Icons Placeholder -->
+<a aria-label="Facebook" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-xl">language</span>
+</a>
+<a aria-label="Twitter" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-xl">share</span>
+</a>
+</div>
+</div>
+<!-- Quick Links -->
+<div>
+<h4 class="text-label-bold font-label-bold text-primary dark:text-inverse-primary mb-6 uppercase tracking-wider">Quick Links</h4>
+<ul class="flex flex-col gap-3">
+<li><a class="text-body-md font-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary underline transition-all duration-300" href="#">Home</a></li>
+<li><a class="text-body-md font-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary underline transition-all duration-300" href="#">About Us</a></li>
+<li><a class="text-body-md font-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary underline transition-all duration-300" href="#">Centers of Care</a></li>
+<li><a class="text-body-md font-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary underline transition-all duration-300" href="#">Patient Portal</a></li>
+<li><a class="text-body-md font-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary underline transition-all duration-300" href="#">Doctor Profiles</a></li>
+</ul>
+</div>
+<!-- Legal/Support Links -->
+<div>
+<h4 class="text-label-bold font-label-bold text-primary dark:text-inverse-primary mb-6 uppercase tracking-wider">Support</h4>
+<ul class="flex flex-col gap-3">
+<li><a class="text-body-md font-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary underline transition-all duration-300" href="#">Contact Us</a></li>
+<li><a class="text-body-md font-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary underline transition-all duration-300" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<!-- Contact Info -->
+<div>
+<h4 class="text-label-bold font-label-bold text-primary dark:text-inverse-primary mb-6 uppercase tracking-wider">Contact Us</h4>
+<ul class="flex flex-col gap-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary-container mt-1">location_on</span>
+<span class="text-body-md font-body-md text-on-surface-variant dark:text-surface-variant">Citizen Medical Center, Near Binod Bihari Chowk, Dhanbad, Jharkhand Pin - 828104</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary-container">call</span>
+<a class="text-body-md font-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="tel:+9103262999988">+91-0326 2999988</a>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary-container">mail</span>
+<a class="text-body-md font-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors break-all" href="mailto:dhanbadcmc@gmail.com">dhanbadcmc@gmail.com</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="border-t border-outline-variant/30 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+<p class="text-body-md font-body-md text-on-surface-variant dark:text-surface-variant">© 2024 Citizens Medical Centre, Dhanbad. All rights reserved.</p>
+<div class="text-sm text-on-surface-variant flex items-center gap-1">
+                    Designed with <span class="material-symbols-outlined text-sm text-error" style="font-variation-settings: 'FILL' 1;">favorite</span> for better healthcare.
+                </div>
+</div>
+</div>
+</footer>
+</body></html>

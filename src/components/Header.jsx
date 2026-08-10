@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Phone, MapPin, Instagram, Facebook, Linkedin, Twitter, ChevronDown, Calendar, Menu, X, HeartPulse } from 'lucide-react';
 import { departmentsData } from '../data/departments';
 
 export default function Header({ onOpenAppointment }) {
@@ -13,180 +12,174 @@ export default function Header({ onOpenAppointment }) {
   };
 
   return (
-    <header>
-      {/* Top emergency header */}
-      <div className="top-header">
-        <div className="top-header-left">
-          <div className="top-header-item">
-            <MapPin size={15} />
-            <span>CMC Dhanbad, Near Binod Bihari Chowk, Dhanbad, Jharkhand - 828104</span>
+    <>
+
+      {/* Main Navigation Bar */}
+      <nav className="bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none sticky top-0 z-50 transition-all duration-300">
+        <div className="flex justify-between items-center w-full px-margin-mobile md:px-gutter max-w-container-max mx-auto h-20">
+          
+          {/* Brand */}
+          <Link to="/" className="flex items-center gap-2">
+            <span className="material-symbols-outlined text-primary dark:text-inverse-primary text-3xl" style={{ fontVariationSettings: "'FILL' 1" }}>medical_services</span>
+            <span className="text-headline-md font-headline-md font-bold text-primary dark:text-inverse-primary">Citizens Medical Centre</span>
+          </Link>
+
+          {/* Desktop Nav Links */}
+          <div className="hidden md:flex items-center gap-6">
+            <Link to="/" className="text-on-surface-variant dark:text-surface-variant text-label-bold font-label-bold hover:text-tertiary-container dark:hover:text-tertiary-fixed transition-colors duration-200">
+              Home
+            </Link>
+
+            <div className="relative group">
+              <Link to="/about-us" className="text-on-surface-variant dark:text-surface-variant text-label-bold font-label-bold hover:text-tertiary-container dark:hover:text-tertiary-fixed transition-colors duration-200 flex items-center gap-1 py-4">
+                About Us <span className="material-symbols-outlined text-[16px]">expand_more</span>
+              </Link>
+              <div className="absolute top-full left-0 bg-surface border border-outline-variant rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 min-w-[200px] py-2 flex flex-col z-50">
+                <Link to="/about-us" className="px-4 py-2 text-on-surface-variant hover:text-primary hover:bg-surface-variant text-sm font-bold transition-colors">About CMC</Link>
+                <Link to="/about-us#director-message" className="px-4 py-2 text-on-surface-variant hover:text-primary hover:bg-surface-variant text-sm font-bold transition-colors">Director Message</Link>
+                <Link to="/about-us#mission-vision" className="px-4 py-2 text-on-surface-variant hover:text-primary hover:bg-surface-variant text-sm font-bold transition-colors">Mission & Vision</Link>
+                <Link to="/about-us#goals" className="px-4 py-2 text-on-surface-variant hover:text-primary hover:bg-surface-variant text-sm font-bold transition-colors">Goals</Link>
+                <Link to="/gallery" className="px-4 py-2 text-on-surface-variant hover:text-primary hover:bg-surface-variant text-sm font-bold transition-colors">Gallery</Link>
+              </div>
+            </div>
+
+            <div className="relative group">
+              <button className="text-on-surface-variant dark:text-surface-variant text-label-bold font-label-bold hover:text-tertiary-container dark:hover:text-tertiary-fixed transition-colors duration-200 flex items-center gap-1 py-4">
+                Centers of Care <span className="material-symbols-outlined text-[16px]">expand_more</span>
+              </button>
+              <div className="absolute top-full left-1/2 -translate-x-1/2 bg-surface border border-outline-variant rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-[600px] p-4 grid grid-cols-2 gap-2 z-50">
+                {departmentsData.map(dept => (
+                  <Link key={dept.slug} to={`/${dept.slug}`} className="px-4 py-2 text-on-surface-variant hover:text-primary hover:bg-surface-variant rounded-md text-sm font-bold transition-colors">
+                    {dept.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
+            
+            <Link to="/doctor" className="text-on-surface-variant dark:text-surface-variant text-label-bold font-label-bold hover:text-tertiary-container dark:hover:text-tertiary-fixed transition-colors duration-200">
+              Doctors
+            </Link>
+
+            <div className="relative group">
+              <button className="text-on-surface-variant dark:text-surface-variant text-label-bold font-label-bold hover:text-tertiary-container dark:hover:text-tertiary-fixed transition-colors duration-200 flex items-center gap-1 py-4">
+                Patient Portal <span className="material-symbols-outlined text-[16px]">expand_more</span>
+              </button>
+              <div className="absolute top-full left-0 bg-surface border border-outline-variant rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 min-w-[240px] py-2 flex flex-col z-50">
+                <Link to="/faq" className="px-4 py-2 text-on-surface-variant hover:text-primary hover:bg-surface-variant text-sm font-bold transition-colors">Commonly Asked Questions</Link>
+                <Link to="/blog" className="px-4 py-2 text-on-surface-variant hover:text-primary hover:bg-surface-variant text-sm font-bold transition-colors">Patient Resources & Blogs</Link>
+                <Link to="/international" className="px-4 py-2 text-on-surface-variant hover:text-primary hover:bg-surface-variant text-sm font-bold transition-colors">International Patients</Link>
+                <Link to="/packages" className="px-4 py-2 text-on-surface-variant hover:text-primary hover:bg-surface-variant text-sm font-bold transition-colors">Health Packages</Link>
+              </div>
+            </div>
+
+            <Link to="/contact-us" className="text-on-surface-variant dark:text-surface-variant text-label-bold font-label-bold hover:text-tertiary-container dark:hover:text-tertiary-fixed transition-colors duration-200">
+              Contact Us
+            </Link>
           </div>
-          <div className="top-header-item">
-            <Phone size={15} />
-            <span>Emergency 24/7: +91 8802248261 / +91 9212209770</span>
+
+          {/* Trailing Actions */}
+          <div className="flex items-center gap-4">
+            <div className="hidden lg:flex items-center gap-2 text-on-surface-variant">
+              <a href="tel:+918802248261" aria-label="call" className="p-2 hover:bg-surface-variant rounded-full transition-colors flex items-center justify-center">
+                <span className="material-symbols-outlined text-xl text-primary">call</span>
+              </a>
+              <Link to="/contact-us" aria-label="location_on" className="p-2 hover:bg-surface-variant rounded-full transition-colors flex items-center justify-center">
+                <span className="material-symbols-outlined text-xl text-primary">location_on</span>
+              </Link>
+            </div>
+            
+            <button 
+              onClick={onOpenAppointment} 
+              className="hidden md:inline-flex items-center justify-center bg-primary text-on-primary rounded-lg px-6 py-2 text-label-bold font-label-bold hover:bg-primary-container hover:text-on-primary-container transition-colors duration-300 shadow-sm gap-2"
+            >
+              <span className="material-symbols-outlined text-[18px]">calendar_month</span>
+              Book Appointment
+            </button>
+            
+            {/* Mobile Menu Toggle */}
+            <button className="md:hidden p-2 text-on-surface flex items-center justify-center" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+              <span className="material-symbols-outlined">{mobileMenuOpen ? 'close' : 'menu'}</span>
+            </button>
           </div>
         </div>
-
-        <div className="social-links">
-          <a href="https://www.instagram.com/cmc.dhanbad/" target="_blank" rel="noreferrer"><Instagram size={14} /></a>
-          <a href="https://www.facebook.com/" target="_blank" rel="noreferrer"><Facebook size={14} /></a>
-          <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer"><Linkedin size={14} /></a>
-          <a href="https://x.com/" target="_blank" rel="noreferrer"><Twitter size={14} /></a>
-        </div>
-      </div>
-
-      {/* Main Navbar */}
-      <nav className="navbar-main">
-        <Link to="/" className="logo-container">
-          <div className="logo-badge">
-            <HeartPulse size={28} />
-          </div>
-          <div className="logo-text">
-            <h1>Citizens Medical Centre</h1>
-            <span>CMC Dhanbad | Multi-Specialty Hospital</span>
-          </div>
-        </Link>
-
-        {/* Desktop Links */}
-        <div className="nav-links">
-          <div className="nav-item">
-            <Link to="/">Home</Link>
-          </div>
-
-          <div className="nav-item">
-            <a href="#about" onClick={e => { e.preventDefault(); navigate('/about-us'); }}>
-              About Us <ChevronDown size={14} />
-            </a>
-            <div className="dropdown-menu-custom">
-              <Link to="/about-us">About CMC</Link>
-              <Link to="/director-message">Director Message</Link>
-              <Link to="/mission-vision">Mission & Vision</Link>
-              <Link to="/goals">Goals</Link>
-            </div>
-          </div>
-
-          <div className="nav-item">
-            <a href="#departments" onClick={e => { e.preventDefault(); }}>
-              Centers Of Care <ChevronDown size={14} />
-            </a>
-            <div className="dropdown-menu-custom dropdown-mega">
-              {departmentsData.map(dept => (
-                <Link key={dept.slug} to={`/${dept.slug}`}>
-                  {dept.title}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          <div className="nav-item">
-            <Link to="/doctor">Doctors</Link>
-          </div>
-
-          <div className="nav-item">
-            <a href="#portal" onClick={e => { e.preventDefault(); }}>
-              Patient Portal <ChevronDown size={14} />
-            </a>
-            <div className="dropdown-menu-custom">
-              <Link to="/faq">Commonly Asked Questions</Link>
-              <Link to="/blog">Patient Resources & Blogs</Link>
-              <Link to="/international">International Patients</Link>
-            </div>
-          </div>
-
-          <div className="nav-item">
-            <Link to="/contact-us">Contact Us</Link>
-          </div>
-
-          <button className="btn-primary-teal" onClick={onOpenAppointment}>
-            <Calendar size={16} /> Book Appointment
-          </button>
-        </div>
-
-        {/* Mobile Toggle */}
-        <button className="mobile-toggle" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-          {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
       </nav>
 
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
-        <div style={{
-          position: 'fixed',
-          top: 0,
-          right: 0,
-          bottom: 0,
-          left: 0,
-          background: 'rgba(15,23,42,0.95)',
-          color: 'white',
-          zIndex: 2000,
-          padding: '24px',
-          overflowY: 'auto'
-        }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '30px' }}>
-            <h2 style={{ fontSize: '1.25rem' }}>Menu</h2>
-            <button onClick={() => setMobileMenuOpen(false)} style={{ background: 'none', border: 'none', color: 'white' }}>
-              <X size={28} />
+        <div className="fixed inset-0 bg-background z-[100] flex flex-col overflow-y-auto">
+          <div className="flex justify-between items-center p-4 border-b border-outline-variant sticky top-0 bg-background z-10">
+            <div className="flex items-center gap-2">
+              <span className="material-symbols-outlined text-primary text-2xl" style={{ fontVariationSettings: "'FILL' 1" }}>medical_services</span>
+              <span className="text-headline-md font-bold text-primary text-lg">CMC</span>
+            </div>
+            <button onClick={() => setMobileMenuOpen(false)} className="p-2 text-on-surface">
+              <span className="material-symbols-outlined">close</span>
             </button>
           </div>
 
-          <ul style={{ display: 'flex', flexDirection: 'column', gap: '16px', fontSize: '1.1rem' }}>
-            <li>
-              <Link to="/" onClick={() => setMobileMenuOpen(false)}>Home</Link>
-            </li>
-
-            <li>
-              <div onClick={() => toggleSubmenu('about')} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer' }}>
-                <span>About Us</span> <ChevronDown size={18} />
-              </div>
+          <div className="flex flex-col p-4 gap-2">
+            <Link to="/" onClick={() => setMobileMenuOpen(false)} className="py-3 px-4 rounded-lg hover:bg-surface-variant text-on-surface font-bold">Home</Link>
+            
+            <div className="flex flex-col">
+              <button onClick={() => toggleSubmenu('about')} className="flex justify-between items-center py-3 px-4 rounded-lg hover:bg-surface-variant text-on-surface font-bold">
+                About Us
+                <span className="material-symbols-outlined transition-transform duration-200" style={{ transform: activeMobileSubmenu === 'about' ? 'rotate(180deg)' : 'none' }}>expand_more</span>
+              </button>
               {activeMobileSubmenu === 'about' && (
-                <ul style={{ paddingLeft: '16px', marginTop: '8px', fontSize: '0.95rem', display: 'flex', flexDirection: 'column', gap: '8px', opacity: 0.9 }}>
-                  <li><Link to="/about-us" onClick={() => setMobileMenuOpen(false)}>About CMC</Link></li>
-                  <li><Link to="/director-message" onClick={() => setMobileMenuOpen(false)}>Director Message</Link></li>
-                  <li><Link to="/mission-vision" onClick={() => setMobileMenuOpen(false)}>Mission & Vision</Link></li>
-                  <li><Link to="/goals" onClick={() => setMobileMenuOpen(false)}>Goals</Link></li>
-                </ul>
+                <div className="flex flex-col pl-8 py-2 gap-1 border-l-2 border-outline-variant ml-6">
+                  <Link to="/about-us" onClick={() => setMobileMenuOpen(false)} className="py-2 text-on-surface-variant hover:text-primary font-bold text-sm">About CMC</Link>
+                  <Link to="/about-us#director-message" onClick={() => setMobileMenuOpen(false)} className="py-2 text-on-surface-variant hover:text-primary font-bold text-sm">Director Message</Link>
+                  <Link to="/about-us#mission-vision" onClick={() => setMobileMenuOpen(false)} className="py-2 text-on-surface-variant hover:text-primary font-bold text-sm">Mission & Vision</Link>
+                  <Link to="/about-us#goals" onClick={() => setMobileMenuOpen(false)} className="py-2 text-on-surface-variant hover:text-primary font-bold text-sm">Goals</Link>
+                  <Link to="/gallery" onClick={() => setMobileMenuOpen(false)} className="py-2 text-on-surface-variant hover:text-primary font-bold text-sm">Gallery</Link>
+                </div>
               )}
-            </li>
+            </div>
 
-            <li>
-              <div onClick={() => toggleSubmenu('care')} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer' }}>
-                <span>Centers Of Care</span> <ChevronDown size={18} />
-              </div>
+            <div className="flex flex-col">
+              <button onClick={() => toggleSubmenu('care')} className="flex justify-between items-center py-3 px-4 rounded-lg hover:bg-surface-variant text-on-surface font-bold">
+                Centers of Care
+                <span className="material-symbols-outlined transition-transform duration-200" style={{ transform: activeMobileSubmenu === 'care' ? 'rotate(180deg)' : 'none' }}>expand_more</span>
+              </button>
               {activeMobileSubmenu === 'care' && (
-                <ul style={{ paddingLeft: '16px', marginTop: '8px', fontSize: '0.95rem', display: 'flex', flexDirection: 'column', gap: '8px', opacity: 0.9 }}>
+                <div className="flex flex-col pl-8 py-2 gap-1 border-l-2 border-outline-variant ml-6">
                   {departmentsData.map(d => (
-                    <li key={d.slug}>
-                      <Link to={`/${d.slug}`} onClick={() => setMobileMenuOpen(false)}>{d.title}</Link>
-                    </li>
+                    <Link key={d.slug} to={`/${d.slug}`} onClick={() => setMobileMenuOpen(false)} className="py-2 text-on-surface-variant hover:text-primary font-bold text-sm">{d.title}</Link>
                   ))}
-                </ul>
+                </div>
               )}
-            </li>
+            </div>
 
-            <li>
-              <Link to="/doctor" onClick={() => setMobileMenuOpen(false)}>Doctors</Link>
-            </li>
+            <Link to="/doctor" onClick={() => setMobileMenuOpen(false)} className="py-3 px-4 rounded-lg hover:bg-surface-variant text-on-surface font-bold">Doctors</Link>
 
-            <li>
-              <Link to="/blog" onClick={() => setMobileMenuOpen(false)}>Blogs & Patient Care</Link>
-            </li>
+            <div className="flex flex-col">
+              <button onClick={() => toggleSubmenu('portal')} className="flex justify-between items-center py-3 px-4 rounded-lg hover:bg-surface-variant text-on-surface font-bold">
+                Patient Portal
+                <span className="material-symbols-outlined transition-transform duration-200" style={{ transform: activeMobileSubmenu === 'portal' ? 'rotate(180deg)' : 'none' }}>expand_more</span>
+              </button>
+              {activeMobileSubmenu === 'portal' && (
+                <div className="flex flex-col pl-8 py-2 gap-1 border-l-2 border-outline-variant ml-6">
+                  <Link to="/faq" onClick={() => setMobileMenuOpen(false)} className="py-2 text-on-surface-variant hover:text-primary font-bold text-sm">Commonly Asked Questions</Link>
+                  <Link to="/blog" onClick={() => setMobileMenuOpen(false)} className="py-2 text-on-surface-variant hover:text-primary font-bold text-sm">Patient Resources & Blogs</Link>
+                  <Link to="/international" onClick={() => setMobileMenuOpen(false)} className="py-2 text-on-surface-variant hover:text-primary font-bold text-sm">International Patients</Link>
+                  <Link to="/packages" onClick={() => setMobileMenuOpen(false)} className="py-2 text-on-surface-variant hover:text-primary font-bold text-sm">Health Packages</Link>
+                </div>
+              )}
+            </div>
 
-            <li>
-              <Link to="/faq" onClick={() => setMobileMenuOpen(false)}>FAQs</Link>
-            </li>
+            <Link to="/contact-us" onClick={() => setMobileMenuOpen(false)} className="py-3 px-4 rounded-lg hover:bg-surface-variant text-on-surface font-bold">Contact Us</Link>
 
-            <li>
-              <Link to="/contact-us" onClick={() => setMobileMenuOpen(false)}>Contact Us</Link>
-            </li>
-          </ul>
-
-          <div style={{ marginTop: '30px' }}>
-            <button className="btn-primary-teal" style={{ width: '100%', justifyContent: 'center' }} onClick={() => { setMobileMenuOpen(false); onOpenAppointment(); }}>
-              <Calendar size={18} /> Book Appointment
-            </button>
+            <div className="mt-6 px-4">
+              <button 
+                onClick={() => { setMobileMenuOpen(false); onOpenAppointment(); }} 
+                className="w-full flex items-center justify-center bg-primary text-on-primary rounded-lg px-6 py-3 text-label-bold font-label-bold gap-2"
+              >
+                <span className="material-symbols-outlined text-[18px]">calendar_month</span> Book Appointment
+              </button>
+            </div>
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 }

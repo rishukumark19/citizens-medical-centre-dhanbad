@@ -1,75 +1,57 @@
 import React, { useState } from 'react';
-import { ChevronDown, HelpCircle, PhoneCall } from 'lucide-react';
 import { faqsData } from '../data/faqs';
+import SEO from '../components/SEO';
 
-export default function FAQPage({ onOpenAppointment }) {
-  const [activeIndex, setActiveIndex] = useState(0);
+export default function FAQPage() {
+  const [openIndex, setOpenIndex] = useState(0);
 
-  const toggleFaq = (index) => {
-    setActiveIndex(activeIndex === index ? null : index);
+  const toggleFAQ = (index) => {
+    setOpenIndex(openIndex === index ? -1 : index);
   };
 
   return (
-    <div>
+    <div className="flex flex-col">
+      <SEO title="Frequently Asked Questions | Citizens Medical Centre" />
+      
       {/* Header Banner */}
-      <div style={{ background: 'linear-gradient(135deg, #0f172a, #0d9488)', color: 'white', padding: '60px 5%', textAlign: 'center' }}>
-        <h1 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '12px' }}>Frequently Asked Questions</h1>
-        <p style={{ maxWidth: '600px', margin: '0 auto', opacity: 0.9 }}>
-          Clear answers to common questions about hospital admissions, emergency services, visiting hours, and insurance.
-        </p>
+      <div className="bg-surface-container-lowest py-20 px-margin-mobile md:px-gutter text-center border-b border-outline-variant relative overflow-hidden">
+        <div className="absolute inset-0 bg-primary/5"></div>
+        <div className="relative z-10 max-w-2xl mx-auto">
+          <h1 className="text-display-lg text-on-surface mb-4">Frequently Asked Questions</h1>
+          <p className="text-body-lg text-on-surface-variant max-w-xl mx-auto">
+            Find answers to common questions about our hospital services, billing, and patient care.
+          </p>
+        </div>
       </div>
 
-      <div className="section-padding" style={{ maxWidth: '900px', margin: '0 auto' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          {faqsData.map((faq, idx) => (
-            <div key={idx} style={{
-              background: 'white',
-              borderRadius: '16px',
-              border: '1px solid #e2e8f0',
-              overflow: 'hidden',
-              boxShadow: 'var(--shadow-sm)'
-            }}>
-              <button
-                onClick={() => toggleFaq(idx)}
-                style={{
-                  width: '100%',
-                  padding: '20px 24px',
-                  background: 'none',
-                  border: 'none',
-                  textAlign: 'left',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  fontWeight: 700,
-                  fontSize: '1.1rem',
-                  color: '#0f172a',
-                  cursor: 'pointer'
-                }}
+      <div className="py-section-gap px-margin-mobile md:px-gutter max-w-3xl mx-auto w-full">
+        <div className="flex flex-col gap-4">
+          {faqsData.map((faq, index) => (
+            <div 
+              key={index} 
+              className={`bg-surface border rounded-[16px] overflow-hidden transition-all duration-300 ${openIndex === index ? 'border-primary shadow-md' : 'border-outline-variant shadow-sm'}`}
+            >
+              <button 
+                className="w-full text-left px-6 py-5 flex justify-between items-center bg-surface hover:bg-surface-variant/50 transition-colors cursor-pointer"
+                onClick={() => toggleFAQ(index)}
               >
-                <span style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <HelpCircle size={20} color="#0d9488" /> {faq.question}
+                <span className={`font-label-bold text-lg pr-4 ${openIndex === index ? 'text-primary' : 'text-on-surface'}`}>
+                  {faq.question}
                 </span>
-                <ChevronDown size={20} color="#64748b" style={{
-                  transform: activeIndex === idx ? 'rotate(180deg)' : 'rotate(0)',
-                  transition: 'transform 0.25s ease'
-                }} />
+                <span className={`material-symbols-outlined text-outline transition-transform duration-300 ${openIndex === index ? 'rotate-180 text-primary' : ''}`}>
+                  expand_more
+                </span>
               </button>
-
-              {activeIndex === idx && (
-                <div style={{ padding: '0 24px 20px 56px', color: '#475569', lineHeight: 1.7 }}>
+              
+              <div 
+                className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
+              >
+                <div className="px-6 pb-6 pt-2 text-on-surface-variant font-body-md border-t border-outline-variant/30 mt-2 mx-6">
                   {faq.answer}
                 </div>
-              )}
+              </div>
             </div>
           ))}
-        </div>
-
-        <div style={{ marginTop: '50px', textAlignment: 'center', background: '#f1f5f9', padding: '30px', borderRadius: '20px', textAlign: 'center' }}>
-          <h3 style={{ color: '#0f172a', marginBottom: '10px' }}>Still Have Questions?</h3>
-          <p style={{ color: '#64748b', marginBottom: '20px' }}>Our patient care team is available 24/7 to assist you with any inquiry.</p>
-          <button className="btn-primary-teal" onClick={onOpenAppointment}>
-            <PhoneCall size={16} /> Contact Patient Support
-          </button>
         </div>
       </div>
     </div>

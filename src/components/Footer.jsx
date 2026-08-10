@@ -1,80 +1,92 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, MapPin, Mail, HeartPulse, Instagram, Facebook, Linkedin, Twitter } from 'lucide-react';
 import { departmentsData } from '../data/departments';
 
-export default function Footer({ onOpenAppointment }) {
+export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer>
-      <div className="footer-grid">
-        <div className="footer-col">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
-            <div className="logo-badge" style={{ width: '40px', height: '40px', fontSize: '1.2rem' }}>
-              <HeartPulse size={22} />
+    <footer className="bg-surface-container-low pt-16 pb-8 border-t border-outline-variant">
+      <div className="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+          
+          {/* Brand Info */}
+          <div className="flex flex-col gap-6">
+            <Link to="/" className="flex items-center gap-2">
+              <span className="material-symbols-outlined text-primary text-3xl" style={{ fontVariationSettings: "'FILL' 1" }}>medical_services</span>
+              <span className="text-headline-md font-headline-md font-bold text-primary">CMC Dhanbad</span>
+            </Link>
+            <p className="text-on-surface-variant font-body-md text-sm leading-relaxed">
+              Citizens Medical Centre is a state-of-the-art multi-specialty hospital committed to providing world-class healthcare services with compassion and excellence.
+            </p>
+            <div className="flex gap-4">
+              <a href="#" className="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors group">
+                <span className="material-symbols-outlined text-xl">language</span>
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors group">
+                <span className="material-symbols-outlined text-xl">share</span>
+              </a>
             </div>
-            <h3 style={{ color: 'white', margin: 0, fontSize: '1.2rem' }}>Citizens Medical Centre</h3>
           </div>
-          <p style={{ fontSize: '0.9rem', marginBottom: '20px', lineHeight: 1.6 }}>
-            Citizens Medical Centre (CMC Dhanbad) is a premier multi-specialty hospital committed to providing advanced medical interventions, 24/7 emergency response, and compassionate care.
-          </p>
 
-          <div className="social-links">
-            <a href="https://www.instagram.com/cmc.dhanbad/" target="_blank" rel="noreferrer"><Instagram size={16} /></a>
-            <a href="https://www.facebook.com/" target="_blank" rel="noreferrer"><Facebook size={16} /></a>
-            <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer"><Linkedin size={16} /></a>
-            <a href="https://x.com/" target="_blank" rel="noreferrer"><Twitter size={16} /></a>
+          {/* Quick Links */}
+          <div className="flex flex-col gap-4">
+            <h4 className="text-label-bold font-bold text-on-surface tracking-wider uppercase mb-2">Quick Links</h4>
+            <ul className="flex flex-col gap-3">
+              <li><Link to="/about-us" className="text-on-surface-variant hover:text-primary hover:underline font-body-md text-sm">About Us</Link></li>
+              <li><Link to="/doctor" className="text-on-surface-variant hover:text-primary hover:underline font-body-md text-sm">Find a Doctor</Link></li>
+              <li><Link to="/packages" className="text-on-surface-variant hover:text-primary hover:underline font-body-md text-sm">Health Packages</Link></li>
+              <li><Link to="/international" className="text-on-surface-variant hover:text-primary hover:underline font-body-md text-sm">International Patients</Link></li>
+              <li><Link to="/contact-us" className="text-on-surface-variant hover:text-primary hover:underline font-body-md text-sm">Contact Us</Link></li>
+            </ul>
           </div>
-        </div>
 
-        <div className="footer-col">
-          <h4>Centers of Care</h4>
-          <ul className="footer-links">
-            {departmentsData.slice(0, 6).map(d => (
-              <li key={d.slug}>
-                <Link to={`/${d.slug}`}>{d.title}</Link>
+          {/* Centers of Excellence */}
+          <div className="flex flex-col gap-4">
+            <h4 className="text-label-bold font-bold text-on-surface tracking-wider uppercase mb-2">Centers of Excellence</h4>
+            <ul className="flex flex-col gap-3">
+              {departmentsData.slice(0, 5).map(dept => (
+                <li key={dept.slug}>
+                  <Link to={`/${dept.slug}`} className="text-on-surface-variant hover:text-primary hover:underline font-body-md text-sm">
+                    {dept.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div className="flex flex-col gap-4">
+            <h4 className="text-label-bold font-bold text-on-surface tracking-wider uppercase mb-2">Contact Info</h4>
+            <ul className="flex flex-col gap-4">
+              <li className="flex gap-3">
+                <span className="material-symbols-outlined text-primary mt-1" style={{ fontVariationSettings: "'FILL' 1" }}>location_on</span>
+                <span className="text-on-surface-variant font-body-md text-sm">
+                  123 Healthcare Avenue, Medical District,<br />Dhanbad, Jharkhand 826001
+                </span>
               </li>
-            ))}
-          </ul>
+              <li className="flex items-center gap-3">
+                <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>call</span>
+                <span className="text-on-surface-variant font-body-md text-sm">+91 8802248261 (24/7 Helpline)</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>mail</span>
+                <span className="text-on-surface-variant font-body-md text-sm">info@cmcdhanbad.com</span>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <div className="footer-col">
-          <h4>Quick Links</h4>
-          <ul className="footer-links">
-            <li><Link to="/about-us">About CMC</Link></li>
-            <li><Link to="/director-message">Director Message</Link></li>
-            <li><Link to="/mission-vision">Mission & Vision</Link></li>
-            <li><Link to="/doctor">Find a Doctor</Link></li>
-            <li><Link to="/blog">Patient Resources</Link></li>
-            <li><Link to="/faq">Frequently Asked Questions</Link></li>
-            <li><Link to="/contact-us">Contact Us</Link></li>
-          </ul>
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-on-surface-variant font-body-md text-sm text-center md:text-left">
+            &copy; {currentYear} Citizens Medical Centre. All rights reserved.
+          </p>
+          <div className="flex gap-6">
+            <Link to="/faq" className="text-on-surface-variant hover:text-primary text-sm font-body-md transition-colors">Privacy Policy</Link>
+            <Link to="/faq" className="text-on-surface-variant hover:text-primary text-sm font-body-md transition-colors">Terms of Service</Link>
+          </div>
         </div>
-
-        <div className="footer-col">
-          <h4>Contact & Location</h4>
-          <ul style={{ fontSize: '0.9rem', display: 'flex', flexDirection: 'column', gap: '14px' }}>
-            <li style={{ display: 'flex', gap: '10px' }}>
-              <MapPin size={24} color="#06b6d4" style={{ flexShrink: 0 }} />
-              <span>Samrat Mega Mart 2, Near Binod Bihari Chowk, Dhanbad, Jharkhand - 828104</span>
-            </li>
-            <li style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-              <Phone size={18} color="#06b6d4" />
-              <span>+91 8802248261 / +91 9212209770</span>
-            </li>
-            <li style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-              <Mail size={18} color="#06b6d4" />
-              <span>info@cmcdhanbad.in</span>
-            </li>
-          </ul>
-
-          <button className="btn-emergency" style={{ marginTop: '20px', width: '100%', justifyContent: 'center' }} onClick={onOpenAppointment}>
-            <Phone size={16} /> 24/7 Helpline & Booking
-          </button>
-        </div>
-      </div>
-
-      <div className="footer-bottom">
-        <p>© {new Date().getFullYear()} Citizens Medical Centre (CMC Dhanbad). All Rights Reserved.</p>
       </div>
     </footer>
   );

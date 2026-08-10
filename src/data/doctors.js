@@ -4,10 +4,10 @@ export const doctorsData = [
     name: "Dr. Abhishek Kumar Mishra",
     qualification: "MBBS (MAHE), FCFM (AIIMS), MEM (SEMI), MACEP (USA), MCGP (IMA)",
     specialty: "Consultant Family Medicine, Emergency & Critical Care",
-    category_id: 9,
+    category_id: 10,
     experience: "12+ Years",
     description: "Certified Diabetologist (Royal College of Physicians, England). Expert in Emergency Care, Critical Patient Stabilization, and Diabetology.",
-    image: "https://cmc.oneticktechnologies.com/assert/Images/Doctors/1739257284_doctor.png"
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuABw9IwhSgc7hAQDg9rEXr2ljaRuhRJeBDjJjXJARSRVNg-6PoQi0DLTn3XOCSl5n_sRf5bvtlcaKYu7xaGPS7op4uty_rKxYSlkwgAxIeIvCf_W5B2amr_fzMlIwfa16CQGi00Hac_-8w7f9AnAsJ70qsBJbs11RBU7p_GLfDk9IguI4m0kJIKBYZ_QPW4PISeBGQVngixxlnOIuHhlZbAHkZX4khGlHTZLGdSJXeRGnDhZ5chijUm3w"
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ export const doctorsData = [
     category_id: 16,
     experience: "10+ Years",
     description: "Renowned Obstetrician & Laparoscopic Gynecologist specializing in high-risk pregnancy management, minimally invasive surgeries, and women's health.",
-    image: "https://cmc.oneticktechnologies.com/assert/Images/Doctors/1739257292_doctor.png"
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDQEB_gN597qPnz7lCnIfyX0-ag_pS3lISGUthpDM32f5mmIlxgzNgux3A-QqjZkN2njy7lzhBsd3dGXvIcXYaXn7GJpF_AYfnoPwKfdl8_TDscnH5ebHyMNIM4yh3ravxcFW4BjqpLT0ynYYNNyzDfeOs7TRvwSnRhzNqeOJslVOrH8VcxoHEnocGxtuT4HA5TENL5XYaZ0o7XOFm3MRRaOhbvtje5cdU99wYmAA1KleO1lg4GqmFHJg"
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ export const doctorsData = [
     category_id: 20,
     experience: "8+ Years",
     description: "Advanced Diagnostic Radiologist with expertise in high-resolution MRI, CT Scans, Ultrasound, and interventional radiology procedures.",
-    image: "https://cmc.oneticktechnologies.com/assert/Images/Doctors/1739257310_doctor.png"
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDAMh9QXakqIzbjbVCzp5qqUd1xw223b5Xn9Hvqn3TYozQ2rdy9b61BSKWqKZtmahM_Ng_47YVcmzCVhdOcm_IDYkoBH9fRl4tARzCBNWyZEz9oHu5tPbO1-BF-dOIsXuXt2ge9MRbGtA-Zz5yNjGBU9EHbnEyYdb2ciYEDDW0hB1SeHGkBb1wiAEsNQuGvmiR8wfdgtGiG4YnBvq34DZSc9odKPtTrPm3chrfK_Rc3ZRODHTp08UDgmg"
   },
   {
     id: 4,
@@ -37,7 +37,7 @@ export const doctorsData = [
     category_id: 15,
     experience: "11+ Years",
     description: "Pediatrician & Neonatal Specialist certified in pediatric nutrition from USA & Germany. Focused on newborn intensive care and child growth.",
-    image: "https://cmc.oneticktechnologies.com/assert/Images/Doctors/1739257320_doctor.png"
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAtclBSJxkmQ-BiRW7uVkhniWNowyBh55VM5Zk1LcCCMFl3HGELdKYd5JI7gXvjUCW3WABz6xHDbRq5FRWuLylvCK0fdOoYmB53ULttotXlShZcFw8Knaf5zMFcyFJWA5rdXt95NFOcM5FPpAf3NiCwqndGAVwzwRaPhukx01cv1ckdY9YU1ZBMqwtstoaMhHgL1I6kMyuN4zKdyNtu1Hp2LXRSJiZi4N3Jc1cv6m66SqLRI2S8kpRpAw"
   },
   {
     id: 5,
@@ -47,7 +47,7 @@ export const doctorsData = [
     category_id: 14,
     experience: "9+ Years",
     description: "Senior Intensivist and Anaesthesiologist managing ICU care, complex surgical anaesthesia, and acute pain management.",
-    image: "https://cmc.oneticktechnologies.com/assert/Images/Doctors/1739257334_doctor.png"
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCO5XV39CmNJSk8Zk2gXnCBaaFgBWjmUXQuP5rD6mz2mFtOB8eXU3yrGAwPt_6DJmnzSTasINUZjktKmkV0jKnp3d4H0FbKnnpXJENfFfv6o5h2vwUYnBcO3D16Z14eq87Uml62XCbKQrBFZIrAIBzBW8JsszN91D-kFeI2e7X8GEN0rSSJA-F6QEDorYrdkAhCC17nQmnxf9CTKgAf_SEGFzk47eXEfm060vKk1j8PyIKbySkIRowoyw"
   },
   {
     id: 6,
@@ -57,7 +57,7 @@ export const doctorsData = [
     category_id: 23,
     experience: "14+ Years",
     description: "Lead Urologist performing kidney stone endourology, prostate reconstructive surgeries, laparoscopic urology, and male fertility treatments.",
-    image: "https://cmc.oneticktechnologies.com/assert/Images/Doctors/1739074962_doc1.png"
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBOOHBWsUyvMILOreR55T-OLMP2E_Wb1d2ZkkmYMCbzWwu33FkPb8sV6fx8OMfJ7GKQC6kOW7JUm6gWKkbqsuNAAPnXicXtNZ1w13nfCIycSYK3hlfQg286K0W0E8hpF2PPlW-Bfl-f_Eau_88Tgy94A24pl_ic8pVsvGYIhvLHUztYhw0uthhqV1rKAtbNE_3ZgKHIsYIYjS3Z751hwF-z9ubS4Ez65KodqkpAhuJ5dVrWr0WmkAnNUQ"
   },
   {
     id: 7,

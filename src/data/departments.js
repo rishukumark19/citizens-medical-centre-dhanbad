@@ -61,7 +61,7 @@ export const departmentsData = [
   },
   {
     slug: "emergency-acute-medicine",
-    category_id: 9,
+    category_id: 10,
     title: "Emergency & Acute Medicine",
     icon: "Siren",
     shortDesc: "24/7 Level-1 trauma care, cardiac emergency response, fully-equipped ICU ambulances, and rapid triage.",
@@ -91,7 +91,7 @@ export const departmentsData = [
   },
   {
     slug: "kidney-nephrology",
-    category_id: 23,
+    category_id: 24,
     title: "Kidney Care & Nephrology",
     icon: "ShieldAlert",
     shortDesc: "Hemodialysis, acute kidney injury management, chronic kidney disease (CKD) care, and hypertension control.",
@@ -121,7 +121,7 @@ export const departmentsData = [
   },
   {
     slug: "ENT-head-Neck",
-    category_id: 13,
+    category_id: 12,
     title: "ENT, Head & Neck Surgery",
     icon: "Ear",
     shortDesc: "Endoscopic sinus surgery, microscopic ear surgery, tonsillectomy, and head & neck tumor surgeries.",
@@ -151,7 +151,7 @@ export const departmentsData = [
   },
   {
     slug: "endocrine",
-    category_id: 9,
+    category_id: 25,
     title: "Diabetes, Thyroid & Endocrinology",
     icon: "Flame",
     shortDesc: "Specialized diabetes management, thyroid clinic, hormonal imbalances, and metabolic disorders.",
@@ -211,7 +211,7 @@ export const departmentsData = [
   },
   {
     slug: "internal-medicine",
-    category_id: 9,
+    category_id: 8,
     title: "Internal Medicine & Pulmonology",
     icon: "FileHeart",
     shortDesc: "Management of chronic diseases, infectious fever treatment, asthma, COPD, and preventive health.",
@@ -222,6 +222,51 @@ export const departmentsData = [
       "Hypertension, Cholesterol & Lifestyle Disease Clinics",
       "Preventive Annual Health Packages",
       "Geriatric Healthcare Services"
+    ]
+  },
+  {
+    slug: "general-surgery",
+    category_id: 13,
+    title: "General & Laparoscopic Surgery",
+    icon: "Stethoscope",
+    shortDesc: "Advanced minimally invasive surgical procedures, hernia repairs, and abdominal surgeries.",
+    longDesc: "The Department of General & Laparoscopic Surgery offers comprehensive surgical care using the latest minimally invasive techniques to ensure faster recovery and minimal scarring.",
+    keyServices: [
+      "Laparoscopic Gallbladder & Hernia Surgery",
+      "Appendectomy & Abdominal Surgeries",
+      "Trauma & Emergency Surgeries",
+      "Thyroid & Breast Surgeries",
+      "Minimal Access Single-Port Surgeries"
+    ]
+  },
+  {
+    slug: "plastic-surgery",
+    category_id: 19,
+    title: "Plastic & Reconstructive Surgery",
+    icon: "Scissors",
+    shortDesc: "Reconstructive, aesthetic, burn care, and microvascular surgical services.",
+    longDesc: "Our Plastic & Reconstructive Surgery department provides expert care for trauma reconstruction, aesthetic enhancements, and specialized burn treatments by highly qualified surgeons.",
+    keyServices: [
+      "Trauma & Accident Reconstruction",
+      "Cosmetic & Aesthetic Enhancements",
+      "Burn Injury Care & Management",
+      "Microvascular Surgeries",
+      "Scar Revision & Skin Grafting"
+    ]
+  },
+  {
+    slug: "psychiatry",
+    category_id: 26,
+    title: "Psychiatry & Behavioral Science",
+    icon: "Brain",
+    shortDesc: "Mental health evaluations, mood disorders, addiction treatment, and stress management.",
+    longDesc: "The Psychiatry & Behavioral Science center provides compassionate care for mental health conditions, offering individualized therapy and psychiatric evaluations in a safe, confidential environment.",
+    keyServices: [
+      "Mood Disorders (Depression & Bipolar)",
+      "Anxiety & Stress Management",
+      "Addiction & Substance Abuse Treatment",
+      "Cognitive Behavioral Therapy (CBT)",
+      "Child & Adolescent Psychiatry"
     ]
   }
 ];

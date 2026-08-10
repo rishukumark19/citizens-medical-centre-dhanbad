@@ -1,106 +1,121 @@
 import React, { useState } from 'react';
-import { Search, Filter, Calendar, Award } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { doctorsData } from '../data/doctors';
 import { departmentsData } from '../data/departments';
+import SEO from '../components/SEO';
 
-export default function DoctorsPage({ onOpenAppointment }) {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedDept, setSelectedDept] = useState('all');
+export default function DoctorsPage() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedDept, setSelectedDept] = useState('All');
 
   const filteredDoctors = doctorsData.filter(doc => {
-    const matchesSearch = doc.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          doc.specialty.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          doc.qualification.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesDept = selectedDept === 'all' || doc.category_id === parseInt(selectedDept);
-    return matchesSearch && matchesDept;
+    const matchesSearch = doc.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                          doc.specialty.toLowerCase().includes(searchTerm.toLowerCase());
+    
+    if (selectedDept === 'All') return matchesSearch;
+    
+    const deptObj = departmentsData.find(d => d.title === selectedDept);
+    return matchesSearch && deptObj && doc.category_id === deptObj.category_id;
   });
 
   return (
-    <div>
+    <div className="flex flex-col">
+      <SEO title="Find a Doctor | Citizens Medical Centre" />
+      
       {/* Header Banner */}
-      <div style={{ background: 'linear-gradient(135deg, #0f172a, #0d9488)', color: 'white', padding: '60px 5%', textAlign: 'center' }}>
-        <h1 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '12px' }}>Find a Specialist Doctor</h1>
-        <p style={{ maxWidth: '600px', margin: '0 auto', opacity: 0.9 }}>
-          Our team of 15+ highly qualified consultants, surgeons, and specialists at Citizens Medical Centre (CMC Dhanbad).
-        </p>
+      <div className="bg-surface-container-lowest py-20 px-margin-mobile md:px-gutter text-center border-b border-outline-variant relative overflow-hidden">
+        <div className="absolute inset-0 bg-primary/5"></div>
+        <div className="relative z-10 max-w-2xl mx-auto">
+          <h1 className="text-display-lg text-on-surface mb-4">Find a Doctor</h1>
+          <p className="text-body-lg text-on-surface-variant max-w-xl mx-auto">
+            Book an appointment with our experienced medical professionals and specialists.
+          </p>
+        </div>
       </div>
 
-      {/* Filter and Search Bar */}
-      <div className="section-padding" style={{ maxWidth: '1200px', margin: '0 auto', paddingTop: '40px' }}>
-        <div style={{
-          background: 'white',
-          padding: '20px',
-          borderRadius: '16px',
-          boxShadow: 'var(--shadow-md)',
-          display: 'flex',
-          gap: '16px',
-          flexWrap: 'wrap',
-          marginBottom: '40px',
-          border: '1px solid #e2e8f0'
-        }}>
-          <div style={{ flex: 1, minWidth: '250px', position: 'relative' }}>
-            <Search size={18} color="#94a3b8" style={{ position: 'absolute', left: '14px', top: '14px' }} />
-            <input
-              type="text"
+      <div className="py-section-gap px-margin-mobile md:px-gutter max-w-container-max mx-auto w-full">
+        {/* Filters */}
+        <div className="bg-surface p-6 rounded-[24px] border border-outline-variant shadow-sm mb-12 flex flex-col md:flex-row gap-4 items-center">
+          <div className="relative flex-1 w-full">
+            <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+            <input 
+              type="text" 
               placeholder="Search by doctor name or specialty..."
-              className="form-control-custom"
-              style={{ paddingLeft: '42px' }}
-              value={searchQuery}
-              onChange={e => setSearchQuery(e.target.value)}
+              className="w-full pl-12 pr-4 py-3 rounded-full border-outline-variant bg-surface-container-lowest focus:border-primary focus:ring focus:ring-primary/20"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
-
-          <div style={{ minWidth: '220px' }}>
-            <select
-              className="form-control-custom"
+          <div className="relative w-full md:w-64">
+            <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">filter_list</span>
+            <select 
+              className="w-full pl-12 pr-4 py-3 rounded-full border-outline-variant bg-surface-container-lowest focus:border-primary focus:ring focus:ring-primary/20 appearance-none"
               value={selectedDept}
-              onChange={e => setSelectedDept(e.target.value)}
+              onChange={(e) => setSelectedDept(e.target.value)}
             >
-              <option value="all">All Departments</option>
-              {departmentsData.map(d => (
-                <option key={d.slug} value={d.category_id}>{d.title}</option>
+              <option value="All">All Departments</option>
+              {departmentsData.map(dept => (
+                <option key={dept.slug} value={dept.title}>{dept.title}</option>
               ))}
             </select>
           </div>
         </div>
 
-        {/* Doctors Grid */}
-        <div className="doctors-grid">
-          {filteredDoctors.length > 0 ? (
-            filteredDoctors.map(doc => (
-              <div key={doc.id} className="doctor-card">
-                <div className="doctor-img-wrap">
-                  <img
-                    src={doc.image}
-                    alt={doc.name}
-                    onError={e => { e.target.src = 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=600&q=80'; }}
+        {/* Results */}
+        {filteredDoctors.length === 0 ? (
+          <div className="text-center py-20">
+            <span className="material-symbols-outlined text-6xl text-outline mb-4">search_off</span>
+            <h3 className="text-headline-md text-on-surface mb-2">No Doctors Found</h3>
+            <p className="text-on-surface-variant">Try adjusting your search criteria or filter.</p>
+            <button 
+              onClick={() => { setSearchTerm(''); setSelectedDept('All'); }}
+              className="mt-6 px-6 py-2 border border-primary text-primary rounded-full hover:bg-primary hover:text-on-primary transition-colors font-label-bold"
+            >
+              Clear Filters
+            </button>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            {filteredDoctors.map(doctor => (
+              <div key={doctor.id} className="group relative bg-surface-container-lowest rounded-[24px] border border-outline-variant overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+                {/* Image Section */}
+                <div className="relative h-[250px] bg-surface-container-low pt-8 px-8 overflow-hidden flex justify-center items-end">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-primary-container/40 rounded-bl-[100px] -z-10"></div>
+                  
+                  <img loading="lazy" 
+                    src={doctor.image} 
+                    alt={doctor.name} 
+                    className="w-40 h-40 object-cover rounded-t-[100px] border-4 border-surface-container-lowest shadow-lg relative z-10 group-hover:scale-105 transition-transform duration-500" 
                   />
+                  
+                  <div className="absolute top-4 left-4 bg-tertiary-container text-on-tertiary-container text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1 z-20">
+                    <span className="material-symbols-outlined text-[14px]">verified</span>
+                    Verified
+                  </div>
                 </div>
-                <div className="doctor-info">
-                  <span className="doctor-badge">{doc.specialty}</span>
-                  <h4>{doc.name}</h4>
-                  <p className="doctor-qual">{doc.qualification}</p>
-                  <p style={{ fontSize: '0.85rem', color: '#475569', marginBottom: '16px', height: '60px', overflow: 'hidden' }}>
-                    {doc.description}
-                  </p>
 
-                  <button
-                    className="btn-primary-teal"
-                    style={{ width: '100%', justifyContent: 'center' }}
-                    onClick={onOpenAppointment}
-                  >
-                    <Calendar size={16} /> Book Consultation
-                  </button>
+                {/* Info Section */}
+                <div className="p-6 text-center flex flex-col flex-grow">
+                  <h4 className="text-xl font-bold text-on-surface mb-1">{doctor.name}</h4>
+                  <p className="text-primary font-label-bold mb-3">{doctor.specialty}</p>
+                  
+                  <div className="flex flex-col gap-2 text-sm text-on-surface-variant mb-6 flex-grow justify-center">
+                    <div className="flex items-center justify-center gap-1">
+                      <span className="material-symbols-outlined text-[16px]">school</span> {doctor.qualification}
+                    </div>
+                    <div className="flex items-center justify-center gap-1">
+                      <span className="material-symbols-outlined text-[16px]">work_history</span> {doctor.experience} Exp.
+                    </div>
+                  </div>
+                  
+                  <Link to={`/doctor/${doctor.id}`} className="block w-full py-2.5 rounded-full border border-outline text-on-surface font-label-bold hover:bg-primary hover:text-on-primary hover:border-primary transition-colors mt-auto">
+                    View Profile
+                  </Link>
                 </div>
               </div>
-            ))
-          ) : (
-            <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '60px 20px', color: '#64748b' }}>
-              <h3>No doctors found matching your criteria.</h3>
-              <p>Try resetting your search query or selecting a different department filter.</p>
-            </div>
-          )}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
