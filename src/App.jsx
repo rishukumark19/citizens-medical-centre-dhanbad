@@ -6,6 +6,9 @@ import AppointmentModal from './components/AppointmentModal';
 
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
+import DirectorMessagePage from './pages/DirectorMessagePage';
+import MissionVisionPage from './pages/MissionVisionPage';
+import GoalsPage from './pages/GoalsPage';
 import DepartmentDetailPage from './pages/DepartmentDetailPage';
 import DoctorsPage from './pages/DoctorsPage';
 import BlogListPage from './pages/BlogListPage';
@@ -38,12 +41,12 @@ export default function App() {
             <Route path="/" element={<HomePage onOpenAppointment={handleOpenAppointment} />} />
             <Route path="/index" element={<HomePage onOpenAppointment={handleOpenAppointment} />} />
 
-            {/* About Routes */}
+            {/* Separate About Subpage Routes */}
             <Route path="/about-us" element={<AboutPage onOpenAppointment={handleOpenAppointment} />} />
             <Route path="/about" element={<AboutPage onOpenAppointment={handleOpenAppointment} />} />
-            <Route path="/director-message" element={<AboutPage onOpenAppointment={handleOpenAppointment} />} />
-            <Route path="/mission-vision" element={<AboutPage onOpenAppointment={handleOpenAppointment} />} />
-            <Route path="/goals" element={<AboutPage onOpenAppointment={handleOpenAppointment} />} />
+            <Route path="/director-message" element={<DirectorMessagePage onOpenAppointment={handleOpenAppointment} />} />
+            <Route path="/mission-vision" element={<MissionVisionPage onOpenAppointment={handleOpenAppointment} />} />
+            <Route path="/goals" element={<GoalsPage onOpenAppointment={handleOpenAppointment} />} />
             <Route path="/gallery" element={<GalleryPage />} />
             <Route path="/packages" element={<HealthPackagesPage onOpenAppointment={handleOpenAppointment} />} />
 

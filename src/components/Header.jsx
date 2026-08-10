@@ -36,9 +36,9 @@ export default function Header({ onOpenAppointment }) {
               </Link>
               <div className="absolute top-full left-0 bg-surface border border-outline-variant rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 min-w-[200px] py-2 flex flex-col z-50">
                 <Link to="/about-us" className="px-4 py-2 text-on-surface-variant hover:text-primary hover:bg-surface-variant text-sm font-bold transition-colors">About CMC</Link>
-                <Link to="/about-us#director-message" className="px-4 py-2 text-on-surface-variant hover:text-primary hover:bg-surface-variant text-sm font-bold transition-colors">Director Message</Link>
-                <Link to="/about-us#mission-vision" className="px-4 py-2 text-on-surface-variant hover:text-primary hover:bg-surface-variant text-sm font-bold transition-colors">Mission & Vision</Link>
-                <Link to="/about-us#goals" className="px-4 py-2 text-on-surface-variant hover:text-primary hover:bg-surface-variant text-sm font-bold transition-colors">Goals</Link>
+                <Link to="/director-message" className="px-4 py-2 text-on-surface-variant hover:text-primary hover:bg-surface-variant text-sm font-bold transition-colors">Director Message</Link>
+                <Link to="/mission-vision" className="px-4 py-2 text-on-surface-variant hover:text-primary hover:bg-surface-variant text-sm font-bold transition-colors">Mission & Vision</Link>
+                <Link to="/goals" className="px-4 py-2 text-on-surface-variant hover:text-primary hover:bg-surface-variant text-sm font-bold transition-colors">Goals</Link>
                 <Link to="/gallery" className="px-4 py-2 text-on-surface-variant hover:text-primary hover:bg-surface-variant text-sm font-bold transition-colors">Gallery</Link>
               </div>
             </div>
@@ -128,9 +128,9 @@ export default function Header({ onOpenAppointment }) {
               {activeMobileSubmenu === 'about' && (
                 <div className="flex flex-col pl-8 py-2 gap-1 border-l-2 border-outline-variant ml-6">
                   <Link to="/about-us" onClick={() => setMobileMenuOpen(false)} className="py-2 text-on-surface-variant hover:text-primary font-bold text-sm">About CMC</Link>
-                  <Link to="/about-us#director-message" onClick={() => setMobileMenuOpen(false)} className="py-2 text-on-surface-variant hover:text-primary font-bold text-sm">Director Message</Link>
-                  <Link to="/about-us#mission-vision" onClick={() => setMobileMenuOpen(false)} className="py-2 text-on-surface-variant hover:text-primary font-bold text-sm">Mission & Vision</Link>
-                  <Link to="/about-us#goals" onClick={() => setMobileMenuOpen(false)} className="py-2 text-on-surface-variant hover:text-primary font-bold text-sm">Goals</Link>
+                  <Link to="/director-message" onClick={() => setMobileMenuOpen(false)} className="py-2 text-on-surface-variant hover:text-primary font-bold text-sm">Director Message</Link>
+                  <Link to="/mission-vision" onClick={() => setMobileMenuOpen(false)} className="py-2 text-on-surface-variant hover:text-primary font-bold text-sm">Mission & Vision</Link>
+                  <Link to="/goals" onClick={() => setMobileMenuOpen(false)} className="py-2 text-on-surface-variant hover:text-primary font-bold text-sm">Goals</Link>
                   <Link to="/gallery" onClick={() => setMobileMenuOpen(false)} className="py-2 text-on-surface-variant hover:text-primary font-bold text-sm">Gallery</Link>
                 </div>
               )}

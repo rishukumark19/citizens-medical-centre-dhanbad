@@ -1,155 +1,159 @@
-import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import React from 'react';
 import SEO from '../components/SEO';
 
-export default function AboutPage() {
-  const { hash } = useLocation();
-
-  useEffect(() => {
-    if (hash) {
-      const element = document.getElementById(hash.replace('#', ''));
-      if (element) {
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 100);
-      }
-    }
-  }, [hash]);
-
-  const goalsList = [
-    "Reduce response time",
-    "Enhance family centred care",
-    "To reduce mortality and morbidity",
-    "Enhance interdisciplinary collaborations",
-    "Promote Safe birth and breastfeeding practices",
-    "Develop Disaster preparedness plans",
-    "Promote research and innovation",
-    "Enhance staff training"
-  ];
-
+export default function AboutPage({ onOpenAppointment }) {
   return (
     <div className="flex flex-col">
-      <SEO title="About Us | Citizens Medical Centre" description="CMC Dhanbad is a 109 bedded leading super specialty hospital of global standard dedicated to providing high end health care." />
+      <SEO title="About Us | Citizens Medical Centre Dhanbad" description="Citizens Medical Centre is a 109 bedded leading super specialty hospital in Dhanbad providing high end health care." />
       
       {/* Header Banner */}
-      <div className="bg-surface-container-lowest py-20 px-margin-mobile md:px-gutter text-center border-b border-outline-variant relative overflow-hidden">
+      <div className="bg-surface-container-lowest py-16 md:py-24 px-margin-mobile md:px-gutter text-center border-b border-outline-variant relative overflow-hidden">
         <div className="absolute inset-0 bg-primary/5"></div>
-        <div className="relative z-10 max-w-2xl mx-auto">
-          <h1 className="text-display-lg text-on-surface mb-4">About CMC Dhanbad</h1>
-          <p className="text-body-lg text-on-surface-variant max-w-xl mx-auto">
-            109-Bedded Proposed 150-Bed Leading Super Specialty Hospital in Jharkhand.
+        <div className="relative z-10 max-w-3xl mx-auto">
+          <span className="text-tertiary-container font-bold text-sm uppercase tracking-widest block mb-2">Citizens Medical Centre</span>
+          <h1 className="text-display-lg text-on-surface mb-4">About Us</h1>
+          <p className="text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+            Qualified and Experienced Medical Team at CMC Hospital, Dhanbad.
           </p>
         </div>
       </div>
 
       <div className="py-section-gap px-margin-mobile md:px-gutter max-w-container-max mx-auto w-full flex flex-col gap-16">
         
-        {/* Our Story / About CMC */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="rounded-[24px] overflow-hidden shadow-2xl relative h-[400px]">
-            <img loading="lazy" 
+        {/* Main About Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="rounded-[28px] overflow-hidden shadow-xl relative h-[420px] border border-outline-variant">
+            <img 
+              loading="lazy" 
               src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80" 
-              alt="Citizens Medical Centre Hospital Building" 
+              alt="CMC Hospital Dhanbad" 
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-primary/10 mix-blend-multiply"></div>
-          </div>
-          <div>
-            <h2 className="text-primary font-label-bold uppercase tracking-widest mb-2">Qualified & Experienced Medical Team</h2>
-            <h3 className="text-headline-lg text-on-surface mb-6">Welcome to Citizens Medical Centre</h3>
-            <p className="text-body-lg text-on-surface-variant mb-4 leading-relaxed">
-              Citizens Medical Centre, Dhanbad is a 109 bedded (proposed 150-bed) leading super specialty hospital of global standard dedicated to providing high end health care to the people of Dhanbad.
-            </p>
-            <p className="text-body-lg text-on-surface-variant leading-relaxed">
-              We cater to all your health needs with special attention to Emergency medicine & critical care with dedicated over 50% for neonatal, paediatric and adult critical care beds, premier operating facility, advanced laparoscopy setup, Birthing suite, 24x7 Radiology and laboratory.
-            </p>
-          </div>
-        </div>
-
-        {/* Director Message Section */}
-        <div id="director-message" className="bg-surface-container-low p-8 md:p-12 rounded-[32px] border border-outline-variant scroll-mt-28 shadow-sm">
-          <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-8 items-center">
-            <div className="relative rounded-[24px] overflow-hidden shadow-lg h-[340px] bg-surface-container">
-              <img 
-                loading="lazy" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuABw9IwhSgc7hAQDg9rEXr2ljaRuhRJeBDjJjXJARSRVNg-6PoQi0DLTn3XOCSl5n_sRf5bvtlcaKYu7xaGPS7op4uty_rKxYSlkwgAxIeIvCf_W5B2amr_fzMlIwfa16CQGi00Hac_-8w7f9AnAsJ70qsBJbs11RBU7p_GLfDk9IguI4m0kJIKBYZ_QPW4PISeBGQVngixxlnOIuHhlZbAHkZX4khGlHTZLGdSJXeRGnDhZ5chijUm3w" 
-                alt="Director Dr. Abhishek Kumar Mishra" 
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent"></div>
-              <div className="absolute bottom-4 left-4 right-4 text-center">
-                <span className="text-white font-bold block">Dr. Abhishek Kumar Mishra</span>
-                <span className="text-tertiary-fixed text-xs">Medical Director</span>
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-4">
-              <div className="inline-flex items-center gap-2 text-primary font-label-bold uppercase tracking-wider text-xs bg-primary/10 px-3 py-1 rounded-full w-fit">
-                <span className="material-symbols-outlined text-sm">format_quote</span> Director's Message
-              </div>
-              <h3 className="text-headline-lg text-on-surface">Committed to the Highest Quality of Care</h3>
-              <blockquote className="text-on-surface-variant text-body-lg italic leading-relaxed">
-                "At CMC Dhanbad we are committed to provide highest quality of care to our patients as we believe that every life counts. Our dedicated team of highly skilled doctors supported by our nurses and para medical staffs work tirelessly to ensure personalised and comprehensive treatment and care for each patient. We believe in a holistic approach to healthcare focussing not only on treating illness but also on promoting overall wellbeing of society. We understand that seeking medical care can be a challenging experience but our staff is here to support you in every step. Thank you for trusting us with your healthcare needs."
-              </blockquote>
-              <div className="pt-4 border-t border-outline-variant/60 flex justify-between items-center">
-                <div>
-                  <h4 className="font-bold text-on-surface">Warm Regards</h4>
-                  <p className="text-sm font-label-bold text-primary">OUR DIRECTORS — Citizens Medical Centre</p>
-                </div>
-                <span className="material-symbols-outlined text-4xl text-primary/30">verified_user</span>
-              </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent"></div>
+            <div className="absolute bottom-6 left-6 right-6 text-white">
+              <span className="text-xs font-bold uppercase tracking-wider bg-primary px-3 py-1 rounded-full">109-Bedded Facility</span>
+              <h4 className="text-xl font-bold mt-2">Leading Super Specialty Hospital</h4>
             </div>
           </div>
-        </div>
 
-        {/* Mission & Vision */}
-        <div id="mission-vision" className="grid grid-cols-1 md:grid-cols-2 gap-8 scroll-mt-28">
-          <div className="bg-surface p-10 rounded-[24px] border border-outline-variant hover:shadow-xl transition-shadow text-center flex flex-col items-center">
-            <div className="w-16 h-16 bg-primary-container rounded-full flex items-center justify-center mb-6">
-              <span className="material-symbols-outlined text-on-primary-container text-3xl" style={{ fontVariationSettings: "'FILL' 1" }}>flag</span>
-            </div>
-            <h3 className="text-headline-md text-on-surface mb-4">Our Mission</h3>
-            <p className="text-on-surface-variant text-body-md leading-relaxed">
-              To provide compassionate, high quality healthcare services to our community with commitment, integrity, and a relentless pursuit of excellence, ensuring every individual receives the highest standard of care and support they deserve.
+          <div className="flex flex-col gap-4">
+            <span className="text-primary font-label-bold uppercase tracking-wider text-xs bg-primary/10 px-3 py-1 rounded-full w-fit">About CMC</span>
+            <h2 className="text-headline-lg text-on-surface leading-tight">Qualified and Experienced Medical Team at CMC Hospital, Dhanbad</h2>
+            <p className="text-on-surface-variant text-body-lg leading-relaxed">
+              Citizens Medical Centre, Dhanbad is a 109 bedded (proposed 150-bed) leading super specialty hospital of global standard dedicated to providing high end health care to the people of Dhanbad. We cater to all your health needs with special attention to Emergency medicine &amp; critical care with dedicated over 50% for neonatal, paediatric and adult critical care beds, premier operating facility, advanced laparoscopy setup, Birthing suite, 24x7 Radiology and laboratory.
             </p>
-          </div>
-
-          <div className="bg-surface p-10 rounded-[24px] border border-outline-variant hover:shadow-xl transition-shadow text-center flex flex-col items-center">
-            <div className="w-16 h-16 bg-tertiary-container rounded-full flex items-center justify-center mb-6">
-              <span className="material-symbols-outlined text-on-tertiary-container text-3xl" style={{ fontVariationSettings: "'FILL' 1" }}>visibility</span>
+            <div className="mt-2">
+              <button 
+                onClick={onOpenAppointment}
+                className="bg-primary text-on-primary px-6 py-3 rounded-full text-label-bold font-label-bold hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm inline-flex items-center gap-2"
+              >
+                Book Appointment
+                <span className="material-symbols-outlined text-sm">calendar_month</span>
+              </button>
             </div>
-            <h3 className="text-headline-md text-on-surface mb-4">Our Vision</h3>
-            <p className="text-on-surface-variant text-body-md leading-relaxed">
-              To become an Institution par excellence and lead by example in providing compassionate, innovative, and cutting-edge healthcare to our community and beyond.
-            </p>
-          </div>
-        </div>
-
-        {/* Our Goals */}
-        <div id="goals" className="scroll-mt-28 bg-surface-container-lowest p-8 md:p-12 rounded-[32px] border border-outline-variant shadow-sm">
-          <div className="text-center max-w-2xl mx-auto mb-10">
-            <h2 className="text-primary font-label-bold uppercase tracking-widest mb-2">Hospital Roadmap</h2>
-            <h3 className="text-headline-lg text-on-surface">Our Key Goals & Objectives</h3>
-            <p className="text-on-surface-variant text-body-md mt-2">Continuous innovation and patient-centered commitments driving CMC Dhanbad.</p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {goalsList.map((goal, idx) => (
-              <div key={idx} className="bg-surface p-6 rounded-[20px] border border-outline-variant hover:border-primary/40 hover:shadow-md transition-all flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0 mt-0.5">
-                  <span className="material-symbols-outlined text-xl" style={{ fontVariationSettings: "'FILL' 1" }}>chevron_right</span>
-                </div>
-                <h4 className="font-bold text-on-surface text-base leading-snug">{goal}</h4>
-              </div>
-            ))}
           </div>
         </div>
 
         {/* Why Choose Us */}
-        <div className="bg-surface-container-low p-8 md:p-12 rounded-[32px] border border-outline-variant">
-          <h3 className="text-headline-lg text-on-surface mb-4">Why Choose Us</h3>
-          <p className="text-on-surface-variant text-body-lg leading-relaxed">
-            We believe in keeping the personal touch intact with continuous innovation and technological advancements happening in the medical field. We bring together an excellent team with a blend of experience and enthusiasm, ensuring that our patients receive the highest quality care that is both compassionate and cutting-edge.
-          </p>
+        <div className="bg-surface-container-low p-8 md:p-12 rounded-[32px] border border-outline-variant shadow-sm">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <span className="text-tertiary-container font-label-bold uppercase tracking-wider text-xs block mb-2">Our Distinction</span>
+              <h3 className="text-headline-lg text-on-surface mb-4">Why Choose Us</h3>
+              <p className="text-on-surface-variant text-body-lg leading-relaxed">
+                We believe in keeping the personal touch intact with continuous innovation and technological advancements happening in the medical field. We bring together an excellent team with a blend of experience and enthusiasm, ensuring that our patients receive the highest quality care that is both compassionate and cutting-edge.
+              </p>
+            </div>
+            <div className="bg-surface p-6 rounded-[24px] border border-outline-variant shadow-sm flex flex-col gap-4">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined text-2xl" style={{ fontVariationSettings: "'FILL' 1" }}>verified</span>
+                </div>
+                <div>
+                  <h4 className="font-bold text-on-surface text-base">Continuous Innovation</h4>
+                  <p className="text-sm text-on-surface-variant">Integrating modern technologies with clinical expertise.</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-4 border-t border-outline-variant/60 pt-4">
+                <div className="w-12 h-12 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined text-2xl" style={{ fontVariationSettings: "'FILL' 1" }}>favorite</span>
+                </div>
+                <div>
+                  <h4 className="font-bold text-on-surface text-base">Compassionate Care</h4>
+                  <p className="text-sm text-on-surface-variant">Personal touch in every step of diagnosis &amp; treatment.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Dedicated to Provide Best Treatment */}
+        <div className="bg-surface p-8 md:p-12 rounded-[32px] border border-outline-variant shadow-sm">
+          <div className="max-w-3xl">
+            <span className="text-primary font-label-bold uppercase tracking-wider text-xs block mb-2">Clinical Excellence</span>
+            <h3 className="text-headline-lg text-on-surface mb-4">Dedicated to Provide Best Treatment</h3>
+            <p className="text-on-surface-variant text-body-lg leading-relaxed">
+              At CMC Hospital Dhanbad, we believe that cutting-edge technology is key to delivering superior healthcare. We continuously invest in the latest medical equipment and innovative technologies to ensure accurate diagnoses and effective treatments. Our state-of-the-art facilities are designed to provide patients with the highest level of care, from advanced imaging systems to minimally invasive surgical techniques. By integrating modern technology with our skilled medical team, we enhance patient outcomes and elevate the standard of healthcare. Experience the future of medicine today at CMC Hospital, where better technologies lead to better healthcare.
+            </p>
+          </div>
+        </div>
+
+        {/* Additional Services & Opening Hours Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          
+          {/* Services */}
+          <div className="flex flex-col gap-6">
+            <div className="bg-surface-container-lowest p-8 rounded-[28px] border border-outline-variant shadow-sm flex gap-5 items-start">
+              <div className="w-14 h-14 rounded-2xl bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0">
+                <span className="material-symbols-outlined text-3xl" style={{ fontVariationSettings: "'FILL' 1" }}>psychology</span>
+              </div>
+              <div>
+                <h4 className="text-headline-md text-on-surface mb-2 text-xl font-bold">Mental Health Services</h4>
+                <p className="text-on-surface-variant text-body-md leading-relaxed">
+                  Mental health services offer support, therapy, and treatment for emotional and psychological well-being.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-surface-container-lowest p-8 rounded-[28px] border border-outline-variant shadow-sm flex gap-5 items-start">
+              <div className="w-14 h-14 rounded-2xl bg-tertiary-container text-on-tertiary-container flex items-center justify-center shrink-0">
+                <span className="material-symbols-outlined text-3xl" style={{ fontVariationSettings: "'FILL' 1" }}>vaccines</span>
+              </div>
+              <div>
+                <h4 className="text-headline-md text-on-surface mb-2 text-xl font-bold">Vaccination Services</h4>
+                <p className="text-on-surface-variant text-body-md leading-relaxed">
+                  Vaccination services provide immunizations to protect individuals from infectious diseases and promote public health.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Opening Hours */}
+          <div className="bg-primary text-on-primary p-8 md:p-10 rounded-[32px] shadow-lg flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-2 mb-6">
+                <span className="material-symbols-outlined text-3xl text-on-primary-container">schedule</span>
+                <h3 className="text-headline-md text-on-primary font-bold">Opening Hours</h3>
+              </div>
+              <ul className="flex flex-col gap-2 text-sm text-primary-fixed-dim font-medium mb-8">
+                <li className="flex justify-between border-b border-primary-container/40 pb-1.5">
+                  <span>Monday - Saturday</span>
+                  <span className="font-bold text-on-primary">10:00 AM - 7:00 PM</span>
+                </li>
+                <li className="flex justify-between border-b border-primary-container/40 pb-1.5">
+                  <span>Sunday</span>
+                  <span className="font-bold text-on-primary">10:00 AM - 7:00 PM</span>
+                </li>
+              </ul>
+            </div>
+            <div className="bg-primary-container/40 p-4 rounded-2xl border border-primary-container/60">
+              <span className="text-xs font-bold text-tertiary-fixed uppercase tracking-wider block mb-1">Need a Personal Health Plan?</span>
+              <p className="text-sm text-on-primary font-body-md">
+                "We provide 24/7 emergency services to ensure your care anytime, anywhere!" Contact us today.
+              </p>
+            </div>
+          </div>
+
         </div>
 
       </div>
