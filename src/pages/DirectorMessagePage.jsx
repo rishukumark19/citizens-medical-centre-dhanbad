@@ -29,13 +29,13 @@ export default function DirectorMessagePage({ onOpenAppointment }) {
               <img 
                 loading="lazy" 
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuABw9IwhSgc7hAQDg9rEXr2ljaRuhRJeBDjJjXJARSRVNg-6PoQi0DLTn3XOCSl5n_sRf5bvtlcaKYu7xaGPS7op4uty_rKxYSlkwgAxIeIvCf_W5B2amr_fzMlIwfa16CQGi00Hac_-8w7f9AnAsJ70qsBJbs11RBU7p_GLfDk9IguI4m0kJIKBYZ_QPW4PISeBGQVngixxlnOIuHhlZbAHkZX4khGlHTZLGdSJXeRGnDhZ5chijUm3w" 
-                alt="Director Dr. Abhishek Kumar Mishra" 
+                alt="Citizens Medical Centre Leadership" 
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent"></div>
               <div className="absolute bottom-6 left-6 right-6 text-center">
-                <span className="text-white font-bold block text-lg">Dr. Abhishek Kumar Mishra</span>
-                <span className="text-tertiary-fixed text-xs font-semibold">Medical Director &amp; Consultant</span>
+                <span className="text-white font-bold block text-lg">Board of Directors</span>
+                <span className="text-tertiary-fixed text-xs font-semibold">Citizens Medical Centre, Dhanbad</span>
               </div>
             </div>
 

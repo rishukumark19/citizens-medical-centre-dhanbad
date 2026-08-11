@@ -1,25 +1,5 @@
 export const doctorsData = [
   {
-    id: 1,
-    name: "Dr. Abhishek Kumar Mishra",
-    qualification: "MBBS (MAHE), FCFM (AIIMS), MEM (SEMI), MACEP (USA), MCGP (IMA)",
-    specialty: "Consultant Family Medicine, Emergency & Critical Care",
-    category_id: 10,
-    experience: "12+ Years",
-    description: "Certified Diabetologist (Royal College of Physicians, England). Expert in Emergency Care, Critical Patient Stabilization, and Diabetology.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuABw9IwhSgc7hAQDg9rEXr2ljaRuhRJeBDjJjXJARSRVNg-6PoQi0DLTn3XOCSl5n_sRf5bvtlcaKYu7xaGPS7op4uty_rKxYSlkwgAxIeIvCf_W5B2amr_fzMlIwfa16CQGi00Hac_-8w7f9AnAsJ70qsBJbs11RBU7p_GLfDk9IguI4m0kJIKBYZ_QPW4PISeBGQVngixxlnOIuHhlZbAHkZX4khGlHTZLGdSJXeRGnDhZ5chijUm3w"
-  },
-  {
-    id: 2,
-    name: "Dr. Isha Rani Mishra",
-    qualification: "MBBS (MAHE), DNB (OBG)(NH, Bangalore), MRCOG (UK)",
-    specialty: "Obstetrics & Laparoscopic Gynecology",
-    category_id: 16,
-    experience: "10+ Years",
-    description: "Renowned Obstetrician & Laparoscopic Gynecologist specializing in high-risk pregnancy management, minimally invasive surgeries, and women's health.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDQEB_gN597qPnz7lCnIfyX0-ag_pS3lISGUthpDM32f5mmIlxgzNgux3A-QqjZkN2njy7lzhBsd3dGXvIcXYaXn7GJpF_AYfnoPwKfdl8_TDscnH5ebHyMNIM4yh3ravxcFW4BjqpLT0ynYYNNyzDfeOs7TRvwSnRhzNqeOJslVOrH8VcxoHEnocGxtuT4HA5TENL5XYaZ0o7XOFm3MRRaOhbvtje5cdU99wYmAA1KleO1lg4GqmFHJg"
-  },
-  {
     id: 3,
     name: "Dr. Vaishali Patel",
     qualification: "MBBS, DNB Radiodiagnosis",
