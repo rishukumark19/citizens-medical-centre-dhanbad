@@ -30,17 +30,20 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
+          cache-dependency-path: './react-app/package-lock.json'
 
       - name: Install dependencies 🔧
+        working-directory: ./react-app
         run: npm ci
 
       - name: Build 🏗️
+        working-directory: ./react-app
         run: npm run build
 
       - name: Upload artifact 📤
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./react-app/dist
 
       - name: Deploy to GitHub Pages 🚀
         id: deployment
