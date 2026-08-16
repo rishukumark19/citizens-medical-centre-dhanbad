@@ -46,7 +46,7 @@ export default function AppointmentModal({ isOpen, onClose }) {
         className="bg-surface w-full max-w-2xl rounded-2xl shadow-xl overflow-hidden flex flex-col max-h-[90vh]" 
         onClick={e => e.stopPropagation()}
       >
-        <div className="bg-primary text-on-primary p-6 flex justify-between items-center relative overflow-hidden">
+        <div className="bg-gradient-to-r from-primary to-secondary text-on-primary p-6 flex justify-between items-center relative overflow-hidden">
           {/* Decorative subtle background icon */}
           <span className="material-symbols-outlined absolute -right-6 -top-6 text-[120px] text-white/10 rotate-12">calendar_month</span>
           
@@ -63,10 +63,25 @@ export default function AppointmentModal({ isOpen, onClose }) {
           </button>
         </div>
 
+        {/* Step Indicator (Visual) */}
+        {!submitted && (
+          <div className="bg-surface-container-lowest px-6 py-3 border-b border-outline-variant flex items-center justify-between text-sm font-bold">
+            <div className="flex items-center gap-2 text-primary">
+              <span className="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center text-xs">1</span>
+              Patient Details
+            </div>
+            <div className="w-12 h-px bg-outline-variant hidden sm:block"></div>
+            <div className="flex items-center gap-2 text-on-surface-variant">
+              <span className="w-6 h-6 rounded-full bg-surface-container-highest text-on-surface flex items-center justify-center text-xs">2</span>
+              Confirmation
+            </div>
+          </div>
+        )}
+
         <div className="p-6 overflow-y-auto">
           {submitted ? (
             <div className="text-center py-12 px-6 flex flex-col items-center">
-              <span className="material-symbols-outlined text-6xl text-tertiary-container mb-4">check_circle</span>
+              <span className="material-symbols-outlined text-6xl text-secondary animate-pulse-ring mb-4">check_circle</span>
               <h3 className="text-headline-md text-on-surface font-bold mb-2">Request Received!</h3>
               <p className="text-on-surface-variant max-w-md">
                 Thank you, <strong className="text-on-surface">{formData.name}</strong>. Our front desk will call you shortly on <strong>{formData.phone}</strong> to confirm your schedule.
@@ -82,7 +97,7 @@ export default function AppointmentModal({ isOpen, onClose }) {
                   <input
                     type="text"
                     required
-                    className="form-input w-full rounded-lg border-outline-variant focus:border-primary focus:ring focus:ring-primary/20 bg-surface text-on-surface"
+                    className="form-input w-full rounded-lg border-outline-variant focus:border-secondary focus:ring focus:ring-secondary/20 bg-surface text-on-surface"
                     placeholder="e.g. Rahul Sharma"
                     value={formData.name}
                     onChange={e => setFormData({ ...formData, name: e.target.value })}
@@ -96,7 +111,7 @@ export default function AppointmentModal({ isOpen, onClose }) {
                   <input
                     type="tel"
                     required
-                    className="form-input w-full rounded-lg border-outline-variant focus:border-primary focus:ring focus:ring-primary/20 bg-surface text-on-surface"
+                    className="form-input w-full rounded-lg border-outline-variant focus:border-secondary focus:ring focus:ring-secondary/20 bg-surface text-on-surface"
                     placeholder="e.g. 9876543210"
                     value={formData.phone}
                     onChange={e => setFormData({ ...formData, phone: e.target.value })}
@@ -111,7 +126,7 @@ export default function AppointmentModal({ isOpen, onClose }) {
                   </label>
                   <input
                     type="email"
-                    className="form-input w-full rounded-lg border-outline-variant focus:border-primary focus:ring focus:ring-primary/20 bg-surface text-on-surface"
+                    className="form-input w-full rounded-lg border-outline-variant focus:border-secondary focus:ring focus:ring-secondary/20 bg-surface text-on-surface"
                     placeholder="rahul@example.com"
                     value={formData.email}
                     onChange={e => setFormData({ ...formData, email: e.target.value })}
@@ -125,7 +140,7 @@ export default function AppointmentModal({ isOpen, onClose }) {
                   <input
                     type="date"
                     required
-                    className="form-input w-full rounded-lg border-outline-variant focus:border-primary focus:ring focus:ring-primary/20 bg-surface text-on-surface"
+                    className="form-input w-full rounded-lg border-outline-variant focus:border-secondary focus:ring focus:ring-secondary/20 bg-surface text-on-surface"
                     value={formData.date}
                     onChange={e => setFormData({ ...formData, date: e.target.value })}
                   />
@@ -138,7 +153,7 @@ export default function AppointmentModal({ isOpen, onClose }) {
                 </label>
                 <select
                   required
-                  className="form-select w-full rounded-lg border-outline-variant focus:border-primary focus:ring focus:ring-primary/20 bg-surface text-on-surface"
+                  className="form-select w-full rounded-lg border-outline-variant focus:border-secondary focus:ring focus:ring-secondary/20 bg-surface text-on-surface"
                   value={formData.department}
                   onChange={e => setFormData({ ...formData, department: e.target.value, doctor_id: '' })}
                 >
@@ -155,7 +170,7 @@ export default function AppointmentModal({ isOpen, onClose }) {
                 </label>
                 <select
                   required
-                  className="form-select w-full rounded-lg border-outline-variant focus:border-primary focus:ring focus:ring-primary/20 bg-surface text-on-surface"
+                  className="form-select w-full rounded-lg border-outline-variant focus:border-secondary focus:ring focus:ring-secondary/20 bg-surface text-on-surface"
                   value={formData.doctor_id}
                   onChange={e => setFormData({ ...formData, doctor_id: e.target.value })}
                 >
@@ -171,7 +186,7 @@ export default function AppointmentModal({ isOpen, onClose }) {
                   <span className="material-symbols-outlined text-base text-primary">description</span> Message / Symptoms
                 </label>
                 <textarea
-                  className="form-textarea w-full rounded-lg border-outline-variant focus:border-primary focus:ring focus:ring-primary/20 bg-surface text-on-surface"
+                  className="form-textarea w-full rounded-lg border-outline-variant focus:border-secondary focus:ring focus:ring-secondary/20 bg-surface text-on-surface"
                   rows="3"
                   placeholder="Describe your query or symptoms briefly..."
                   value={formData.message}
@@ -190,7 +205,7 @@ export default function AppointmentModal({ isOpen, onClose }) {
                 <button 
                   type="submit" 
                   disabled={isSubmitting} 
-                  className={`px-6 py-2.5 rounded-full bg-primary text-on-primary font-label-bold flex items-center gap-2 transition-all ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:bg-primary-container hover:text-on-primary-container shadow-md'}`}
+                  className={`px-6 py-2.5 rounded-full bg-gradient-to-r from-primary to-secondary text-on-primary font-label-bold flex items-center gap-2 transition-all ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:opacity-90 shadow-md hover:shadow-lg'}`}
                 >
                   {isSubmitting ? (
                     <>

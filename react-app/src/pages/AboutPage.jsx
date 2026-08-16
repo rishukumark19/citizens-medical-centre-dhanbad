@@ -8,10 +8,10 @@ export default function AboutPage({ onOpenAppointment }) {
       
       {/* Header Banner */}
       <div className="bg-surface-container-lowest py-16 md:py-24 px-margin-mobile md:px-gutter text-center border-b border-outline-variant relative overflow-hidden">
-        <div className="absolute inset-0 bg-primary/5"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10"></div>
         <div className="relative z-10 max-w-3xl mx-auto">
-          <span className="text-tertiary-container font-bold text-sm uppercase tracking-widest block mb-2">Citizens Medical Centre</span>
-          <h1 className="text-display-lg text-on-surface mb-4">About Us</h1>
+          <span className="text-secondary font-bold text-sm uppercase tracking-widest block mb-2">Citizens Medical Centre</span>
+          <h1 className="text-display-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary mb-4">About Us</h1>
           <p className="text-body-lg text-on-surface-variant max-w-2xl mx-auto">
             Qualified and Experienced Medical Team at CMC Hospital, Dhanbad.
           </p>
@@ -54,11 +54,26 @@ export default function AboutPage({ onOpenAppointment }) {
           </div>
         </div>
 
+        {/* Stats Strip */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {[
+            { value: '109+', label: 'Hospital Beds', color: 'primary' },
+            { value: '25+', label: 'Specialist Doctors', color: 'secondary' },
+            { value: '15+', label: 'Years Experience', color: 'primary' },
+            { value: '24/7', label: 'Emergency Care', color: 'secondary' }
+          ].map((stat, i) => (
+            <div key={i} className="p-6 rounded-2xl flex flex-col items-center justify-center text-center bg-gradient-to-br from-primary to-secondary text-white shadow-md">
+              <span className="text-4xl font-bold mb-1">{stat.value}</span>
+              <span className="text-sm font-label-bold uppercase tracking-wider opacity-90">{stat.label}</span>
+            </div>
+          ))}
+        </div>
+
         {/* Why Choose Us */}
         <div className="bg-surface-container-low p-8 md:p-12 rounded-[32px] border border-outline-variant shadow-sm">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
-              <span className="text-tertiary-container font-label-bold uppercase tracking-wider text-xs block mb-2">Our Distinction</span>
+              <span className="text-secondary font-label-bold uppercase tracking-wider text-xs block mb-2">Our Distinction</span>
               <h3 className="text-headline-lg text-on-surface mb-4">Why Choose Us</h3>
               <p className="text-on-surface-variant text-body-lg leading-relaxed">
                 We believe in keeping the personal touch intact with continuous innovation and technological advancements happening in the medical field. We bring together an excellent team with a blend of experience and enthusiasm, ensuring that our patients receive the highest quality care that is both compassionate and cutting-edge.
@@ -66,7 +81,7 @@ export default function AboutPage({ onOpenAppointment }) {
             </div>
             <div className="bg-surface p-6 rounded-[24px] border border-outline-variant shadow-sm flex flex-col gap-4">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
                   <span className="material-symbols-outlined text-2xl" style={{ fontVariationSettings: "'FILL' 1" }}>verified</span>
                 </div>
                 <div>
@@ -75,7 +90,7 @@ export default function AboutPage({ onOpenAppointment }) {
                 </div>
               </div>
               <div className="flex items-center gap-4 border-t border-outline-variant/60 pt-4">
-                <div className="w-12 h-12 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-full bg-secondary/10 text-secondary flex items-center justify-center shrink-0">
                   <span className="material-symbols-outlined text-2xl" style={{ fontVariationSettings: "'FILL' 1" }}>favorite</span>
                 </div>
                 <div>
@@ -90,7 +105,7 @@ export default function AboutPage({ onOpenAppointment }) {
         {/* Dedicated to Provide Best Treatment */}
         <div className="bg-surface p-8 md:p-12 rounded-[32px] border border-outline-variant shadow-sm">
           <div className="max-w-3xl">
-            <span className="text-primary font-label-bold uppercase tracking-wider text-xs block mb-2">Clinical Excellence</span>
+            <span className="text-secondary font-label-bold uppercase tracking-wider text-xs block mb-2">Clinical Excellence</span>
             <h3 className="text-headline-lg text-on-surface mb-4">Dedicated to Provide Best Treatment</h3>
             <p className="text-on-surface-variant text-body-lg leading-relaxed">
               At CMC Hospital Dhanbad, we believe that cutting-edge technology is key to delivering superior healthcare. We continuously invest in the latest medical equipment and innovative technologies to ensure accurate diagnoses and effective treatments. Our state-of-the-art facilities are designed to provide patients with the highest level of care, from advanced imaging systems to minimally invasive surgical techniques. By integrating modern technology with our skilled medical team, we enhance patient outcomes and elevate the standard of healthcare. Experience the future of medicine today at CMC Hospital, where better technologies lead to better healthcare.
@@ -129,7 +144,8 @@ export default function AboutPage({ onOpenAppointment }) {
           </div>
 
           {/* Opening Hours */}
-          <div className="bg-primary text-on-primary p-8 md:p-10 rounded-[32px] shadow-lg flex flex-col justify-between">
+          <div className="bg-gradient-to-br from-primary to-secondary text-on-primary p-8 md:p-10 rounded-[32px] shadow-lg flex flex-col justify-between relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/3"></div>
             <div>
               <div className="flex items-center gap-2 mb-6">
                 <span className="material-symbols-outlined text-3xl text-on-primary-container">schedule</span>

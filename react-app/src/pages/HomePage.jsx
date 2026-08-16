@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { departmentsData } from '../data/departments';
 import { doctorsData } from '../data/doctors';
@@ -10,6 +10,16 @@ export default function HomePage({ onOpenAppointment }) {
   const topDoctors = doctorsData.filter(d => d.featured).slice(0, 4);
   if (topDoctors.length === 0) topDoctors.push(...doctorsData.slice(0, 4));
 
+  // Testimonial Carousel State
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % testimonialsData.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <main className="flex-1 flex flex-col">
       <SEO title="Citizens Medical Centre | Best Hospital in Dhanbad" />
@@ -17,20 +27,20 @@ export default function HomePage({ onOpenAppointment }) {
       {/* Hero Section */}
       <section className="relative pt-8 pb-10 md:pt-12 md:pb-16 px-margin-mobile md:px-gutter overflow-hidden flex items-center min-h-[450px]">
         {/* Background gradient/pattern */}
-        <div className="absolute inset-0 bg-surface-container-lowest -z-20"></div>
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary-container/20 rounded-full blur-[120px] -z-10 translate-x-1/3 -translate-y-1/4"></div>
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-tertiary-container/15 rounded-full blur-[100px] -z-10 -translate-x-1/4 translate-y-1/4"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/10 -z-20"></div>
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px] -z-10 translate-x-1/3 -translate-y-1/4"></div>
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-secondary/15 rounded-full blur-[100px] -z-10 -translate-x-1/4 translate-y-1/4"></div>
 
         <div className="max-w-container-max mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="flex flex-col gap-6 relative z-10">
-            <div className="inline-flex items-center gap-2 bg-primary-container text-on-primary-container px-4 py-2 rounded-full self-start font-label-bold">
+          <div className="flex flex-col gap-6 relative z-10 animate-fade-in">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-secondary/10 text-primary px-4 py-2 rounded-full self-start font-label-bold border border-primary/20">
               <span className="material-symbols-outlined text-xl">award_star</span>
               #1 Ranked Hospital in Jharkhand
             </div>
             
-            <h1 className="text-display-lg text-on-surface">
+            <h1 className="text-display-lg text-on-surface leading-tight">
               Healing with <span className="text-primary">Compassion,</span><br />
-              Curing with <span className="text-tertiary-container">Technology.</span>
+              Curing with <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Technology.</span>
             </h1>
             
             <p className="text-body-lg text-on-surface-variant max-w-lg">
@@ -38,50 +48,50 @@ export default function HomePage({ onOpenAppointment }) {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 mt-4">
-              <button onClick={onOpenAppointment} className="bg-primary hover:bg-primary-container text-on-primary hover:text-on-primary-container px-8 py-4 rounded-full font-label-bold transition-all shadow-md flex items-center justify-center gap-2 group text-base">
+              <button onClick={onOpenAppointment} className="bg-gradient-to-r from-primary to-secondary text-on-primary px-8 py-4 rounded-full font-label-bold transition-all shadow-md hover:shadow-lg hover:opacity-90 flex items-center justify-center gap-2 group text-base">
                 Book an Appointment
                 <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </button>
-              <a href="tel:+918802248261" className="bg-surface hover:bg-surface-variant text-primary border-2 border-outline-variant px-8 py-4 rounded-full font-label-bold transition-all flex items-center justify-center gap-2 text-base">
+              <a href="tel:+918235540809" className="bg-surface hover:bg-surface-variant text-primary border-2 border-outline-variant px-8 py-4 rounded-full font-label-bold transition-all flex items-center justify-center gap-2 text-base shadow-sm">
                 <span className="material-symbols-outlined text-error" style={{ fontVariationSettings: "'FILL' 1" }}>emergency</span>
-                Emergency: +91 8802248261
+                Emergency: +91 8235540809
               </a>
             </div>
 
             <div className="flex items-center gap-6 mt-8 pt-8 border-t border-outline-variant/50">
-              <div className="flex flex-col">
-                <span className="text-3xl font-bold text-on-surface">25+</span>
+              <div className="flex flex-col animate-fade-in" style={{ animationDelay: '0.2s' }}>
+                <span className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">25+</span>
                 <span className="text-sm font-label-bold text-on-surface-variant uppercase tracking-wider">Expert Doctors</span>
               </div>
               <div className="w-px h-12 bg-outline-variant/50"></div>
-              <div className="flex flex-col">
-                <span className="text-3xl font-bold text-on-surface">24/7</span>
+              <div className="flex flex-col animate-fade-in" style={{ animationDelay: '0.3s' }}>
+                <span className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">24/7</span>
                 <span className="text-sm font-label-bold text-on-surface-variant uppercase tracking-wider">Trauma Care</span>
               </div>
               <div className="w-px h-12 bg-outline-variant/50"></div>
-              <div className="flex flex-col">
-                <span className="text-3xl font-bold text-on-surface">15+</span>
+              <div className="flex flex-col animate-fade-in" style={{ animationDelay: '0.4s' }}>
+                <span className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">15+</span>
                 <span className="text-sm font-label-bold text-on-surface-variant uppercase tracking-wider">Specialties</span>
               </div>
             </div>
           </div>
 
-          <div className="relative z-10 lg:h-[600px] flex items-center justify-center">
+          <div className="relative z-10 lg:h-[600px] flex items-center justify-center animate-fade-in" style={{ animationDelay: '0.3s' }}>
             {/* Abstract Hero Image Composition */}
             <div className="relative w-full max-w-[500px] aspect-square">
               {/* Decorative rings */}
               <div className="absolute inset-0 border-[40px] border-surface-variant/40 rounded-full"></div>
-              <div className="absolute inset-4 border-[2px] border-primary/20 rounded-full border-dashed animate-[spin_60s_linear_infinite]"></div>
+              <div className="absolute inset-4 border-[2px] border-secondary/30 rounded-full border-dashed animate-[spin_60s_linear_infinite]"></div>
               
               {/* Main image container */}
-              <div className="absolute inset-8 rounded-full overflow-hidden shadow-2xl">
+              <div className="absolute inset-8 rounded-full overflow-hidden shadow-2xl border-4 border-surface">
                 <img loading="lazy" src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80" alt="CMC Dhanbad Facility" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-primary/10 mix-blend-multiply"></div>
               </div>
 
               {/* Floating Cards */}
               <div className="glass-card absolute top-12 -left-8 p-4 rounded-2xl shadow-xl flex items-center gap-3.5 border border-outline-variant/60 bg-surface/90 backdrop-blur-md animate-[bounce_4s_infinite]">
-                <div className="w-12 h-12 rounded-xl bg-tertiary-container text-on-tertiary-container flex items-center justify-center shadow-inner">
+                <div className="w-12 h-12 rounded-xl bg-secondary text-on-secondary flex items-center justify-center shadow-inner">
                   <span className="material-symbols-outlined text-2xl" style={{ fontVariationSettings: "'FILL' 1" }}>monitor_heart</span>
                 </div>
                 <div>
@@ -96,7 +106,7 @@ export default function HomePage({ onOpenAppointment }) {
                 </div>
                 <div>
                   <div className="font-bold text-on-surface text-sm">NABH Standards</div>
-                  <div className="text-xs font-label-bold text-tertiary-container">Quality Assured</div>
+                  <div className="text-xs font-label-bold text-secondary">Quality Assured</div>
                 </div>
               </div>
             </div>
@@ -109,10 +119,10 @@ export default function HomePage({ onOpenAppointment }) {
         <div className="max-w-container-max mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-12">
             <div className="max-w-2xl">
-              <h2 className="text-primary font-label-bold uppercase tracking-widest mb-2">Centers of Excellence</h2>
+              <h2 className="text-secondary font-label-bold uppercase tracking-widest mb-2">Centers of Excellence</h2>
               <h3 className="text-headline-lg text-on-surface">Comprehensive Clinical Care Under One Roof</h3>
             </div>
-            <Link to="/departments" className="flex items-center gap-2 text-primary hover:text-primary-container font-label-bold group">
+            <Link to="/departments" className="flex items-center gap-2 text-primary hover:text-secondary font-label-bold group transition-colors">
               View All Specialties 
               <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
             </Link>
@@ -120,17 +130,18 @@ export default function HomePage({ onOpenAppointment }) {
 
           <div className="bento-grid">
             {popularDepartments.map((dept, index) => {
-              // Creating a staggered size effect for the bento grid
               const isLarge = index === 0 || index === 3;
+              const bgClass = index % 2 === 0 ? 'bg-primary/5' : 'bg-secondary/5';
+              const textClass = index % 2 === 0 ? 'text-primary' : 'text-secondary';
               
               return (
-                <Link key={dept.slug} to={`/${dept.slug}`} className={`group relative bg-surface-container-lowest rounded-[24px] p-8 border border-outline-variant hover:border-primary/50 transition-all duration-300 hover:shadow-xl overflow-hidden flex flex-col justify-between ${isLarge ? 'md:col-span-2' : 'col-span-1'}`}>
+                <Link key={dept.slug} to={`/${dept.slug}`} className={`group relative bg-surface-container-lowest rounded-[24px] p-8 border border-outline-variant hover:border-transparent transition-all duration-300 hover:shadow-xl overflow-hidden flex flex-col justify-between ${isLarge ? 'md:col-span-2' : 'col-span-1'}`}>
                   {/* Decorative background shape */}
-                  <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-surface-variant/50 rounded-full group-hover:scale-150 group-hover:bg-primary-container/20 transition-transform duration-700 ease-out z-0"></div>
+                  <div className={`absolute -bottom-24 -right-24 w-64 h-64 rounded-full group-hover:scale-150 transition-transform duration-700 ease-out z-0 ${bgClass}`}></div>
                   
                   <div className="relative z-10">
-                    <div className="w-16 h-16 rounded-2xl bg-surface-container flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300">
-                      <span className="material-symbols-outlined text-3xl text-primary group-hover:text-on-primary" style={{ fontVariationSettings: "'FILL' 1" }}>
+                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-gradient-to-br group-hover:from-primary group-hover:to-secondary group-hover:text-white transition-all duration-300 ${bgClass}`}>
+                      <span className={`material-symbols-outlined text-3xl group-hover:text-white ${textClass}`} style={{ fontVariationSettings: "'FILL' 1" }}>
                         {dept.slug.includes('cardio') ? 'cardiology' :
                          dept.slug.includes('ortho') ? 'bone' :
                          dept.slug.includes('neuro') ? 'neurology' :
@@ -148,7 +159,7 @@ export default function HomePage({ onOpenAppointment }) {
                     <p className="text-on-surface-variant font-body-md line-clamp-2">{dept.description}</p>
                   </div>
 
-                  <div className="relative z-10 mt-8 flex items-center gap-2 text-sm font-label-bold text-primary opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
+                  <div className="relative z-10 mt-8 flex items-center gap-2 text-sm font-label-bold text-secondary opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
                     Explore Department <span className="material-symbols-outlined text-sm">arrow_forward</span>
                   </div>
                 </Link>
@@ -160,13 +171,12 @@ export default function HomePage({ onOpenAppointment }) {
 
       {/* Why Choose Us */}
       <section className="py-section-gap px-margin-mobile md:px-gutter bg-surface-container-low border-y border-outline-variant relative overflow-hidden">
-        {/* Background elements */}
         <div className="absolute top-0 right-0 w-1/2 h-full bg-surface-container-highest/30 -skew-x-12 translate-x-32 z-0"></div>
         
         <div className="max-w-container-max mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-primary font-label-bold uppercase tracking-widest mb-2">Why CMC Dhanbad?</h2>
+              <h2 className="text-secondary font-label-bold uppercase tracking-widest mb-2">Why CMC Dhanbad?</h2>
               <h3 className="text-headline-lg text-on-surface mb-6">Setting the Benchmark for Healthcare in Jharkhand</h3>
               <p className="text-body-lg text-on-surface-variant mb-8">
                 At CMC, we believe in patient-first care. Our facility is equipped with cutting-edge technology and staffed by renowned specialists to ensure you receive the best possible treatment.
@@ -174,17 +184,17 @@ export default function HomePage({ onOpenAppointment }) {
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {[
-                  { icon: 'speed', title: 'Zero Wait Emergency', desc: 'Immediate attention in critical moments.' },
-                  { icon: 'biotech', title: 'Advanced Labs', desc: 'In-house high-tech diagnostic center.' },
-                  { icon: 'support_agent', title: '24/7 Patient Care', desc: 'Round-the-clock nursing & support.' },
-                  { icon: 'payments', title: 'Transparent Pricing', desc: 'No hidden costs, ethical billing.' }
+                  { icon: 'speed', title: 'Zero Wait Emergency', desc: 'Immediate attention in critical moments.', color: 'primary' },
+                  { icon: 'biotech', title: 'Advanced Labs', desc: 'In-house high-tech diagnostic center.', color: 'secondary' },
+                  { icon: 'support_agent', title: '24/7 Patient Care', desc: 'Round-the-clock nursing & support.', color: 'secondary' },
+                  { icon: 'payments', title: 'Transparent Pricing', desc: 'No hidden costs, ethical billing.', color: 'primary' }
                 ].map((feature, i) => (
-                  <div key={i} className="flex gap-4 items-start">
-                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                      <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>{feature.icon}</span>
+                  <div key={i} className="flex gap-4 items-start group">
+                    <div className={`w-12 h-12 rounded-full flex items-center justify-center shrink-0 transition-transform group-hover:scale-110 ${feature.color === 'primary' ? 'bg-primary/10' : 'bg-secondary/10'}`}>
+                      <span className={`material-symbols-outlined ${feature.color === 'primary' ? 'text-primary' : 'text-secondary'}`} style={{ fontVariationSettings: "'FILL' 1" }}>{feature.icon}</span>
                     </div>
                     <div>
-                      <h4 className="font-bold text-on-surface mb-1">{feature.title}</h4>
+                      <h4 className="font-bold text-on-surface mb-1 group-hover:text-primary transition-colors">{feature.title}</h4>
                       <p className="text-sm text-on-surface-variant">{feature.desc}</p>
                     </div>
                   </div>
@@ -194,17 +204,43 @@ export default function HomePage({ onOpenAppointment }) {
 
             <div className="relative rounded-3xl overflow-hidden shadow-2xl h-[500px]">
               <img loading="lazy" src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80" alt="Hospital Interior" className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/60 to-transparent"></div>
               
+              {/* Testimonial Carousel */}
               <div className="absolute bottom-0 left-0 w-full p-8">
-                <div className="glass-card p-6 rounded-2xl max-w-sm">
-                  <div className="flex items-center gap-2 mb-2">
+                <div className="glass-card p-6 rounded-2xl max-w-md relative overflow-hidden border-t-4 border-secondary">
+                  <div className="flex items-center gap-2 mb-3">
                     {[1,2,3,4,5].map(star => (
-                      <span key={star} className="material-symbols-outlined text-tertiary-container" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
+                      <span key={star} className="material-symbols-outlined text-secondary" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
                     ))}
                   </div>
-                  <p className="text-on-surface font-body-md italic mb-4">"The care and attention my father received at CMC was exceptional. The doctors are highly skilled and compassionate."</p>
-                  <p className="font-label-bold text-primary">- Rajesh Kumar, Dhanbad</p>
+                  
+                  <div className="min-h-[120px] flex flex-col justify-between">
+                    <p className="text-on-surface font-body-md italic mb-4 transition-opacity duration-500 line-clamp-3">
+                      "{testimonialsData[currentTestimonial]?.quote}"
+                    </p>
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center overflow-hidden">
+                        <img src={testimonialsData[currentTestimonial]?.image} alt="Patient" className="w-full h-full object-cover" />
+                      </div>
+                      <div>
+                        <p className="font-bold text-primary text-sm">{testimonialsData[currentTestimonial]?.name}</p>
+                        <p className="text-xs text-on-surface-variant">{testimonialsData[currentTestimonial]?.role}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Carousel Indicators */}
+                  <div className="flex gap-1.5 mt-4">
+                    {testimonialsData.map((_, idx) => (
+                      <button 
+                        key={idx}
+                        onClick={() => setCurrentTestimonial(idx)}
+                        className={`h-1.5 rounded-full transition-all ${idx === currentTestimonial ? 'w-4 bg-secondary' : 'w-1.5 bg-outline-variant hover:bg-outline'}`}
+                        aria-label={`Go to testimonial ${idx + 1}`}
+                      />
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -216,22 +252,24 @@ export default function HomePage({ onOpenAppointment }) {
       <section className="py-section-gap px-margin-mobile md:px-gutter bg-surface">
         <div className="max-w-container-max mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-primary font-label-bold uppercase tracking-widest mb-2">Our Specialists</h2>
+            <h2 className="text-secondary font-label-bold uppercase tracking-widest mb-2">Our Specialists</h2>
             <h3 className="text-headline-lg text-on-surface mb-4">Meet Our Medical Experts</h3>
             <p className="text-on-surface-variant font-body-md">Our team comprises highly qualified and experienced doctors dedicated to providing the best medical care.</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {topDoctors.map(doctor => (
-              <div key={doctor.id} className="group relative bg-surface-container-lowest rounded-[24px] border border-outline-variant overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+              <div key={doctor.id} className="group relative bg-surface-container-lowest rounded-[24px] border border-outline-variant overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full pt-1.5">
+                {/* Gradient Top Accent */}
+                <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-primary to-secondary z-20"></div>
+
                 {/* Doctor Image & Background */}
                 <div className="relative h-[280px] bg-surface-container-low pt-8 px-8 overflow-hidden flex justify-center items-end">
-                  {/* Abstract background shape */}
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-primary-container/40 rounded-bl-[100px] -z-10"></div>
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-bl-[100px] -z-10 group-hover:scale-110 transition-transform"></div>
                   
                   <img loading="lazy" src={doctor.image} alt={doctor.name} className="w-48 h-48 object-cover rounded-t-[100px] border-4 border-surface-container-lowest shadow-lg relative z-10 group-hover:scale-105 transition-transform duration-500" />
                   
-                  <div className="absolute top-4 left-4 bg-tertiary-container text-on-tertiary-container text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1 z-20">
+                  <div className="absolute top-4 left-4 bg-secondary/10 text-secondary border border-secondary/20 text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1 z-20 bg-surface/80 backdrop-blur-sm">
                     <span className="material-symbols-outlined text-[14px]">verified</span>
                     Verified
                   </div>
@@ -244,7 +282,7 @@ export default function HomePage({ onOpenAppointment }) {
                   <div className="flex items-center justify-center gap-4 text-sm text-on-surface-variant mb-6 flex-grow">
                     <span className="flex items-center gap-1"><span className="material-symbols-outlined text-[16px]">school</span> {doctor.qualification}</span>
                   </div>
-                  <Link to={`/doctor/${doctor.id}`} className="block w-full py-2.5 rounded-full border border-outline text-on-surface font-label-bold hover:bg-primary hover:text-on-primary hover:border-primary transition-colors mt-auto">
+                  <Link to={`/doctor/${doctor.id}`} className="block w-full py-2.5 rounded-full border border-primary text-primary font-label-bold hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white hover:border-transparent transition-all mt-auto shadow-sm">
                     View Profile
                   </Link>
                 </div>
@@ -253,7 +291,7 @@ export default function HomePage({ onOpenAppointment }) {
           </div>
           
           <div className="text-center mt-12">
-            <Link to="/doctor" className="inline-flex items-center gap-2 text-primary font-label-bold hover:text-primary-container border-b-2 border-primary pb-1">
+            <Link to="/doctor" className="inline-flex items-center gap-2 text-primary font-label-bold hover:text-secondary border-b-2 border-primary hover:border-secondary transition-colors pb-1">
               View All Doctors <span className="material-symbols-outlined">arrow_forward</span>
             </Link>
           </div>
@@ -263,22 +301,23 @@ export default function HomePage({ onOpenAppointment }) {
       {/* CTA Section */}
       <section className="py-20 px-margin-mobile md:px-gutter relative overflow-hidden">
         {/* Background */}
-        <div className="absolute inset-0 bg-primary"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary"></div>
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-10 mix-blend-overlay"></div>
+        <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
         
         <div className="max-w-4xl mx-auto relative z-10 text-center">
-          <h2 className="text-display-lg text-on-primary mb-6">Your Health is Our Priority</h2>
-          <p className="text-on-primary/80 text-body-lg mb-10 max-w-2xl mx-auto">
+          <h2 className="text-display-lg text-white mb-6 drop-shadow-sm">Your Health is Our Priority</h2>
+          <p className="text-white/90 text-body-lg mb-10 max-w-2xl mx-auto">
             Don't delay your medical needs. Our expert team is ready to provide you with the best care possible.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button onClick={onOpenAppointment} className="bg-surface text-primary px-8 py-4 rounded-full font-label-bold hover:bg-surface-variant transition-colors shadow-lg flex items-center justify-center gap-2">
+            <button onClick={onOpenAppointment} className="bg-white text-primary px-8 py-4 rounded-full font-label-bold hover:bg-surface-variant transition-colors shadow-xl flex items-center justify-center gap-2 hover:scale-105">
               <span className="material-symbols-outlined">calendar_month</span>
               Book Consultation Now
             </button>
-            <a href="tel:+918802248261" className="bg-transparent border border-outline-variant text-on-primary px-8 py-4 rounded-full font-label-bold hover:bg-white/10 transition-colors flex items-center justify-center gap-2">
+            <a href="tel:+918235540809" className="bg-transparent border border-white/50 text-white px-8 py-4 rounded-full font-label-bold hover:bg-white/10 transition-colors flex items-center justify-center gap-2 backdrop-blur-sm">
               <span className="material-symbols-outlined">call</span>
-              +91 8802248261
+              +91 8235540809
             </a>
           </div>
         </div>

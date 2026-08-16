@@ -2,7 +2,7 @@ export const faqsData = [
   {
     category: "General Information",
     question: "How do I book an appointment with a doctor at CMC Dhanbad?",
-    answer: "You can easily book an appointment by clicking the 'Book Appointment' button on our website, selecting your preferred department and doctor. Our front desk will call you to confirm your slot. You can also book by calling our reception helpline at +91 8802248261."
+    answer: "You can easily book an appointment by clicking the 'Book Appointment' button on our website, selecting your preferred department and doctor. Our front desk will call you to confirm your slot. You can also book by calling our reception helpline at +91 8235540809."
   },
   {
     category: "General Information",

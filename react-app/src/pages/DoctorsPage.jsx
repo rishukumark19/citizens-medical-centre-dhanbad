@@ -4,7 +4,7 @@ import { doctorsData } from '../data/doctors';
 import { departmentsData } from '../data/departments';
 import SEO from '../components/SEO';
 
-export default function DoctorsPage() {
+export default function DoctorsPage({ onOpenAppointment }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedDept, setSelectedDept] = useState('All');
 
@@ -24,7 +24,7 @@ export default function DoctorsPage() {
       
       {/* Header Banner */}
       <div className="bg-surface-container-lowest py-20 px-margin-mobile md:px-gutter text-center border-b border-outline-variant relative overflow-hidden">
-        <div className="absolute inset-0 bg-primary/5"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10"></div>
         <div className="relative z-10 max-w-2xl mx-auto">
           <h1 className="text-display-lg text-on-surface mb-4">Find a Doctor</h1>
           <p className="text-body-lg text-on-surface-variant max-w-xl mx-auto">
@@ -34,30 +34,40 @@ export default function DoctorsPage() {
       </div>
 
       <div className="py-section-gap px-margin-mobile md:px-gutter max-w-container-max mx-auto w-full">
-        {/* Filters */}
-        <div className="bg-surface p-6 rounded-[24px] border border-outline-variant shadow-sm mb-12 flex flex-col md:flex-row gap-4 items-center">
-          <div className="relative flex-1 w-full">
-            <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+        {/* Search */}
+        <div className="bg-surface p-4 rounded-[24px] border border-outline-variant shadow-sm mb-8">
+          <div className="relative w-full">
+            <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-primary">search</span>
             <input 
               type="text" 
               placeholder="Search by doctor name or specialty..."
-              className="w-full pl-12 pr-4 py-3 rounded-full border-outline-variant bg-surface-container-lowest focus:border-primary focus:ring focus:ring-primary/20"
+              className="w-full pl-12 pr-4 py-3 rounded-full border-outline-variant bg-surface-container-lowest focus:border-secondary focus:ring focus:ring-secondary/20"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
-          <div className="relative w-full md:w-64">
-            <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">filter_list</span>
-            <select 
-              className="w-full pl-12 pr-4 py-3 rounded-full border-outline-variant bg-surface-container-lowest focus:border-primary focus:ring focus:ring-primary/20 appearance-none"
-              value={selectedDept}
-              onChange={(e) => setSelectedDept(e.target.value)}
+        </div>
+
+        {/* Filter Chips */}
+        <div className="relative mb-8">
+          <div className="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-surface to-transparent z-10 pointer-events-none"></div>
+          <div className="flex overflow-x-auto pb-4 gap-3 no-scrollbar items-center">
+          <span className="text-sm font-label-bold text-on-surface-variant whitespace-nowrap shrink-0 mr-2">Filter by:</span>
+          <button 
+            onClick={() => setSelectedDept('All')}
+            className={`px-5 py-2 rounded-full whitespace-nowrap font-label-bold text-sm transition-all shrink-0 ${selectedDept === 'All' ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-md' : 'bg-surface border border-outline-variant text-on-surface-variant hover:border-secondary hover:text-secondary'}`}
+          >
+            All Departments
+          </button>
+          {departmentsData.map(dept => (
+            <button 
+              key={dept.slug}
+              onClick={() => setSelectedDept(dept.title)}
+              className={`px-5 py-2 rounded-full whitespace-nowrap font-label-bold text-sm transition-all shrink-0 ${selectedDept === dept.title ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-md' : 'bg-surface border border-outline-variant text-on-surface-variant hover:border-secondary hover:text-secondary'}`}
             >
-              <option value="All">All Departments</option>
-              {departmentsData.map(dept => (
-                <option key={dept.slug} value={dept.title}>{dept.title}</option>
-              ))}
-            </select>
+              {dept.title}
+            </button>
+          ))}
           </div>
         </div>
 
@@ -69,7 +79,7 @@ export default function DoctorsPage() {
             <p className="text-on-surface-variant">Try adjusting your search criteria or filter.</p>
             <button 
               onClick={() => { setSearchTerm(''); setSelectedDept('All'); }}
-              className="mt-6 px-6 py-2 border border-primary text-primary rounded-full hover:bg-primary hover:text-on-primary transition-colors font-label-bold"
+              className="mt-6 px-6 py-2 border border-primary text-primary rounded-full hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white hover:border-transparent transition-all font-label-bold"
             >
               Clear Filters
             </button>
@@ -77,10 +87,13 @@ export default function DoctorsPage() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {filteredDoctors.map(doctor => (
-              <div key={doctor.id} className="group relative bg-surface-container-lowest rounded-[24px] border border-outline-variant overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+              <div key={doctor.id} className="group relative bg-surface-container-lowest rounded-[24px] border border-outline-variant overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full pt-1.5">
+                {/* Gradient Top Accent */}
+                <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-primary to-secondary z-20"></div>
+
                 {/* Image Section */}
                 <div className="relative h-[250px] bg-surface-container-low pt-8 px-8 overflow-hidden flex justify-center items-end">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-primary-container/40 rounded-bl-[100px] -z-10"></div>
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-bl-[100px] -z-10 group-hover:scale-110 transition-transform"></div>
                   
                   <img loading="lazy" 
                     src={doctor.image} 
@@ -88,7 +101,7 @@ export default function DoctorsPage() {
                     className="w-40 h-40 object-cover rounded-t-[100px] border-4 border-surface-container-lowest shadow-lg relative z-10 group-hover:scale-105 transition-transform duration-500" 
                   />
                   
-                  <div className="absolute top-4 left-4 bg-tertiary-container text-on-tertiary-container text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1 z-20">
+                  <div className="absolute top-4 left-4 bg-secondary/10 text-secondary border border-secondary/20 text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1 z-20 bg-surface/80 backdrop-blur-sm">
                     <span className="material-symbols-outlined text-[14px]">verified</span>
                     Verified
                   </div>
@@ -108,9 +121,14 @@ export default function DoctorsPage() {
                     </div>
                   </div>
                   
-                  <Link to={`/doctor/${doctor.id}`} className="block w-full py-2.5 rounded-full border border-outline text-on-surface font-label-bold hover:bg-primary hover:text-on-primary hover:border-primary transition-colors mt-auto">
-                    View Profile
-                  </Link>
+                  <div className="flex flex-col gap-2 mt-auto">
+                    <Link to={`/doctor/${doctor.id}`} className="block w-full py-2 rounded-full border border-primary text-primary text-sm font-label-bold hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white hover:border-transparent transition-all shadow-sm">
+                      View Profile
+                    </Link>
+                    <button onClick={onOpenAppointment} className="bg-gradient-to-r from-primary to-secondary text-white w-full py-2 rounded-full font-label-bold text-sm flex items-center justify-center gap-1 hover:opacity-90 shadow-sm transition-opacity">
+                      <span className="material-symbols-outlined text-[16px]">calendar_month</span> Book Appointment
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
