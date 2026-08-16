@@ -47,7 +47,7 @@ export default function DepartmentDetailPage() {
           
           {/* Main Content */}
           <div>
-            <div className="rounded-[24px] overflow-hidden shadow-lg mb-10 h-[400px]">
+            <div className="rounded-[24px] overflow-hidden shadow-lg mb-10 h-[250px] md:h-[400px]">
               <img loading="lazy" 
                 src={department.image || "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80"} 
                 alt={department.title} 

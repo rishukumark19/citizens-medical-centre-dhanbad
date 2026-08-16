@@ -100,7 +100,7 @@ export default function DoctorProfilePage() {
       </div>
 
       {/* Main Content Area */}
-      <div className="py-16 px-margin-mobile md:px-gutter max-w-[1200px] mx-auto w-full grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-12 items-start">
+      <div className="py-10 md:py-16 px-margin-mobile md:px-gutter max-w-[1200px] mx-auto w-full grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-12 items-start">
         
         {/* Left Column - Details */}
         <div className="flex flex-col gap-10">

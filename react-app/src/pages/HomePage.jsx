@@ -39,7 +39,7 @@ export default function HomePage() {
               Accident &amp; Emergency 24x7
             </div>
             
-            <h1 className="text-display-lg text-on-surface leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-display-lg text-on-surface leading-tight font-bold">
               Healing with <span className="text-primary">Compassion,</span><br />
               Curing with <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Technology.</span>
             </h1>
@@ -48,36 +48,36 @@ export default function HomePage() {
               Citizens Medical Centre (CMC Dhanbad) brings world-class medical expertise, advanced diagnostics, and 24/7 critical care to your neighborhood.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 mt-4">
-              <Link to="/doctor" className="bg-gradient-to-r from-primary to-secondary text-on-primary px-8 py-4 rounded-full font-label-bold transition-all shadow-md hover:shadow-lg hover:opacity-90 flex items-center justify-center gap-2 group text-base">
+            <div className="flex flex-col sm:flex-row gap-4 mt-4 w-full sm:w-auto">
+              <Link to="/doctor" className="bg-gradient-to-r from-primary to-secondary text-on-primary px-8 py-4 rounded-full font-label-bold transition-all shadow-md hover:shadow-lg hover:opacity-90 flex items-center justify-center gap-2 group text-base w-full sm:w-auto">
                 Find a Doctor
                 <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </Link>
-              <a href="tel:+918235540809" className="bg-surface hover:bg-surface-variant text-primary border-2 border-outline-variant px-8 py-4 rounded-full font-label-bold transition-all flex items-center justify-center gap-2 text-base shadow-sm">
+              <a href="tel:+918235540809" className="bg-surface hover:bg-surface-variant text-primary border-2 border-outline-variant px-8 py-4 rounded-full font-label-bold transition-all flex items-center justify-center gap-2 text-base shadow-sm w-full sm:w-auto">
                 <span className="material-symbols-outlined text-error" style={{ fontVariationSettings: "'FILL' 1" }}>emergency</span>
                 Emergency: +91 8235540809
               </a>
             </div>
 
-            <div className="flex items-center gap-6 mt-8 pt-8 border-t border-outline-variant/50">
+            <div className="flex flex-wrap items-center gap-4 sm:gap-6 mt-8 pt-8 border-t border-outline-variant/50">
               <div className="flex flex-col animate-fade-in" style={{ animationDelay: '0.2s' }}>
-                <span className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">17+</span>
-                <span className="text-sm font-label-bold text-on-surface-variant uppercase tracking-wider">Expert Doctors</span>
+                <span className="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">17+</span>
+                <span className="text-xs sm:text-sm font-label-bold text-on-surface-variant uppercase tracking-wider">Expert Doctors</span>
               </div>
-              <div className="w-px h-12 bg-outline-variant/50"></div>
+              <div className="w-px h-8 sm:h-12 bg-outline-variant/50 hidden sm:block"></div>
               <div className="flex flex-col animate-fade-in" style={{ animationDelay: '0.3s' }}>
-                <span className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">24/7</span>
-                <span className="text-sm font-label-bold text-on-surface-variant uppercase tracking-wider">Accident &amp; Emergency</span>
+                <span className="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">24/7</span>
+                <span className="text-xs sm:text-sm font-label-bold text-on-surface-variant uppercase tracking-wider">Accident &amp; Emergency</span>
               </div>
-              <div className="w-px h-12 bg-outline-variant/50"></div>
-              <div className="flex flex-col animate-fade-in" style={{ animationDelay: '0.4s' }}>
-                <span className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">20+</span>
-                <span className="text-sm font-label-bold text-on-surface-variant uppercase tracking-wider">Specialties</span>
+              <div className="w-px h-8 sm:h-12 bg-outline-variant/50 hidden sm:block"></div>
+              <div className="flex flex-col animate-fade-in w-full sm:w-auto mt-2 sm:mt-0" style={{ animationDelay: '0.4s' }}>
+                <span className="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">20+</span>
+                <span className="text-xs sm:text-sm font-label-bold text-on-surface-variant uppercase tracking-wider">Specialties</span>
               </div>
             </div>
           </div>
 
-          <div className="relative z-10 lg:h-[600px] flex items-center justify-center animate-fade-in" style={{ animationDelay: '0.3s' }}>
+          <div className="relative z-10 hidden lg:flex h-[600px] items-center justify-center animate-fade-in" style={{ animationDelay: '0.3s' }}>
             {/* Abstract Hero Image Composition */}
             <div className="relative w-full max-w-[500px] aspect-square">
               {/* Decorative rings */}
@@ -136,12 +136,12 @@ export default function HomePage() {
               const textClass = index % 2 === 0 ? 'text-primary' : 'text-secondary';
               
               return (
-                <Link key={dept.slug} to={`/${dept.slug}`} className={`group relative bg-surface-container-lowest rounded-[24px] p-8 border border-outline-variant hover:border-transparent transition-all duration-300 hover:shadow-xl overflow-hidden flex flex-col justify-between ${isLarge ? 'md:col-span-2' : 'col-span-1'}`}>
+                <Link key={dept.slug} to={`/${dept.slug}`} className={`group relative bg-surface-container-lowest rounded-[24px] p-5 md:p-8 border border-outline-variant hover:border-transparent transition-all duration-300 hover:shadow-xl overflow-hidden flex flex-col justify-between ${isLarge ? 'md:col-span-2' : 'col-span-1'}`}>
                   {/* Decorative background shape */}
                   <div className={`absolute -bottom-24 -right-24 w-64 h-64 rounded-full group-hover:scale-150 transition-transform duration-700 ease-out z-0 ${bgClass}`}></div>
                   
                   <div className="relative z-10">
-                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-gradient-to-br group-hover:from-primary group-hover:to-secondary group-hover:text-white transition-all duration-300 ${bgClass}`}>
+                    <div className={`w-12 h-12 md:w-16 md:h-16 rounded-2xl flex items-center justify-center mb-4 md:mb-6 group-hover:bg-gradient-to-br group-hover:from-primary group-hover:to-secondary group-hover:text-white transition-all duration-300 ${bgClass}`}>
                       <span className={`material-symbols-outlined text-3xl group-hover:text-white ${textClass}`} style={{ fontVariationSettings: "'FILL' 1" }}>
                         {dept.icon}
                       </span>
@@ -193,30 +193,30 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl h-[500px]">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl h-[350px] md:h-[500px]">
               <img loading="lazy" src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80" alt="Hospital Interior" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/60 to-transparent"></div>
               
               {/* Testimonial Carousel */}
-              <div className="absolute bottom-0 left-0 w-full p-8">
-                <div className="glass-card p-6 rounded-2xl max-w-md relative overflow-hidden border-t-4 border-secondary">
+              <div className="absolute bottom-0 left-0 w-full p-4 md:p-8">
+                <div className="glass-card p-4 md:p-6 rounded-2xl max-w-md relative overflow-hidden border-t-4 border-secondary">
                   <div className="flex items-center gap-2 mb-3">
                     {[1,2,3,4,5].map(star => (
-                      <span key={star} className="material-symbols-outlined text-secondary" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
+                      <span key={star} className="material-symbols-outlined text-secondary text-sm md:text-base" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
                     ))}
                   </div>
                   
-                  <div className="min-h-[120px] flex flex-col justify-between">
-                    <p className="text-on-surface font-body-md italic mb-4 transition-opacity duration-500 line-clamp-3">
+                  <div className="min-h-[100px] md:min-h-[120px] flex flex-col justify-between">
+                    <p className="text-on-surface font-body-sm md:font-body-md italic mb-4 transition-opacity duration-500 line-clamp-3">
                       "{testimonialsData[currentTestimonial]?.quote}"
                     </p>
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center overflow-hidden">
+                      <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-primary/20 flex items-center justify-center overflow-hidden shrink-0">
                         <img src={testimonialsData[currentTestimonial]?.image} alt="Patient" className="w-full h-full object-cover" />
                       </div>
-                      <div>
-                        <p className="font-bold text-primary text-sm">{testimonialsData[currentTestimonial]?.name}</p>
-                        <p className="text-xs text-on-surface-variant">{testimonialsData[currentTestimonial]?.role}</p>
+                      <div className="min-w-0">
+                        <p className="font-bold text-primary text-xs md:text-sm truncate">{testimonialsData[currentTestimonial]?.name}</p>
+                        <p className="text-[10px] md:text-xs text-on-surface-variant truncate">{testimonialsData[currentTestimonial]?.role}</p>
                       </div>
                     </div>
                   </div>

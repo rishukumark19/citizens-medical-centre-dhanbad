@@ -25,7 +25,7 @@ export default function DirectorMessagePage() {
         <div className="bg-surface-container-low p-8 md:p-12 rounded-[32px] border border-outline-variant shadow-sm">
           <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-10 items-center">
             
-            <div className="relative rounded-[28px] overflow-hidden shadow-xl h-[400px] bg-surface-container border border-outline-variant">
+            <div className="relative rounded-[28px] overflow-hidden shadow-xl h-[300px] md:h-[400px] bg-surface-container border border-outline-variant">
               <img 
                 loading="lazy" 
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuABw9IwhSgc7hAQDg9rEXr2ljaRuhRJeBDjJjXJARSRVNg-6PoQi0DLTn3XOCSl5n_sRf5bvtlcaKYu7xaGPS7op4uty_rKxYSlkwgAxIeIvCf_W5B2amr_fzMlIwfa16CQGi00Hac_-8w7f9AnAsJ70qsBJbs11RBU7p_GLfDk9IguI4m0kJIKBYZ_QPW4PISeBGQVngixxlnOIuHhlZbAHkZX4khGlHTZLGdSJXeRGnDhZ5chijUm3w" 

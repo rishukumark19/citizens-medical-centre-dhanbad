@@ -22,7 +22,7 @@ export default function AboutPage() {
         
         {/* Main About Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="rounded-[28px] overflow-hidden shadow-xl relative h-[420px] border border-outline-variant">
+          <div className="rounded-[28px] overflow-hidden shadow-xl relative h-[260px] md:h-[420px] border border-outline-variant">
             <img 
               loading="lazy" 
               src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80" 

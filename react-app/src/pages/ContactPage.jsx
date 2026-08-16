@@ -99,7 +99,7 @@ export default function ContactPage() {
           {/* Map */}
           <div className="flex flex-col gap-4 lg:sticky lg:top-28">
             <h2 className="text-headline-lg text-on-surface">Find Us</h2>
-            <div className="w-full h-[420px] bg-surface-variant rounded-2xl overflow-hidden shadow-md border border-outline-variant">
+            <div className="w-full h-[250px] md:h-[420px] bg-surface-variant rounded-2xl overflow-hidden shadow-md border border-outline-variant">
               <iframe
                 title="CMC Dhanbad Map"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14605.529815096503!2d86.41724675!3d23.7694539!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f6bb1e73715d03%3A0xc3c94294a8f946!2sBinod%20Bihari%20Chowk%2C%20Dhanbad%2C%20Jharkhand%20828130!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"

@@ -30,8 +30,8 @@ export default function DoctorCard({ doctor }) {
 
       {/* Top: Primary-colour photo area */}
       <div
-        className="relative overflow-hidden"
-        style={{ height: "320px", background: "linear-gradient(135deg, #0d57a0 0%, #05aba4 100%)" }}
+        className="relative overflow-hidden h-64 sm:h-[320px]"
+        style={{ background: "linear-gradient(135deg, #0d57a0 0%, #05aba4 100%)" }}
       >
 
         {doctor.image ? (

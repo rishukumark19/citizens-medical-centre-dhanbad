@@ -42,7 +42,7 @@ export default function InternationalPatientsPage() {
             </ul>
           </div>
 
-          <div className="rounded-[24px] overflow-hidden shadow-2xl h-[500px]">
+          <div className="rounded-[24px] overflow-hidden shadow-2xl h-[300px] md:h-[500px]">
             <img loading="lazy"
               src="https://images.unsplash.com/photo-1576091160550-2173ff9e5eb2?auto=format&fit=crop&w=800&q=80"
               alt="International Patient Services"
