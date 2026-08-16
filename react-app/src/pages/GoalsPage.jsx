@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 
-export default function GoalsPage({ onOpenAppointment }) {
+export default function GoalsPage() {
   const goalsList = [
     { title: "Reduce response time", desc: "Swift emergency interventions and instant triage during the Golden Hour.", icon: "bolt" },
     { title: "Enhance family centred care", desc: "Involving family members in decision-making and patient comfort.", icon: "family_restroom" },
@@ -69,8 +69,7 @@ export default function GoalsPage({ onOpenAppointment }) {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <button 
-              onClick={onOpenAppointment}
-              className="bg-primary text-on-primary px-8 py-3 rounded-full font-label-bold hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm"
+                            className="bg-primary text-on-primary px-8 py-3 rounded-full font-label-bold hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm"
             >
               Book Appointment
             </button>

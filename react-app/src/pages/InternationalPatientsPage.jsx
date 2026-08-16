@@ -1,7 +1,7 @@
 import React from 'react';
 import SEO from '../components/SEO';
 
-export default function InternationalPatientsPage({ onOpenAppointment }) {
+export default function InternationalPatientsPage() {
   return (
     <div className="flex flex-col">
       <SEO title="International Patient Services | Citizens Medical Centre" />
@@ -81,8 +81,7 @@ export default function InternationalPatientsPage({ onOpenAppointment }) {
           </p>
           <button 
             className="bg-surface text-primary px-8 py-4 rounded-full font-label-bold hover:bg-surface-variant transition-colors shadow-md relative z-10"
-            onClick={onOpenAppointment}
-          >
+                      >
             Request a Free Quote
           </button>
         </div>

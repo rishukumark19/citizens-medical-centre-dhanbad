@@ -1,172 +1,120 @@
-import React, { useState } from 'react';
-import SEO from '../components/SEO';
+import React from "react";
+import SEO from "../components/SEO";
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 4000);
-  };
-
   return (
     <div className="flex flex-col">
       <SEO title="Contact Us | Citizens Medical Centre" />
-      
-      {/* Header Banner */}
-      <div className="bg-surface-container-lowest py-20 px-margin-mobile md:px-gutter text-center border-b border-outline-variant relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10"></div>
-        <div className="relative z-10 max-w-2xl mx-auto">
-          <h1 className="text-display-lg text-on-surface mb-4">Contact Us</h1>
-          <p className="text-body-lg text-on-surface-variant max-w-xl mx-auto">
-            We're here for you 24/7. Get in touch for appointments, emergencies, or any inquiries.
+
+      {/* Header */}
+      <div className="relative bg-gradient-to-br from-primary to-secondary py-20 px-margin-mobile md:px-gutter text-center overflow-hidden">
+        <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-white/10"></div>
+        <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-white/5"></div>
+        <div className="relative z-10 max-w-xl mx-auto">
+          <h1 className="text-display-lg text-white mb-3 drop-shadow-sm">Contact Us</h1>
+          <p className="text-white/85 text-body-md">
+            We&apos;re here for you 24/7. Reach out for appointments, emergencies, or any inquiries.
           </p>
         </div>
       </div>
 
-      <div className="py-section-gap px-margin-mobile md:px-gutter max-w-container-max mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          
+      <div className="py-section-gap px-margin-mobile md:px-gutter max-w-container-max mx-auto w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+
           {/* Contact Details */}
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-8">
             <div>
-              <h2 className="text-headline-lg text-on-surface mb-6">Get In Touch</h2>
-              <p className="text-on-surface-variant text-body-lg mb-8">
-                Whether you need a routine checkup or emergency care, our team is ready to assist you. 
-                Fill out the form or reach us directly via phone or email.
+              <h2 className="text-headline-lg text-on-surface mb-2">Get In Touch</h2>
+              <p className="text-on-surface-variant">
+                Walk in anytime or call us — our team is always ready to help.
               </p>
             </div>
 
-            <div className="flex flex-col gap-6">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>location_on</span>
+            <div className="flex flex-col gap-5">
+              {/* Address */}
+              <div className="flex items-start gap-4 p-5 bg-surface-container-lowest rounded-2xl border border-outline-variant">
+                <div className="w-11 h-11 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>location_on</span>
                 </div>
                 <div>
-                  <h3 className="text-headline-md text-base text-on-surface mb-1">Our Location</h3>
-                  <p className="text-on-surface-variant text-sm">
-                    Citizens Medical Centre<br />
+                  <h3 className="font-bold text-on-surface mb-1">Our Location</h3>
+                  <p className="text-on-surface-variant text-sm leading-relaxed">
                     Ground Floor, Binod Bihari Chowk, CMC Hospital<br />
-                    below sbi bank, Dhanbad, Jharkhand 828130
+                    below SBI Bank, Dhanbad, Jharkhand 828130
                   </p>
+                  <a
+                    href="https://www.google.com/maps/dir/?api=1&destination=Binod+Bihari+Chowk+CMC+Hospital+Dhanbad"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-primary hover:text-secondary font-bold text-sm mt-2 transition-colors"
+                  >
+                    <span className="material-symbols-outlined text-[15px]">directions</span>
+                    Get Directions
+                  </a>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-secondary/10 text-secondary flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>call</span>
+              {/* Phone */}
+              <div className="flex items-start gap-4 p-5 bg-surface-container-lowest rounded-2xl border border-outline-variant">
+                <div className="w-11 h-11 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined text-secondary" style={{ fontVariationSettings: "'FILL' 1" }}>call</span>
                 </div>
                 <div>
-                  <h3 className="text-headline-md text-base text-on-surface mb-1">Phone Numbers</h3>
-                  <p className="text-on-surface-variant text-sm">Emergency (24/7): +91 8235540809</p>
-                  <p className="text-on-surface-variant text-sm">Appointments: +91 9263124900</p>
+                  <h3 className="font-bold text-on-surface mb-1">Phone Numbers</h3>
+                  <a href="tel:+918235540809" className="block text-on-surface-variant text-sm hover:text-primary transition-colors">
+                    Emergency (24/7): <strong>+91 8235540809</strong>
+                  </a>
+                  <a href="tel:+919263124900" className="block text-on-surface-variant text-sm hover:text-primary transition-colors mt-1">
+                    Appointments: <strong>+91 9263124900</strong>
+                  </a>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>mail</span>
+              {/* Email */}
+              <div className="flex items-start gap-4 p-5 bg-surface-container-lowest rounded-2xl border border-outline-variant">
+                <div className="w-11 h-11 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>mail</span>
                 </div>
                 <div>
-                  <h3 className="text-headline-md text-base text-on-surface mb-1">Email Address</h3>
-                  <p className="text-on-surface-variant text-sm">info@cmcdhanbad.com</p>
-                  <p className="text-on-surface-variant text-sm">hr@cmcdhanbad.com</p>
+                  <h3 className="font-bold text-on-surface mb-1">Email Address</h3>
+                  <a href="mailto:info@cmcdhanbad.com" className="block text-on-surface-variant text-sm hover:text-primary transition-colors">info@cmcdhanbad.com</a>
+                  <a href="mailto:hr@cmcdhanbad.com" className="block text-on-surface-variant text-sm hover:text-primary transition-colors mt-1">hr@cmcdhanbad.com</a>
+                </div>
+              </div>
+
+              {/* Hours */}
+              <div className="flex items-start gap-4 p-5 bg-surface-container-lowest rounded-2xl border border-outline-variant">
+                <div className="w-11 h-11 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined text-secondary" style={{ fontVariationSettings: "'FILL' 1" }}>schedule</span>
+                </div>
+                <div>
+                  <h3 className="font-bold text-on-surface mb-1">Working Hours</h3>
+                  <p className="text-on-surface-variant text-sm">OPD: Monday – Saturday, 10:00 AM – 6:00 PM</p>
+                  <p className="text-on-surface-variant text-sm mt-0.5">Emergency & ICU: <strong className="text-primary">24 / 7</strong></p>
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* Map Placeholder */}
-            <div className="flex flex-col">
-              <div className="w-full h-[350px] bg-surface-variant rounded-2xl overflow-hidden relative mt-4 shadow-sm">
-                 <iframe 
-                title="CMC Map Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14605.529815096503!2d86.41724675!3d23.7694539!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f6bb1e73715d03%3A0xc3c94294a8f946!2sBinod%20Bihari%20Chowk%2C%20Dhanbad%2C%20Jharkhand%20828130!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
-                width="100%" 
-                height="100%" 
-                style={{ border: 0 }} 
-                allowFullScreen="" 
-                loading="lazy" 
+          {/* Map */}
+          <div className="flex flex-col gap-4 lg:sticky lg:top-28">
+            <h2 className="text-headline-lg text-on-surface">Find Us</h2>
+            <div className="w-full h-[420px] bg-surface-variant rounded-2xl overflow-hidden shadow-md border border-outline-variant">
+              <iframe
+                title="CMC Dhanbad Map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14605.529815096503!2d86.41724675!3d23.7694539!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f6bb1e73715d03%3A0xc3c94294a8f946!2sBinod%20Bihari%20Chowk%2C%20Dhanbad%2C%20Jharkhand%20828130!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
-              </div>
-              <a href="https://www.google.com/maps/dir/?api=1&destination=Binod+Bihari+Chowk+CMC+Hospital+Dhanbad" target="_blank" rel="noopener noreferrer" className="inline-flex w-fit items-center gap-1 text-primary hover:text-secondary font-label-bold text-sm mt-3 transition-colors">
-                <span className="material-symbols-outlined text-[18px]">directions</span> Get Directions
-              </a>
+              />
             </div>
+            <p className="text-sm text-on-surface-variant text-center">
+              Ground Floor, Binod Bihari Chowk, Dhanbad, Jharkhand
+            </p>
           </div>
-
-          {/* Contact Form */}
-          <div className="bg-surface p-8 rounded-[24px] border border-outline-variant shadow-lg h-fit">
-            <h3 className="text-headline-md text-on-surface mb-6">Send us a Message</h3>
-            
-            {submitted ? (
-              <div className="text-center py-12">
-                <span className="material-symbols-outlined text-6xl text-secondary animate-pulse-ring mb-4">check_circle</span>
-                <h4 className="text-headline-md text-on-surface mb-2">Message Sent Successfully!</h4>
-                <p className="text-on-surface-variant">Thank you for reaching out. Our team will get back to you shortly.</p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-sm font-label-bold text-on-surface">Your Name</label>
-                  <input 
-                    type="text" 
-                    required 
-                    className="form-input rounded-lg border-outline-variant bg-surface-container-lowest focus:border-secondary focus:ring focus:ring-secondary/20"
-                    placeholder="John Doe"
-                    value={formData.name}
-                    onChange={(e) => setFormData({...formData, name: e.target.value})}
-                  />
-                </div>
-
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-sm font-label-bold text-on-surface">Email Address</label>
-                  <input 
-                    type="email" 
-                    required 
-                    className="form-input rounded-lg border-outline-variant bg-surface-container-lowest focus:border-secondary focus:ring focus:ring-secondary/20"
-                    placeholder="john@example.com"
-                    value={formData.email}
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
-                  />
-                </div>
-
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-sm font-label-bold text-on-surface">Subject</label>
-                  <input 
-                    type="text" 
-                    required 
-                    className="form-input rounded-lg border-outline-variant bg-surface-container-lowest focus:border-secondary focus:ring focus:ring-secondary/20"
-                    placeholder="How can we help you?"
-                    value={formData.subject}
-                    onChange={(e) => setFormData({...formData, subject: e.target.value})}
-                  />
-                </div>
-
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-sm font-label-bold text-on-surface">Message</label>
-                  <textarea 
-                    rows="5" 
-                    required 
-                    className="form-textarea rounded-lg border-outline-variant bg-surface-container-lowest focus:border-secondary focus:ring focus:ring-secondary/20"
-                    placeholder="Type your message here..."
-                    value={formData.message}
-                    onChange={(e) => setFormData({...formData, message: e.target.value})}
-                  ></textarea>
-                </div>
-
-                <button type="submit" className="bg-gradient-to-r from-primary to-secondary text-on-primary py-3 rounded-full font-label-bold flex items-center justify-center gap-2 hover:opacity-90 hover:shadow-lg transition-all mt-2 shadow-md">
-                  <span className="material-symbols-outlined">send</span> Send Message
-                </button>
-              </form>
-            )}
-          </div>
-
         </div>
       </div>
     </div>

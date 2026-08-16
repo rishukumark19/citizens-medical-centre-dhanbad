@@ -33,17 +33,7 @@ export default function DepartmentsPage() {
                 <div className="relative z-10">
                   <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-gradient-to-br group-hover:from-primary group-hover:to-secondary group-hover:text-white transition-all duration-300 ${bgClass}`}>
                     <span className={`material-symbols-outlined text-3xl group-hover:text-white ${textClass}`} style={{ fontVariationSettings: "'FILL' 1" }}>
-                      {dept.slug.includes('cardio') ? 'cardiology' :
-                       dept.slug.includes('ortho') ? 'bone' :
-                       dept.slug.includes('neuro') ? 'neurology' :
-                       dept.slug.includes('gynae') || dept.slug.includes('women') ? 'pregnant_woman' :
-                       dept.slug.includes('pedia') || dept.slug.includes('child') ? 'child_care' :
-                       dept.slug.includes('surgery') ? 'surgical' :
-                       dept.slug.includes('kidney') || dept.slug.includes('nephro') ? 'health_and_safety' :
-                       dept.slug.includes('urology') || dept.slug.includes('andro') ? 'water_drop' :
-                       dept.slug.includes('radio') || dept.slug.includes('imaging') ? 'radiology' :
-                       dept.slug.includes('emergency') ? 'emergency' :
-                       dept.slug.includes('medicine') ? 'stethoscope' : 'medical_services'}
+                      {dept.icon}
                     </span>
                   </div>
                   <h4 className="text-headline-md text-on-surface mb-3 group-hover:text-primary transition-colors">{dept.title}</h4>

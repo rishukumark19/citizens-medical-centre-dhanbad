@@ -4,7 +4,7 @@ import { departmentsData } from '../data/departments';
 import { doctorsData } from '../data/doctors';
 import SEO from '../components/SEO';
 
-export default function DepartmentDetailPage({ onOpenAppointment }) {
+export default function DepartmentDetailPage() {
   const { slug } = useParams();
   
   const department = departmentsData.find(d => d.slug === slug);
@@ -101,19 +101,6 @@ export default function DepartmentDetailPage({ onOpenAppointment }) {
               )}
             </div>
 
-            {/* CTA Widget */}
-            <div className="bg-primary text-on-primary rounded-[24px] p-8 text-center shadow-lg relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
-              <h3 className="text-headline-md font-bold mb-3 text-xl relative z-10">Need a Consultation?</h3>
-              <p className="text-sm opacity-90 mb-6 relative z-10">Book an appointment with our experts today.</p>
-              <button 
-                onClick={onOpenAppointment} 
-                className="w-full bg-surface text-primary py-3 rounded-full font-label-bold hover:bg-surface-variant transition-colors relative z-10 flex items-center justify-center gap-2"
-              >
-                <span className="material-symbols-outlined">calendar_month</span> Book Now
-              </button>
-            </div>
-            
           </div>
         </div>
       </div>

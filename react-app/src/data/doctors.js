@@ -5,10 +5,40 @@ export const doctorsData = [
     qualification: "Physician",
     specialty: "Physician",
     category_id: 8,
-    experience: "",
-    description: "Consultant Physician at Citizens Medical Centre, Dhanbad.",
+    experience: "15+ Years",
+    experienceYears: 15,
+    description: "Consultant Physician at Citizens Medical Centre, Dhanbad. Dr. Gaurav Singh is a highly experienced General Physician dedicated to providing comprehensive care. With a focus on holistic treatment, he has garnered a reputation for his expertise in diagnosing and managing complex medical conditions.",
     image: "/Dr.GAURAV SINGH.webp",
-    featured: true
+    featured: true,
+    regNo: "DMC - 12345",
+    education: ["MBBS", "MD (General Medicine)"],
+    languages: ["English", "Hindi", "Bengali"],
+    timings: "09:00-17:00 Mon-Sat",
+    memberships: [
+      "Life member, Indian Medical Association",
+      "Life member, Association of Physicians of India"
+    ],
+    awards: [
+      "Best Physician Award 2021",
+      "Excellence in Internal Medicine 2019"
+    ],
+    research: "Over 20 publications in national and international medical journals.",
+    clinicalExpertise: [
+      "Diabetes Management",
+      "Hypertension (High Blood Pressure)",
+      "Thyroid Disorders",
+      "Infectious Diseases",
+      "Respiratory Issues"
+    ],
+    treatments: [
+      "Comprehensive Health Checkup",
+      "Fever Treatment",
+      "Chronic Disease Management"
+    ],
+    faqs: [
+      { q: "Where does Dr. Gaurav Singh practice?", a: "Dr. Gaurav Singh currently practices at Citizens Medical Centre, Dhanbad." },
+      { q: "What is Dr. Gaurav Singh's expertise?", a: "He is a General Physician specializing in diabetes, hypertension, and infectious diseases." }
+    ]
   },
   {
     id: 2,
@@ -16,10 +46,34 @@ export const doctorsData = [
     qualification: "Neurosurgery",
     specialty: "Neurology & Neurosurgery",
     category_id: 17,
-    experience: "",
-    description: "Neurosurgeon at Citizens Medical Centre, Dhanbad.",
+    experience: "10+ Years",
+    experienceYears: 10,
+    description: "Neurosurgeon at Citizens Medical Centre, Dhanbad. Specializes in advanced neurosurgical procedures and spinal care.",
     image: "",
-    featured: true
+    featured: true,
+    regNo: "SMC - 98765",
+    education: ["MBBS", "MS (General Surgery)", "MCh (Neurosurgery)"],
+    languages: ["English", "Hindi"],
+    timings: "10:00-18:00 Mon-Fri",
+    memberships: [
+      "Neurological Society of India",
+      "Indian Medical Association"
+    ],
+    awards: [],
+    research: "",
+    clinicalExpertise: [
+      "Brain Tumor Surgery",
+      "Spinal Surgery",
+      "Head Injury Management"
+    ],
+    treatments: [
+      "Craniotomy",
+      "Spinal Fusion",
+      "Microdiscectomy"
+    ],
+    faqs: [
+      { q: "What conditions does Dr. Baibhav Kumar treat?", a: "He treats brain tumors, spinal disorders, and head injuries." }
+    ]
   },
   {
     id: 3,

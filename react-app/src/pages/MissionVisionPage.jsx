@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 
-export default function MissionVisionPage({ onOpenAppointment }) {
+export default function MissionVisionPage() {
   return (
     <div className="flex flex-col">
       <SEO title="Mission & Vision | Citizens Medical Centre Dhanbad" description="Read the official mission and vision statements of Citizens Medical Centre, Dhanbad." />
@@ -68,8 +68,7 @@ export default function MissionVisionPage({ onOpenAppointment }) {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <button 
-              onClick={onOpenAppointment}
-              className="bg-primary text-on-primary px-8 py-3 rounded-full font-label-bold hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm"
+                            className="bg-primary text-on-primary px-8 py-3 rounded-full font-label-bold hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm"
             >
               Book Appointment
             </button>

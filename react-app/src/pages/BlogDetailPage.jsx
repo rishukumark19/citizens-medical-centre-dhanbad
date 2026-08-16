@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { blogsData } from '../data/blogs';
 import SEO from '../components/SEO';
 
-export default function BlogDetailPage({ onOpenAppointment }) {
+export default function BlogDetailPage() {
   const { slug } = useParams();
   const decodedSlug = decodeURIComponent(slug || '');
 
@@ -57,8 +57,7 @@ export default function BlogDetailPage({ onOpenAppointment }) {
           </p>
           <button 
             className="bg-primary text-on-primary px-8 py-3.5 rounded-full font-label-bold hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-md flex items-center gap-2 mx-auto"
-            onClick={onOpenAppointment}
-          >
+                      >
             <span className="material-symbols-outlined">calendar_month</span> Book Appointment
           </button>
         </div>

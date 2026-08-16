@@ -86,21 +86,23 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Newsletter */}
+            {/* Hours */}
             <div className="mt-2">
-              <h4 className="text-label-bold font-bold text-on-surface text-sm mb-3">Subscribe to Health Tips</h4>
-              <form className="flex" onSubmit={(e) => e.preventDefault()}>
-                <input 
-                  type="email" 
-                  placeholder="Your email address" 
-                  className="w-full bg-surface border border-outline-variant rounded-l-lg px-3 py-2 text-sm focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary/50"
-                  required
-                />
-                <button type="submit" className="bg-secondary hover:bg-tertiary-fixed-dim text-on-secondary px-4 py-2 rounded-r-lg font-bold transition-colors flex items-center gap-1 whitespace-nowrap">
-                  <span className="material-symbols-outlined text-[18px]">send</span>
-                  <span>Subscribe</span>
-                </button>
-              </form>
+              <h4 className="text-label-bold font-bold text-on-surface text-sm mb-3">Working Hours</h4>
+              <ul className="flex flex-col gap-2 text-sm text-on-surface-variant">
+                <li className="flex justify-between border-b border-outline-variant/50 pb-2">
+                  <span>OPD</span>
+                  <span className="font-bold text-on-surface">Mon–Sat, 10AM–6PM</span>
+                </li>
+                <li className="flex justify-between border-b border-outline-variant/50 pb-2">
+                  <span>Emergency</span>
+                  <span className="font-bold text-secondary">24 / 7</span>
+                </li>
+                <li className="flex justify-between">
+                  <span>Radiology</span>
+                  <span className="font-bold text-secondary">24 / 7</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>

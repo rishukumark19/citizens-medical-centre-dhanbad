@@ -4,9 +4,10 @@ import { departmentsData } from '../data/departments';
 import { doctorsData } from '../data/doctors';
 import { testimonialsData } from '../data/testimonials';
 import SEO from '../components/SEO';
+import DoctorCard from '../components/DoctorCard';
 
-export default function HomePage({ onOpenAppointment }) {
-  const popularDepartments = departmentsData.slice(0, 8);
+export default function HomePage() {
+  const popularDepartments = departmentsData.slice(0, 6);
   const topDoctors = doctorsData.filter(d => d.featured).slice(0, 4);
   if (topDoctors.length === 0) topDoctors.push(...doctorsData.slice(0, 4));
 
@@ -48,10 +49,10 @@ export default function HomePage({ onOpenAppointment }) {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 mt-4">
-              <button onClick={onOpenAppointment} className="bg-gradient-to-r from-primary to-secondary text-on-primary px-8 py-4 rounded-full font-label-bold transition-all shadow-md hover:shadow-lg hover:opacity-90 flex items-center justify-center gap-2 group text-base">
-                Book an Appointment
+              <Link to="/doctor" className="bg-gradient-to-r from-primary to-secondary text-on-primary px-8 py-4 rounded-full font-label-bold transition-all shadow-md hover:shadow-lg hover:opacity-90 flex items-center justify-center gap-2 group text-base">
+                Find a Doctor
                 <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
-              </button>
+              </Link>
               <a href="tel:+918235540809" className="bg-surface hover:bg-surface-variant text-primary border-2 border-outline-variant px-8 py-4 rounded-full font-label-bold transition-all flex items-center justify-center gap-2 text-base shadow-sm">
                 <span className="material-symbols-outlined text-error" style={{ fontVariationSettings: "'FILL' 1" }}>emergency</span>
                 Emergency: +91 8235540809
@@ -142,17 +143,7 @@ export default function HomePage({ onOpenAppointment }) {
                   <div className="relative z-10">
                     <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-gradient-to-br group-hover:from-primary group-hover:to-secondary group-hover:text-white transition-all duration-300 ${bgClass}`}>
                       <span className={`material-symbols-outlined text-3xl group-hover:text-white ${textClass}`} style={{ fontVariationSettings: "'FILL' 1" }}>
-                        {dept.slug.includes('cardio') ? 'cardiology' :
-                         dept.slug.includes('ortho') ? 'bone' :
-                         dept.slug.includes('neuro') ? 'neurology' :
-                         dept.slug.includes('gynae') || dept.slug.includes('women') ? 'pregnant_woman' :
-                         dept.slug.includes('pedia') || dept.slug.includes('child') ? 'child_care' :
-                         dept.slug.includes('surgery') ? 'surgical' :
-                         dept.slug.includes('kidney') || dept.slug.includes('nephro') ? 'health_and_safety' :
-                         dept.slug.includes('urology') || dept.slug.includes('andro') ? 'water_drop' :
-                         dept.slug.includes('radio') || dept.slug.includes('imaging') ? 'radiology' :
-                         dept.slug.includes('emergency') ? 'emergency' :
-                         dept.slug.includes('medicine') ? 'stethoscope' : 'medical_services'}
+                        {dept.icon}
                       </span>
                     </div>
                     <h4 className="text-headline-md text-on-surface mb-3 group-hover:text-primary transition-colors">{dept.title}</h4>
@@ -257,36 +248,9 @@ export default function HomePage({ onOpenAppointment }) {
             <p className="text-on-surface-variant font-body-md">Our team comprises highly qualified and experienced doctors dedicated to providing the best medical care.</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {topDoctors.map(doctor => (
-              <div key={doctor.id} className="group relative bg-surface-container-lowest rounded-[24px] border border-outline-variant overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full pt-1.5">
-                {/* Gradient Top Accent */}
-                <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-primary to-secondary z-20"></div>
-
-                {/* Doctor Image & Background */}
-                <div className="relative h-[280px] bg-surface-container-low pt-8 px-8 overflow-hidden flex justify-center items-end">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-bl-[100px] -z-10 group-hover:scale-110 transition-transform"></div>
-                  
-                  <img loading="lazy" src={doctor.image} alt={doctor.name} className="w-48 h-48 object-cover rounded-t-[100px] border-4 border-surface-container-lowest shadow-lg relative z-10 group-hover:scale-105 transition-transform duration-500" />
-                  
-                  <div className="absolute top-4 left-4 bg-secondary/10 text-secondary border border-secondary/20 text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1 z-20 bg-surface/80 backdrop-blur-sm">
-                    <span className="material-symbols-outlined text-[14px]">verified</span>
-                    Verified
-                  </div>
-                </div>
-
-                {/* Details */}
-                <div className="p-6 text-center flex flex-col flex-grow">
-                  <h4 className="text-xl font-bold text-on-surface mb-1">{doctor.name}</h4>
-                  <p className="text-primary font-label-bold mb-3">{doctor.specialty}</p>
-                  <div className="flex items-center justify-center gap-4 text-sm text-on-surface-variant mb-6 flex-grow">
-                    <span className="flex items-center gap-1"><span className="material-symbols-outlined text-[16px]">school</span> {doctor.qualification}</span>
-                  </div>
-                  <Link to={`/doctor/${doctor.id}`} className="block w-full py-2.5 rounded-full border border-primary text-primary font-label-bold hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white hover:border-transparent transition-all mt-auto shadow-sm">
-                    View Profile
-                  </Link>
-                </div>
-              </div>
+              <DoctorCard key={doctor.id} doctor={doctor} />
             ))}
           </div>
           
@@ -298,30 +262,6 @@ export default function HomePage({ onOpenAppointment }) {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-margin-mobile md:px-gutter relative overflow-hidden">
-        {/* Background */}
-        <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary"></div>
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-10 mix-blend-overlay"></div>
-        <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
-        
-        <div className="max-w-4xl mx-auto relative z-10 text-center">
-          <h2 className="text-display-lg text-white mb-6 drop-shadow-sm">Your Health is Our Priority</h2>
-          <p className="text-white/90 text-body-lg mb-10 max-w-2xl mx-auto">
-            Don't delay your medical needs. Our expert team is ready to provide you with the best care possible.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button onClick={onOpenAppointment} className="bg-white text-primary px-8 py-4 rounded-full font-label-bold hover:bg-surface-variant transition-colors shadow-xl flex items-center justify-center gap-2 hover:scale-105">
-              <span className="material-symbols-outlined">calendar_month</span>
-              Book Consultation Now
-            </button>
-            <a href="tel:+918235540809" className="bg-transparent border border-white/50 text-white px-8 py-4 rounded-full font-label-bold hover:bg-white/10 transition-colors flex items-center justify-center gap-2 backdrop-blur-sm">
-              <span className="material-symbols-outlined">call</span>
-              +91 8235540809
-            </a>
-          </div>
-        </div>
-      </section>
     </main>
   );
 }

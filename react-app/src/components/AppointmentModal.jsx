@@ -1,219 +1,173 @@
-import React, { useState } from 'react';
-import { doctorsData } from '../data/doctors';
-import { departmentsData } from '../data/departments';
+import React, { useState } from "react";
+import { departmentsData } from "../data/departments";
 
 export default function AppointmentModal({ isOpen, onClose }) {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    department: '',
-    doctor_id: '',
-    message: '',
-    date: ''
+  const [form, setForm] = useState({
+    name: "", phone: "", email: "", department: "", message: ""
   });
-
   const [submitted, setSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   if (!isOpen) return null;
 
-  // Filter doctors based on selected department
-  const selectedDeptObj = departmentsData.find(d => d.slug === formData.department);
-  const filteredDoctors = selectedDeptObj
-    ? doctorsData.filter(doc => doc.category_id === selectedDeptObj.category_id)
-    : doctorsData;
+  const set = (field) => (e) => setForm({ ...form, [field]: e.target.value });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulating API call to EmailJS / Formspree
+    setLoading(true);
     setTimeout(() => {
-      setIsSubmitting(false);
+      setLoading(false);
       setSubmitted(true);
       setTimeout(() => {
         setSubmitted(false);
         onClose();
-        setFormData({ name: '', email: '', phone: '', department: '', doctor_id: '', message: '', date: '' });
-      }, 4000);
-    }, 1500);
+        setForm({ name: "", phone: "", email: "", department: "", message: "" });
+      }, 3500);
+    }, 1200);
   };
 
   return (
-    <div className="fixed inset-0 bg-background/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4" onClick={onClose}>
-      <div 
-        className="bg-surface w-full max-w-2xl rounded-2xl shadow-xl overflow-hidden flex flex-col max-h-[90vh]" 
-        onClick={e => e.stopPropagation()}
+    <div
+      className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[100] flex items-center justify-center p-4"
+      onClick={onClose}
+    >
+      <div
+        className="bg-surface w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[95vh]"
+        onClick={(e) => e.stopPropagation()}
       >
-        <div className="bg-gradient-to-r from-primary to-secondary text-on-primary p-6 flex justify-between items-center relative overflow-hidden">
-          {/* Decorative subtle background icon */}
-          <span className="material-symbols-outlined absolute -right-6 -top-6 text-[120px] text-white/10 rotate-12">calendar_month</span>
-          
-          <h3 className="text-headline-md font-bold flex items-center gap-2 relative z-10">
-            <span className="material-symbols-outlined text-3xl">calendar_month</span>
-            Book Appointment
-          </h3>
+        {/* Header */}
+        <div className="bg-gradient-to-r from-primary to-secondary p-5 flex justify-between items-center relative overflow-hidden">
+          <div className="absolute -right-8 -top-8 w-28 h-28 rounded-full bg-white/10"></div>
+          <div className="relative z-10">
+            <h3 className="text-white font-bold text-lg flex items-center gap-2">
+              <span className="material-symbols-outlined text-xl" style={{ fontVariationSettings: "'FILL' 1" }}>calendar_month</span>
+              Book an Appointment
+            </h3>
+            <p className="text-white/80 text-xs mt-0.5">Our front desk will confirm your slot via phone.</p>
+          </div>
           <button
             onClick={onClose}
-            className="text-on-primary hover:bg-white/20 p-2 rounded-full transition-colors relative z-10"
-            aria-label="Close modal"
+            className="relative z-10 text-white/80 hover:text-white hover:bg-white/20 p-1.5 rounded-full transition-all"
+            aria-label="Close"
           >
-            <span className="material-symbols-outlined">close</span>
+            <span className="material-symbols-outlined text-xl">close</span>
           </button>
         </div>
 
-        {/* Step Indicator (Visual) */}
-        {!submitted && (
-          <div className="bg-surface-container-lowest px-6 py-3 border-b border-outline-variant flex items-center justify-between text-sm font-bold">
-            <div className="flex items-center gap-2 text-primary">
-              <span className="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center text-xs">1</span>
-              Patient Details
-            </div>
-            <div className="w-12 h-px bg-outline-variant hidden sm:block"></div>
-            <div className="flex items-center gap-2 text-on-surface-variant">
-              <span className="w-6 h-6 rounded-full bg-surface-container-highest text-on-surface flex items-center justify-center text-xs">2</span>
-              Confirmation
-            </div>
-          </div>
-        )}
-
+        {/* Body */}
         <div className="p-6 overflow-y-auto">
           {submitted ? (
-            <div className="text-center py-12 px-6 flex flex-col items-center">
-              <span className="material-symbols-outlined text-6xl text-secondary animate-pulse-ring mb-4">check_circle</span>
-              <h3 className="text-headline-md text-on-surface font-bold mb-2">Request Received!</h3>
-              <p className="text-on-surface-variant max-w-md">
-                Thank you, <strong className="text-on-surface">{formData.name}</strong>. Our front desk will call you shortly on <strong>{formData.phone}</strong> to confirm your schedule.
+            <div className="text-center py-10 flex flex-col items-center gap-3">
+              <div className="w-16 h-16 rounded-full bg-secondary/10 flex items-center justify-center">
+                <span className="material-symbols-outlined text-4xl text-secondary" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
+              </div>
+              <h4 className="text-lg font-bold text-on-surface">Request Received!</h4>
+              <p className="text-on-surface-variant text-sm max-w-xs">
+                Thank you, <strong className="text-on-surface">{form.name}</strong>. We'll call you on{" "}
+                <strong className="text-primary">{form.phone}</strong> to confirm your appointment.
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-sm font-label-bold text-on-surface flex items-center gap-1.5">
-                    <span className="material-symbols-outlined text-base text-primary">person</span> Full Name *
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    className="form-input w-full rounded-lg border-outline-variant focus:border-secondary focus:ring focus:ring-secondary/20 bg-surface text-on-surface"
-                    placeholder="e.g. Rahul Sharma"
-                    value={formData.name}
-                    onChange={e => setFormData({ ...formData, name: e.target.value })}
-                  />
-                </div>
-
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-sm font-label-bold text-on-surface flex items-center gap-1.5">
-                    <span className="material-symbols-outlined text-base text-primary">phone</span> Phone Number *
-                  </label>
-                  <input
-                    type="tel"
-                    required
-                    className="form-input w-full rounded-lg border-outline-variant focus:border-secondary focus:ring focus:ring-secondary/20 bg-surface text-on-surface"
-                    placeholder="e.g. 9876543210"
-                    value={formData.phone}
-                    onChange={e => setFormData({ ...formData, phone: e.target.value })}
-                  />
-                </div>
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+              {/* Name */}
+              <div className="flex flex-col gap-1">
+                <label className="text-sm font-bold text-on-surface flex items-center gap-1.5">
+                  <span className="material-symbols-outlined text-primary text-[15px]">person</span>
+                  Full Name <span className="text-error">*</span>
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={form.name}
+                  onChange={set("name")}
+                  placeholder="e.g. Rahul Sharma"
+                  className="form-input w-full rounded-lg border-outline-variant bg-surface-container-lowest focus:border-secondary focus:ring focus:ring-secondary/20 text-on-surface text-sm"
+                />
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-sm font-label-bold text-on-surface flex items-center gap-1.5">
-                    <span className="material-symbols-outlined text-base text-primary">mail</span> Email Address
-                  </label>
-                  <input
-                    type="email"
-                    className="form-input w-full rounded-lg border-outline-variant focus:border-secondary focus:ring focus:ring-secondary/20 bg-surface text-on-surface"
-                    placeholder="rahul@example.com"
-                    value={formData.email}
-                    onChange={e => setFormData({ ...formData, email: e.target.value })}
-                  />
-                </div>
-
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-sm font-label-bold text-on-surface flex items-center gap-1.5">
-                    <span className="material-symbols-outlined text-base text-primary">event</span> Preferred Date
-                  </label>
-                  <input
-                    type="date"
-                    required
-                    className="form-input w-full rounded-lg border-outline-variant focus:border-secondary focus:ring focus:ring-secondary/20 bg-surface text-on-surface"
-                    value={formData.date}
-                    onChange={e => setFormData({ ...formData, date: e.target.value })}
-                  />
-                </div>
+              {/* Phone */}
+              <div className="flex flex-col gap-1">
+                <label className="text-sm font-bold text-on-surface flex items-center gap-1.5">
+                  <span className="material-symbols-outlined text-primary text-[15px]">phone</span>
+                  Phone Number <span className="text-error">*</span>
+                </label>
+                <input
+                  type="tel"
+                  required
+                  value={form.phone}
+                  onChange={set("phone")}
+                  placeholder="e.g. 9876543210"
+                  className="form-input w-full rounded-lg border-outline-variant bg-surface-container-lowest focus:border-secondary focus:ring focus:ring-secondary/20 text-on-surface text-sm"
+                />
               </div>
 
-              <div className="flex flex-col gap-1.5">
-                <label className="text-sm font-label-bold text-on-surface flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-base text-primary">stethoscope</span> Department *
+              {/* Email (optional) */}
+              <div className="flex flex-col gap-1">
+                <label className="text-sm font-bold text-on-surface flex items-center gap-1.5">
+                  <span className="material-symbols-outlined text-primary text-[15px]">mail</span>
+                  Email Address <span className="text-on-surface-variant font-normal text-xs">(optional)</span>
+                </label>
+                <input
+                  type="email"
+                  value={form.email}
+                  onChange={set("email")}
+                  placeholder="rahul@example.com"
+                  className="form-input w-full rounded-lg border-outline-variant bg-surface-container-lowest focus:border-secondary focus:ring focus:ring-secondary/20 text-on-surface text-sm"
+                />
+              </div>
+
+              {/* Department */}
+              <div className="flex flex-col gap-1">
+                <label className="text-sm font-bold text-on-surface flex items-center gap-1.5">
+                  <span className="material-symbols-outlined text-primary text-[15px]">stethoscope</span>
+                  Department / Specialty <span className="text-error">*</span>
                 </label>
                 <select
                   required
-                  className="form-select w-full rounded-lg border-outline-variant focus:border-secondary focus:ring focus:ring-secondary/20 bg-surface text-on-surface"
-                  value={formData.department}
-                  onChange={e => setFormData({ ...formData, department: e.target.value, doctor_id: '' })}
+                  value={form.department}
+                  onChange={set("department")}
+                  className="form-select w-full rounded-lg border-outline-variant bg-surface-container-lowest focus:border-secondary focus:ring focus:ring-secondary/20 text-on-surface text-sm"
                 >
-                  <option value="">Select Department / Specialty</option>
-                  {departmentsData.map(dept => (
-                    <option key={dept.slug} value={dept.slug}>{dept.title}</option>
+                  <option value="">Select a department...</option>
+                  {departmentsData.map((d) => (
+                    <option key={d.slug} value={d.slug}>{d.title}</option>
                   ))}
                 </select>
               </div>
 
-              <div className="flex flex-col gap-1.5">
-                <label className="text-sm font-label-bold text-on-surface flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-base text-primary">medical_information</span> Doctor *
-                </label>
-                <select
-                  required
-                  className="form-select w-full rounded-lg border-outline-variant focus:border-secondary focus:ring focus:ring-secondary/20 bg-surface text-on-surface"
-                  value={formData.doctor_id}
-                  onChange={e => setFormData({ ...formData, doctor_id: e.target.value })}
-                >
-                  <option value="">Select Doctor</option>
-                  {filteredDoctors.map(doc => (
-                    <option key={doc.id} value={doc.id}>{doc.name} ({doc.specialty})</option>
-                  ))}
-                </select>
-              </div>
-
-              <div className="flex flex-col gap-1.5">
-                <label className="text-sm font-label-bold text-on-surface flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-base text-primary">description</span> Message / Symptoms
+              {/* Message */}
+              <div className="flex flex-col gap-1">
+                <label className="text-sm font-bold text-on-surface flex items-center gap-1.5">
+                  <span className="material-symbols-outlined text-primary text-[15px]">description</span>
+                  Message / Symptoms <span className="text-on-surface-variant font-normal text-xs">(optional)</span>
                 </label>
                 <textarea
-                  className="form-textarea w-full rounded-lg border-outline-variant focus:border-secondary focus:ring focus:ring-secondary/20 bg-surface text-on-surface"
                   rows="3"
-                  placeholder="Describe your query or symptoms briefly..."
-                  value={formData.message}
-                  onChange={e => setFormData({ ...formData, message: e.target.value })}
-                ></textarea>
+                  value={form.message}
+                  onChange={set("message")}
+                  placeholder="Briefly describe your query or symptoms..."
+                  className="form-textarea w-full rounded-lg border-outline-variant bg-surface-container-lowest focus:border-secondary focus:ring focus:ring-secondary/20 text-on-surface text-sm resize-none"
+                />
               </div>
 
-              <div className="flex justify-end gap-3 mt-4">
+              {/* Actions */}
+              <div className="flex gap-3 pt-1">
                 <button
                   type="button"
                   onClick={onClose}
-                  className="px-6 py-2.5 rounded-full border border-outline text-on-surface hover:bg-surface-variant font-label-bold transition-colors"
+                  className="flex-1 py-2.5 rounded-xl border border-outline-variant text-on-surface-variant font-bold text-sm hover:bg-surface-variant transition-colors"
                 >
                   Cancel
                 </button>
-                <button 
-                  type="submit" 
-                  disabled={isSubmitting} 
-                  className={`px-6 py-2.5 rounded-full bg-gradient-to-r from-primary to-secondary text-on-primary font-label-bold flex items-center gap-2 transition-all ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:opacity-90 shadow-md hover:shadow-lg'}`}
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className={`flex-1 py-2.5 rounded-xl bg-gradient-to-r from-primary to-secondary text-white font-bold text-sm flex items-center justify-center gap-2 transition-all ${loading ? "opacity-70 cursor-not-allowed" : "hover:opacity-90 shadow-md"}`}
                 >
-                  {isSubmitting ? (
-                    <>
-                      <span className="material-symbols-outlined animate-spin text-sm">progress_activity</span>
-                      Submitting...
-                    </>
+                  {loading ? (
+                    <><span className="material-symbols-outlined animate-spin text-[16px]">progress_activity</span> Sending...</>
                   ) : (
-                    <>Confirm Booking</>
+                    <>Confirm Request</>
                   )}
                 </button>
               </div>

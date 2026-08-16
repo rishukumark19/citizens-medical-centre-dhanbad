@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 
-export default function DirectorMessagePage({ onOpenAppointment }) {
+export default function DirectorMessagePage() {
   return (
     <div className="flex flex-col">
       <SEO title="Director's Message | Citizens Medical Centre Dhanbad" description="Read the message from the directors of Citizens Medical Centre, Dhanbad about our commitment to quality patient care." />
@@ -55,8 +55,7 @@ export default function DirectorMessagePage({ onOpenAppointment }) {
                 </div>
 
                 <button 
-                  onClick={onOpenAppointment}
-                  className="bg-primary text-on-primary px-6 py-2.5 rounded-full text-label-bold font-label-bold hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm inline-flex items-center gap-2"
+                                    className="bg-primary text-on-primary px-6 py-2.5 rounded-full text-label-bold font-label-bold hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm inline-flex items-center gap-2"
                 >
                   Book Appointment
                   <span className="material-symbols-outlined text-sm">arrow_forward</span>

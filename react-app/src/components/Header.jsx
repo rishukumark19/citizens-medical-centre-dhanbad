@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { departmentsData } from '../data/departments';
+import AppointmentModal from './AppointmentModal';
 
-export default function Header({ onOpenAppointment }) {
+export default function Header() {
+  const [modalOpen, setModalOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeMobileSubmenu, setActiveMobileSubmenu] = useState(null);
   const [scrolled, setScrolled] = useState(false);
@@ -113,7 +115,7 @@ export default function Header({ onOpenAppointment }) {
             </div>
             
             <button 
-              onClick={onOpenAppointment} 
+              onClick={() => setModalOpen(true)} 
               className="hidden md:inline-flex items-center justify-center bg-gradient-to-r from-primary to-secondary text-on-primary rounded-lg px-6 py-2.5 text-label-bold font-label-bold hover:shadow-lg hover:opacity-90 transition-all duration-300 gap-2"
             >
               <span className="material-symbols-outlined text-[18px]">calendar_month</span>
@@ -198,7 +200,7 @@ export default function Header({ onOpenAppointment }) {
 
             <div className="mt-6 px-4 pb-10">
               <button 
-                onClick={() => { setMobileMenuOpen(false); onOpenAppointment(); }} 
+                onClick={() => { setMobileMenuOpen(false); setModalOpen(true); }} 
                 className="w-full flex items-center justify-center bg-gradient-to-r from-primary to-secondary text-on-primary rounded-lg px-6 py-3.5 text-label-bold font-label-bold gap-2 shadow-md hover:opacity-90 transition-opacity"
               >
                 <span className="material-symbols-outlined text-[18px]">calendar_month</span> Book Appointment
@@ -207,6 +209,7 @@ export default function Header({ onOpenAppointment }) {
           </div>
         </div>
       )}
+      <AppointmentModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   );
 }

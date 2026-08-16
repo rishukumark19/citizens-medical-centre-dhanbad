@@ -1,7 +1,7 @@
 import React from 'react';
 import SEO from '../components/SEO';
 
-export default function HealthPackagesPage({ onOpenAppointment }) {
+export default function HealthPackagesPage() {
   const packages = [
     {
       name: "Basic Wellness Check",
@@ -111,8 +111,7 @@ export default function HealthPackagesPage({ onOpenAppointment }) {
 
               <button 
                 className={`w-full py-3.5 rounded-full font-label-bold flex items-center justify-center gap-2 transition-colors ${pkg.popular ? 'bg-[#f59e0b] text-white hover:bg-[#d97706] shadow-md' : 'border border-primary text-primary hover:bg-primary hover:text-on-primary'}`}
-                onClick={onOpenAppointment}
-              >
+                              >
                 <span className="material-symbols-outlined text-[18px]">calendar_month</span> Book This Package
               </button>
             </div>

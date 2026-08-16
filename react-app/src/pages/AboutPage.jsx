@@ -1,7 +1,7 @@
 import React from 'react';
 import SEO from '../components/SEO';
 
-export default function AboutPage({ onOpenAppointment }) {
+export default function AboutPage() {
   return (
     <div className="flex flex-col">
       <SEO title="About Us | Citizens Medical Centre Dhanbad" description="Citizens Medical Centre is a 109 bedded leading super specialty hospital in Dhanbad providing high end health care." />
@@ -42,15 +42,7 @@ export default function AboutPage({ onOpenAppointment }) {
             <p className="text-on-surface-variant text-body-lg leading-relaxed">
               Citizens Medical Centre, Dhanbad is a 109 bedded (proposed 150-bed) leading super specialty hospital of global standard dedicated to providing high end health care to the people of Dhanbad. We cater to all your health needs with special attention to Emergency medicine &amp; critical care with dedicated over 50% for neonatal, paediatric and adult critical care beds, premier operating facility, advanced laparoscopy setup, Birthing suite, 24x7 Radiology and laboratory.
             </p>
-            <div className="mt-2">
-              <button 
-                onClick={onOpenAppointment}
-                className="bg-primary text-on-primary px-6 py-3 rounded-full text-label-bold font-label-bold hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm inline-flex items-center gap-2"
-              >
-                Book Appointment
-                <span className="material-symbols-outlined text-sm">calendar_month</span>
-              </button>
-            </div>
+            
           </div>
         </div>
 
