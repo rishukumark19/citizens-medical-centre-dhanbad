@@ -20,6 +20,7 @@ import GalleryPage from './pages/GalleryPage';
 import HealthPackagesPage from './pages/HealthPackagesPage';
 import DoctorProfilePage from './pages/DoctorProfilePage';
 import NotFoundPage from './pages/NotFoundPage';
+import DepartmentsPage from './pages/DepartmentsPage';
 import WhatsAppButton from './components/WhatsAppButton';
 import ScrollToTopButton from './components/ScrollToTopButton';
 import ScrollToTop from './components/ScrollToTop';
@@ -65,6 +66,9 @@ export default function App() {
 
               {/* Contact Us Route */}
               <Route path="/contact-us" element={<ContactPage onOpenAppointment={handleOpenAppointment} />} />
+
+              {/* All Departments Listing Route */}
+              <Route path="/departments" element={<DepartmentsPage />} />
 
               {/* Department / Centers of Care Routes (Catch-all for departments) */}
               <Route path="/:slug" element={<DepartmentDetailPage onOpenAppointment={handleOpenAppointment} />} />
