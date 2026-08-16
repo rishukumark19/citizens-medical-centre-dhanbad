@@ -29,7 +29,7 @@ export default function Header({ onOpenAppointment }) {
         <div className="max-w-container-max mx-auto w-full flex justify-between items-center">
           <p className="flex items-center gap-1.5 opacity-90"><span className="material-symbols-outlined text-[14px]">emergency</span> CMC Dhanbad Emergency: +91 8235540809</p>
           <div className="flex gap-4 opacity-90">
-            <p className="flex items-center gap-1.5"><span className="material-symbols-outlined text-[14px]">schedule</span> 24/7 Trauma Care</p>
+            <p className="flex items-center gap-1.5"><span className="material-symbols-outlined text-[14px]">emergency</span> Accident &amp; Emergency 24x7</p>
             <p className="flex items-center gap-1.5 border-l border-on-primary/30 pl-4"><span className="material-symbols-outlined text-[14px]">location_on</span> Binod Bihari Chowk, Dhanbad</p>
           </div>
         </div>

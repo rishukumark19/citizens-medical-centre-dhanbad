@@ -95,11 +95,17 @@ export default function DoctorsPage({ onOpenAppointment }) {
                 <div className="relative h-[250px] bg-surface-container-low pt-8 px-8 overflow-hidden flex justify-center items-end">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-bl-[100px] -z-10 group-hover:scale-110 transition-transform"></div>
                   
-                  <img loading="lazy" 
-                    src={doctor.image} 
-                    alt={doctor.name} 
-                    className="w-40 h-40 object-cover rounded-t-[100px] border-4 border-surface-container-lowest shadow-lg relative z-10 group-hover:scale-105 transition-transform duration-500" 
-                  />
+                  {doctor.image ? (
+                    <img loading="lazy" 
+                      src={doctor.image} 
+                      alt={doctor.name} 
+                      className="w-40 h-40 object-cover rounded-t-[100px] border-4 border-surface-container-lowest shadow-lg relative z-10 group-hover:scale-105 transition-transform duration-500" 
+                    />
+                  ) : (
+                    <div className="w-40 h-40 rounded-t-[100px] border-4 border-surface-container-lowest shadow-lg relative z-10 bg-gradient-to-br from-primary to-secondary flex items-end justify-center overflow-hidden">
+                      <span className="material-symbols-outlined text-7xl text-white/80" style={{ fontVariationSettings: "'FILL' 1" }}>person</span>
+                    </div>
+                  )}
                   
                   <div className="absolute top-4 left-4 bg-secondary/10 text-secondary border border-secondary/20 text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1 z-20 bg-surface/80 backdrop-blur-sm">
                     <span className="material-symbols-outlined text-[14px]">verified</span>
@@ -116,9 +122,11 @@ export default function DoctorsPage({ onOpenAppointment }) {
                     <div className="flex items-center justify-center gap-1">
                       <span className="material-symbols-outlined text-[16px]">school</span> {doctor.qualification}
                     </div>
-                    <div className="flex items-center justify-center gap-1">
-                      <span className="material-symbols-outlined text-[16px]">work_history</span> {doctor.experience} Exp.
-                    </div>
+                    {doctor.experience && (
+                      <div className="flex items-center justify-center gap-1">
+                        <span className="material-symbols-outlined text-[16px]">work_history</span> {doctor.experience} Exp.
+                      </div>
+                    )}
                   </div>
                   
                   <div className="flex flex-col gap-2 mt-auto">

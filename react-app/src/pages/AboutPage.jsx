@@ -58,9 +58,9 @@ export default function AboutPage({ onOpenAppointment }) {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
             { value: '109+', label: 'Hospital Beds', color: 'primary' },
-            { value: '25+', label: 'Specialist Doctors', color: 'secondary' },
-            { value: '15+', label: 'Years Experience', color: 'primary' },
-            { value: '24/7', label: 'Emergency Care', color: 'secondary' }
+            { value: '17+', label: 'Specialist Doctors', color: 'secondary' },
+            { value: '20+', label: 'Specialties', color: 'primary' },
+            { value: '24/7', label: 'Accident & Emergency', color: 'secondary' }
           ].map((stat, i) => (
             <div key={i} className="p-6 rounded-2xl flex flex-col items-center justify-center text-center bg-gradient-to-br from-primary to-secondary text-white shadow-md">
               <span className="text-4xl font-bold mb-1">{stat.value}</span>

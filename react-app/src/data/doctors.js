@@ -3,10 +3,10 @@ export const doctorsData = [
     id: 1,
     name: "Dr. Gaurav Singh",
     qualification: "Physician",
-    specialty: "Internal Medicine",
+    specialty: "Physician",
     category_id: 8,
-    experience: "10+ Years",
-    description: "Expert consultant physician focusing on comprehensive adult healthcare.",
+    experience: "",
+    description: "Consultant Physician at Citizens Medical Centre, Dhanbad.",
     image: "/Dr.GAURAV SINGH.webp",
     featured: true
   },
@@ -16,9 +16,9 @@ export const doctorsData = [
     qualification: "Neurosurgery",
     specialty: "Neurology & Neurosurgery",
     category_id: 17,
-    experience: "8+ Years",
-    description: "Specialist in neurosurgical interventions and brain/spine disorders.",
-    image: "https://ui-avatars.com/api/?name=Baibhav+Kumar&background=0d57a0&color=fff",
+    experience: "",
+    description: "Neurosurgeon at Citizens Medical Centre, Dhanbad.",
+    image: "",
     featured: true
   },
   {
@@ -27,70 +27,70 @@ export const doctorsData = [
     qualification: "Plastic Surgeon",
     specialty: "Plastic & Reconstructive Surgery",
     category_id: 19,
-    experience: "10+ Years",
-    description: "Plastic & Reconstructive Surgeon skilled in cosmetic surgery, burn care, and trauma reconstruction.",
+    experience: "",
+    description: "Plastic Surgeon at Citizens Medical Centre, Dhanbad.",
     image: "/Dr. GAURAV PATODIA.webp",
     featured: true
   },
   {
     id: 4,
-    name: "Dr. Nitesh Kumar Modi",
+    name: "Dr. Hitesh Kumar Modi",
     qualification: "Physician",
-    specialty: "Internal Medicine",
+    specialty: "Physician",
     category_id: 8,
-    experience: "8+ Years",
-    description: "Consultant physician focusing on general medicine and adult health.",
-    image: "/Dr. NITESH KUMAR MODI.webp"
+    experience: "",
+    description: "Consultant Physician at Citizens Medical Centre, Dhanbad.",
+    image: ""
   },
   {
     id: 5,
     name: "Dr. Shashank Shekhar",
-    qualification: "MBBS (Ranchi Univ), MD (Ranchi), PGPN (USA), IPPN (Germany)",
+    qualification: "Pediatrics",
     specialty: "Pediatrics & Neonatology",
     category_id: 15,
-    experience: "11+ Years",
-    description: "Pediatrician & Neonatal Specialist certified in pediatric nutrition from USA & Germany. Focused on newborn intensive care.",
+    experience: "",
+    description: "Pediatrics Specialist at Citizens Medical Centre, Dhanbad.",
     image: "/Dr. SHASHANK SHEKHAR.webp",
     featured: true
   },
   {
     id: 6,
     name: "Dr. Vaishali Patel",
-    qualification: "MBBS, DNB Radiodiagnosis",
+    qualification: "Radiology",
     specialty: "Radiology & Imaging",
     category_id: 20,
-    experience: "8+ Years",
-    description: "Advanced Diagnostic Radiologist with expertise in high-resolution MRI, CT Scans, Ultrasound, and interventional radiology.",
+    experience: "",
+    description: "Radiologist at Citizens Medical Centre, Dhanbad.",
     image: "/Dr. VAISHALI PATEL.webp"
   },
   {
     id: 7,
     name: "Dr. Abdul Azad",
     qualification: "MBBS, MD (Medicine, Ranchi), CCEBDM, CCCS (PHEL) New Delhi",
-    specialty: "General Physician Cum Diabetologist",
+    specialty: "General Physician cum Diabetologist",
     category_id: 25,
-    experience: "10+ Years",
-    description: "Consultant Physician Cum Cardio-Diabetologist specializing in comprehensive diabetes and heart care.",
+    experience: "",
+    description: "Consultant Physician cum Cardio-Diabetologist at Citizens Medical Centre, Dhanbad.",
     image: "/ABDUL AZAD.webp"
   },
   {
     id: 8,
     name: "Dr. Anu Bharti",
     qualification: "MBBS, MS, F.MAS, D.MAS, F. ART",
-    specialty: "Obstetrics & Gynaecology",
+    specialty: "Obs & Gynaecology",
     category_id: 16,
-    experience: "10+ Years",
-    description: "Consultant - Obstetrics & Gynecologist specializing in women's health, maternity, and endoscopic gynaecology.",
-    image: "https://ui-avatars.com/api/?name=Anu+Bharti&background=0d57a0&color=fff"
+    experience: "",
+    description: "Consultant Obstetrics & Gynecologist at Citizens Medical Centre, Dhanbad.",
+    image: ""
   },
   {
     id: 9,
     name: "Dr. Sweta Bhaskar",
     qualification: "Obs & Gynaecology",
-    specialty: "Obstetrics & Gynaecology",
+    specialty: "Obs & Gynaecology",
     category_id: 16,
-    experience: "10+ Years",
-    description: "Consultant Obstetrician & Gynaecologist providing comprehensive care for women.",
+    experience: "",
+    description: "Consultant Obstetrics & Gynaecologist at Citizens Medical Centre, Dhanbad.",
     image: "/Dr Sweta Bhaskar,Obs and gynae.webp"
   },
   {
@@ -99,18 +99,18 @@ export const doctorsData = [
     qualification: "Maxillofacial Surgery",
     specialty: "Dental & Maxillo-Facial Surgery",
     category_id: 30,
-    experience: "10+ Years",
-    description: "Specialist in maxillofacial surgery, treating diseases, injuries and defects in the head, neck, face, and jaw.",
-    image: "https://ui-avatars.com/api/?name=Sudhir+Kumar&background=0d57a0&color=fff"
+    experience: "",
+    description: "Maxillofacial Surgeon at Citizens Medical Centre, Dhanbad.",
+    image: ""
   },
   {
     id: 11,
     name: "Dr. Chandan Bharty",
-    qualification: "PT (Punjab), (Delhi), Certified Manual Therapist, NDT/BOBATH (Hemiplegia)",
+    qualification: "PT (Punjab, Delhi), Certified Manual Therapist – MIFI Bengaluru, NDT-BOBATH (Hemiplegia), Certified Spinal Therapist, Certified Orthopaedic Manual Therapist – Capri Institute",
     specialty: "Physiotherapy",
     category_id: 31,
-    experience: "10+ Years",
-    description: "Specialist in Orthopaedic & Neurological Disorder. Certified Spinal Therapist and Orthopaedic Manual Therapist.",
+    experience: "",
+    description: "Specialist in Orthopaedic & Neurological Disorder. Registered under Jharkhand State Council for Physiotherapist. Life Time Member of Indian Association of Physiotherapist & Manual Therapy Foundation of India.",
     image: "/Dr. CHANDAN BHARTY.webp"
   },
   {
@@ -119,9 +119,9 @@ export const doctorsData = [
     qualification: "Rheumatology",
     specialty: "Rheumatology & Clinical Immunology",
     category_id: 21,
-    experience: "9+ Years",
-    description: "Expert in rheumatoid arthritis, lupus, gout, spondyloarthritis, and autoimmune disorders treatment.",
-    image: "https://ui-avatars.com/api/?name=Bindhyachal+Gupta&background=0d57a0&color=fff"
+    experience: "",
+    description: "Rheumatologist at Citizens Medical Centre, Dhanbad.",
+    image: ""
   },
   {
     id: 13,
@@ -129,29 +129,29 @@ export const doctorsData = [
     qualification: "Urology",
     specialty: "Nephrology & Urology",
     category_id: 23,
-    experience: "14+ Years",
-    description: "Lead Urologist performing kidney stone endourology, prostate reconstructive surgeries, and laparoscopic urology.",
-    image: "https://ui-avatars.com/api/?name=Bishwarup+Guha&background=0d57a0&color=fff"
+    experience: "",
+    description: "Urologist at Citizens Medical Centre, Dhanbad.",
+    image: ""
   },
   {
     id: 14,
     name: "Dr. Sumit Bhaskar",
-    qualification: "General Surgeon",
-    specialty: "General & Laparoscopic Surgery",
-    category_id: 13,
-    experience: "10+ Years",
-    description: "Experienced General Surgeon treating acute surgical emergencies and abdominal surgeries.",
-    image: "https://ui-avatars.com/api/?name=Sumit+Bhaskar&background=0d57a0&color=fff"
+    qualification: "Urology",
+    specialty: "Nephrology & Urology",
+    category_id: 23,
+    experience: "",
+    description: "Urologist at Citizens Medical Centre, Dhanbad.",
+    image: ""
   },
   {
     id: 15,
     name: "Dr. Shubham",
-    qualification: "General & Laparoscopic Surgeon",
+    qualification: "General Surgeon",
     specialty: "General & Laparoscopic Surgery",
     category_id: 13,
-    experience: "8+ Years",
-    description: "Specialist in general and minimally invasive laparoscopic surgeries.",
-    image: "https://ui-avatars.com/api/?name=Shubham&background=0d57a0&color=fff"
+    experience: "",
+    description: "General Surgeon at Citizens Medical Centre, Dhanbad.",
+    image: ""
   },
   {
     id: 16,
@@ -159,18 +159,18 @@ export const doctorsData = [
     qualification: "General & Laparoscopic Surgeon",
     specialty: "General & Laparoscopic Surgery",
     category_id: 13,
-    experience: "12+ Years",
-    description: "Minimal Access Surgeon specializing in laparoscopic procedures and general surgery.",
-    image: "https://ui-avatars.com/api/?name=Santosh+Kumar&background=0d57a0&color=fff"
+    experience: "",
+    description: "General & Laparoscopic Surgeon at Citizens Medical Centre, Dhanbad.",
+    image: ""
   },
   {
     id: 17,
     name: "Dr. Avinash Kumar Sinha",
-    qualification: "D. Orthopaedics (P.M.C.H., Patna), D.N.B. Orthopedics",
+    qualification: "D. Orthopaedics (P.M.C.H., Patna), D.N.B. Orthopedics (Fortis Hospital)",
     specialty: "Orthopaedic & Spinal Surgery",
     category_id: 18,
-    experience: "13+ Years",
-    description: "Trauma, Spine, Sports medicine & Joint Replacement surgeon.",
+    experience: "",
+    description: "Trauma, Spine, Sports Medicine & Joint Replacement Surgeon at Citizens Medical Centre, Dhanbad.",
     image: "/Dr. Avinash Kumar Sinha.webp"
   }
 ];

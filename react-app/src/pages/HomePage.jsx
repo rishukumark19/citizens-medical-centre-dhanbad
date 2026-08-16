@@ -34,8 +34,8 @@ export default function HomePage({ onOpenAppointment }) {
         <div className="max-w-container-max mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="flex flex-col gap-6 relative z-10 animate-fade-in">
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-secondary/10 text-primary px-4 py-2 rounded-full self-start font-label-bold border border-primary/20">
-              <span className="material-symbols-outlined text-xl">award_star</span>
-              #1 Ranked Hospital in Jharkhand
+              <span className="material-symbols-outlined text-xl">emergency</span>
+              Accident &amp; Emergency 24x7
             </div>
             
             <h1 className="text-display-lg text-on-surface leading-tight">
@@ -60,17 +60,17 @@ export default function HomePage({ onOpenAppointment }) {
 
             <div className="flex items-center gap-6 mt-8 pt-8 border-t border-outline-variant/50">
               <div className="flex flex-col animate-fade-in" style={{ animationDelay: '0.2s' }}>
-                <span className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">25+</span>
+                <span className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">17+</span>
                 <span className="text-sm font-label-bold text-on-surface-variant uppercase tracking-wider">Expert Doctors</span>
               </div>
               <div className="w-px h-12 bg-outline-variant/50"></div>
               <div className="flex flex-col animate-fade-in" style={{ animationDelay: '0.3s' }}>
                 <span className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">24/7</span>
-                <span className="text-sm font-label-bold text-on-surface-variant uppercase tracking-wider">Trauma Care</span>
+                <span className="text-sm font-label-bold text-on-surface-variant uppercase tracking-wider">Accident &amp; Emergency</span>
               </div>
               <div className="w-px h-12 bg-outline-variant/50"></div>
               <div className="flex flex-col animate-fade-in" style={{ animationDelay: '0.4s' }}>
-                <span className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">15+</span>
+                <span className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">20+</span>
                 <span className="text-sm font-label-bold text-on-surface-variant uppercase tracking-wider">Specialties</span>
               </div>
             </div>
@@ -102,11 +102,11 @@ export default function HomePage({ onOpenAppointment }) {
 
               <div className="glass-card absolute bottom-20 -right-8 p-4 rounded-2xl shadow-xl flex items-center gap-3.5 border border-outline-variant/60 bg-surface/90 backdrop-blur-md animate-[bounce_5s_infinite_0.5s]">
                 <div className="w-12 h-12 rounded-xl bg-primary text-on-primary flex items-center justify-center shadow-inner">
-                  <span className="material-symbols-outlined text-2xl" style={{ fontVariationSettings: "'FILL' 1" }}>workspace_premium</span>
+                  <span className="material-symbols-outlined text-2xl" style={{ fontVariationSettings: "'FILL' 1" }}>local_hospital</span>
                 </div>
                 <div>
-                  <div className="font-bold text-on-surface text-sm">NABH Standards</div>
-                  <div className="text-xs font-label-bold text-secondary">Quality Assured</div>
+                  <div className="font-bold text-on-surface text-sm">ISO Certified</div>
+                  <div className="text-xs font-label-bold text-secondary">Super Speciality Hospital</div>
                 </div>
               </div>
             </div>
@@ -156,7 +156,7 @@ export default function HomePage({ onOpenAppointment }) {
                       </span>
                     </div>
                     <h4 className="text-headline-md text-on-surface mb-3 group-hover:text-primary transition-colors">{dept.title}</h4>
-                    <p className="text-on-surface-variant font-body-md line-clamp-2">{dept.description}</p>
+                    <p className="text-on-surface-variant font-body-md line-clamp-2">{dept.shortDesc}</p>
                   </div>
 
                   <div className="relative z-10 mt-8 flex items-center gap-2 text-sm font-label-bold text-secondary opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
@@ -184,10 +184,10 @@ export default function HomePage({ onOpenAppointment }) {
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {[
-                  { icon: 'speed', title: 'Zero Wait Emergency', desc: 'Immediate attention in critical moments.', color: 'primary' },
-                  { icon: 'biotech', title: 'Advanced Labs', desc: 'In-house high-tech diagnostic center.', color: 'secondary' },
+                  { icon: 'emergency', title: 'Accident & Emergency 24x7', desc: 'Round-the-clock emergency response.', color: 'primary' },
+                  { icon: 'biotech', title: 'Radiology 24x7', desc: 'Advanced imaging — MRI, CT, Ultrasound.', color: 'secondary' },
                   { icon: 'support_agent', title: '24/7 Patient Care', desc: 'Round-the-clock nursing & support.', color: 'secondary' },
-                  { icon: 'payments', title: 'Transparent Pricing', desc: 'No hidden costs, ethical billing.', color: 'primary' }
+                  { icon: 'local_pharmacy', title: 'Pharmacy 24x7', desc: 'In-house pharmacy always available.', color: 'primary' }
                 ].map((feature, i) => (
                   <div key={i} className="flex gap-4 items-start group">
                     <div className={`w-12 h-12 rounded-full flex items-center justify-center shrink-0 transition-transform group-hover:scale-110 ${feature.color === 'primary' ? 'bg-primary/10' : 'bg-secondary/10'}`}>
