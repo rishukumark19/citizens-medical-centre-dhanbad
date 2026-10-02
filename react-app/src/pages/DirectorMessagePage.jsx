@@ -1,19 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
+import AppointmentModal from '../components/AppointmentModal';
 
 export default function DirectorMessagePage() {
+  const [modalOpen, setModalOpen] = useState(false);
   return (
     <div className="flex flex-col">
       <SEO title="Director's Message | Citizens Medical Centre Dhanbad" description="Read the message from the directors of Citizens Medical Centre, Dhanbad about our commitment to quality patient care." />
       
       {/* Header Banner */}
-      <div className="bg-surface-container-lowest py-16 md:py-24 px-margin-mobile md:px-gutter text-center border-b border-outline-variant relative overflow-hidden">
-        <div className="absolute inset-0 bg-primary/5"></div>
+      <div className="relative bg-gradient-to-br from-primary to-secondary py-20 px-margin-mobile md:px-gutter text-center overflow-hidden">
+        <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-white/10"></div>
+        <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-white/5"></div>
         <div className="relative z-10 max-w-3xl mx-auto">
-          <span className="text-tertiary-container font-bold text-sm uppercase tracking-widest block mb-2">Leadership Message</span>
-          <h1 className="text-display-lg text-on-surface mb-4">Director's Message</h1>
-          <p className="text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+          <span className="inline-flex items-center gap-2 bg-white/15 text-white px-4 py-1.5 rounded-full text-[13px] font-bold mb-4 border border-white/25">Leadership Message</span>
+          <h1 className="text-display-lg text-white mb-4 drop-shadow-sm">Director's Message</h1>
+          <p className="text-white/85 text-body-lg max-w-2xl mx-auto">
             A commitment to excellence, compassion, and patient-centered care.
           </p>
         </div>
@@ -55,7 +58,8 @@ export default function DirectorMessagePage() {
                 </div>
 
                 <button 
-                                    className="bg-primary text-on-primary px-6 py-2.5 rounded-full text-label-bold font-label-bold hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm inline-flex items-center gap-2"
+                  onClick={() => setModalOpen(true)}
+                  className="bg-primary text-on-primary px-6 py-2.5 rounded-full text-label-bold font-label-bold hover:opacity-90 transition-opacity shadow-sm inline-flex items-center gap-2"
                 >
                   Book Appointment
                   <span className="material-symbols-outlined text-sm">arrow_forward</span>
@@ -83,6 +87,7 @@ export default function DirectorMessagePage() {
         </div>
 
       </div>
+      <AppointmentModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </div>
   );
 }

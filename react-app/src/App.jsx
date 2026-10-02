@@ -2,6 +2,7 @@ import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import CookieBanner from "./components/CookieBanner";
 
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
@@ -53,7 +54,7 @@ export default function App() {
 
               <Route path="/faq" element={<FAQPage />} />
               <Route path="/blog" element={<BlogListPage />} />
-              <Route path="/blog-detail/:slug" element={<BlogDetailPage />} />
+              <Route path="/blog/:slug" element={<BlogDetailPage />} />
               <Route path="/international" element={<InternationalPatientsPage />} />
 
               <Route path="/contact-us" element={<ContactPage />} />
@@ -68,6 +69,7 @@ export default function App() {
         <Footer />
         <WhatsAppButton />
         <ScrollToTopButton />
+        <CookieBanner />
       </div>
     </>
   );

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { doctorsData } from '../data/doctors';
 import { departmentsData } from '../data/departments';
 import SEO from '../components/SEO';
@@ -8,6 +7,7 @@ import DoctorCard from '../components/DoctorCard';
 export default function DoctorsPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedDept, setSelectedDept] = useState('All');
+  const [showAllFilters, setShowAllFilters] = useState(false);
 
   const filteredDoctors = doctorsData.filter(doc => {
     const matchesSearch =
@@ -19,6 +19,10 @@ export default function DoctorsPage() {
     const deptObj = departmentsData.find(d => d.title === selectedDept);
     return matchesSearch && deptObj && doc.category_id === deptObj.category_id;
   });
+
+  // On mobile show only 4 dept chips unless expanded
+  const MOBILE_CHIP_LIMIT = 4;
+  const visibleDepts = showAllFilters ? departmentsData : departmentsData.slice(0, MOBILE_CHIP_LIMIT);
 
   return (
     <div className="flex flex-col">
@@ -62,10 +66,10 @@ export default function DoctorsPage() {
           )}
         </div>
 
-        {/* Filter Chips */}
-        <div className="relative mb-8">
-          <div className="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-surface to-transparent z-10 pointer-events-none"></div>
-          <div className="flex overflow-x-auto pb-2 gap-2 no-scrollbar items-center">
+        {/* Filter Chips — Desktop: horizontal scroll, Mobile: grid with show-more */}
+        <div className="mb-8">
+          {/* Desktop: single scrollable row */}
+          <div className="hidden md:flex overflow-x-auto pb-2 gap-2 no-scrollbar items-center">
             <span className="text-sm font-label-bold text-on-surface-variant whitespace-nowrap shrink-0 mr-1">Filter:</span>
             <button
               onClick={() => setSelectedDept('All')}
@@ -90,6 +94,46 @@ export default function DoctorsPage() {
                 {dept.title}
               </button>
             ))}
+          </div>
+
+          {/* Mobile: wrapping chips grid with show more */}
+          <div className="md:hidden">
+            <div className="flex flex-wrap gap-2">
+              <button
+                onClick={() => setSelectedDept('All')}
+                className={`px-3 py-1.5 rounded-full font-label-bold text-xs transition-all ${
+                  selectedDept === 'All'
+                    ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-md'
+                    : 'bg-surface border border-outline-variant text-on-surface-variant'
+                }`}
+              >
+                All
+              </button>
+              {visibleDepts.map(dept => (
+                <button
+                  key={dept.slug}
+                  onClick={() => setSelectedDept(dept.title)}
+                  className={`px-3 py-1.5 rounded-full font-label-bold text-xs transition-all ${
+                    selectedDept === dept.title
+                      ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-md'
+                      : 'bg-surface border border-outline-variant text-on-surface-variant'
+                  }`}
+                >
+                  {dept.title}
+                </button>
+              ))}
+              {departmentsData.length > MOBILE_CHIP_LIMIT && (
+                <button
+                  onClick={() => setShowAllFilters(!showAllFilters)}
+                  className="px-3 py-1.5 rounded-full font-label-bold text-xs bg-surface-variant text-on-surface-variant border border-outline-variant flex items-center gap-1"
+                >
+                  {showAllFilters
+                    ? <><span className="material-symbols-outlined text-[12px]">expand_less</span> Less</>
+                    : <><span className="material-symbols-outlined text-[12px]">expand_more</span> +{departmentsData.length - MOBILE_CHIP_LIMIT} more</>
+                  }
+                </button>
+              )}
+            </div>
           </div>
         </div>
 

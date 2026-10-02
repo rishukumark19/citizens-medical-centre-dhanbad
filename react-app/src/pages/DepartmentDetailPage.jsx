@@ -29,14 +29,15 @@ export default function DepartmentDetailPage() {
       <SEO title={`${department.title} | Citizens Medical Centre`} description={department.shortDesc} />
       
       {/* Header Banner */}
-      <div className="bg-surface-container-lowest py-16 md:py-24 px-margin-mobile md:px-gutter text-center border-b border-outline-variant relative overflow-hidden">
-        <div className="absolute inset-0 bg-primary/5"></div>
+      <div className="relative bg-gradient-to-br from-primary to-secondary py-20 px-margin-mobile md:px-gutter text-center overflow-hidden">
+        <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-white/10"></div>
+        <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-white/5"></div>
         <div className="relative z-10 max-w-3xl mx-auto">
-          <Link to="/" className="inline-flex items-center gap-2 text-primary font-label-bold mb-6 hover:underline">
-            <span className="material-symbols-outlined text-sm">arrow_back</span> Back to Home
+          <Link to="/departments" className="inline-flex items-center gap-2 text-white/80 font-label-bold mb-6 hover:text-white transition-colors">
+            <span className="material-symbols-outlined text-sm">arrow_back</span> All Departments
           </Link>
-          <h1 className="text-display-lg text-on-surface mb-4">{department.title}</h1>
-          <p className="text-body-lg text-on-surface-variant">
+          <h1 className="text-display-lg text-white mb-4 drop-shadow-sm">{department.title}</h1>
+          <p className="text-white/85 text-body-lg">
             {department.shortDesc}
           </p>
         </div>

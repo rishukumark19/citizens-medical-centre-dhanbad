@@ -2,32 +2,46 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { blogsData } from '../data/blogs';
 import SEO from '../components/SEO';
+import AppointmentModal from '../components/AppointmentModal';
 
 export default function BlogDetailPage() {
   const { slug } = useParams();
-  const decodedSlug = decodeURIComponent(slug || '');
+  const [modalOpen, setModalOpen] = React.useState(false);
 
-  const blog = blogsData.find(b => b.slug.toLowerCase() === decodedSlug.toLowerCase()) || blogsData[0];
+  const decodedSlug = decodeURIComponent(slug || '');
+  const blog = blogsData.find(b => b.slug.toLowerCase() === decodedSlug.toLowerCase());
+
+  if (!blog) {
+    return (
+      <div className="py-20 text-center flex flex-col items-center justify-center min-h-[60vh]">
+        <span className="material-symbols-outlined text-6xl text-outline mb-4">search_off</span>
+        <h2 className="text-headline-md text-on-surface mb-2">Article Not Found</h2>
+        <Link to="/blog" className="mt-4 bg-primary text-on-primary px-6 py-2 rounded-full font-label-bold hover:bg-primary-container hover:text-on-primary-container transition-colors">
+          Back to Blogs
+        </Link>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col">
       <SEO title={blog.title} description={blog.excerpt} />
       
       {/* Header Banner */}
-      <div className="bg-surface-container-lowest py-16 md:py-24 px-margin-mobile md:px-gutter border-b border-outline-variant relative overflow-hidden text-center md:text-left">
-        <div className="absolute inset-0 bg-primary/5"></div>
+      <div className="relative bg-gradient-to-br from-primary to-secondary py-16 px-margin-mobile md:px-gutter border-b border-white/10 overflow-hidden text-center md:text-left">
+        <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-white/10"></div>
         <div className="relative z-10 max-w-4xl mx-auto">
-          <Link to="/blog" className="inline-flex items-center gap-2 text-primary font-label-bold mb-6 hover:underline">
+          <Link to="/blog" className="inline-flex items-center gap-2 text-white/80 font-label-bold mb-6 hover:text-white transition-colors">
             <span className="material-symbols-outlined text-sm">arrow_back</span> Back to All Articles
           </Link>
           <div className="mb-4">
-            <span className="inline-block bg-primary-container text-on-primary-container px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+            <span className="inline-block bg-white/20 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
               {blog.category}
             </span>
           </div>
-          <h1 className="text-display-lg text-on-surface mb-6 md:leading-[1.2]">{blog.title}</h1>
+          <h1 className="text-display-lg text-white mb-6 drop-shadow-sm md:leading-[1.2]">{blog.title}</h1>
 
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 md:gap-8 text-sm font-label-bold text-outline">
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 md:gap-8 text-sm font-label-bold text-white/80">
             <span className="flex items-center gap-1.5"><span className="material-symbols-outlined text-[18px]">person</span> {blog.author}</span>
             <span className="flex items-center gap-1.5"><span className="material-symbols-outlined text-[18px]">calendar_today</span> {blog.date}</span>
             <span className="flex items-center gap-1.5"><span className="material-symbols-outlined text-[18px]">schedule</span> {blog.readTime}</span>
@@ -56,12 +70,14 @@ export default function BlogDetailPage() {
             Book a direct consultation with our expert medical team at CMC Dhanbad.
           </p>
           <button 
+            onClick={() => setModalOpen(true)}
             className="bg-primary text-on-primary px-8 py-3.5 rounded-full font-label-bold hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-md flex items-center gap-2 mx-auto"
-                      >
+          >
             <span className="material-symbols-outlined">calendar_month</span> Book Appointment
           </button>
         </div>
       </div>
+      <AppointmentModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </div>
   );
 }

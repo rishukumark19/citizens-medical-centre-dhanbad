@@ -59,18 +59,16 @@ export default function HomePage() {
               </a>
             </div>
 
-            <div className="flex flex-wrap items-center gap-4 sm:gap-6 mt-8 pt-8 border-t border-outline-variant/50">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 mt-8 pt-8 border-t border-outline-variant/50">
               <div className="flex flex-col animate-fade-in" style={{ animationDelay: '0.2s' }}>
                 <span className="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">17+</span>
                 <span className="text-xs sm:text-sm font-label-bold text-on-surface-variant uppercase tracking-wider">Expert Doctors</span>
               </div>
-              <div className="w-px h-8 sm:h-12 bg-outline-variant/50 hidden sm:block"></div>
-              <div className="flex flex-col animate-fade-in" style={{ animationDelay: '0.3s' }}>
+              <div className="flex flex-col animate-fade-in border-l border-outline-variant/50 pl-4 sm:pl-6" style={{ animationDelay: '0.3s' }}>
                 <span className="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">24/7</span>
                 <span className="text-xs sm:text-sm font-label-bold text-on-surface-variant uppercase tracking-wider">Accident &amp; Emergency</span>
               </div>
-              <div className="w-px h-8 sm:h-12 bg-outline-variant/50 hidden sm:block"></div>
-              <div className="flex flex-col animate-fade-in w-full sm:w-auto mt-2 sm:mt-0" style={{ animationDelay: '0.4s' }}>
+              <div className="flex flex-col animate-fade-in col-span-2 sm:col-span-1 border-t sm:border-t-0 sm:border-l border-outline-variant/50 pt-4 sm:pt-0 pl-0 sm:pl-6 mt-2 sm:mt-0" style={{ animationDelay: '0.4s' }}>
                 <span className="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">20+</span>
                 <span className="text-xs sm:text-sm font-label-bold text-on-surface-variant uppercase tracking-wider">Specialties</span>
               </div>
@@ -81,17 +79,16 @@ export default function HomePage() {
             {/* Abstract Hero Image Composition */}
             <div className="relative w-full max-w-[500px] aspect-square">
               {/* Decorative rings */}
-              <div className="absolute inset-0 border-[40px] border-surface-variant/40 rounded-full"></div>
-              <div className="absolute inset-4 border-[2px] border-secondary/30 rounded-full border-dashed animate-[spin_60s_linear_infinite]"></div>
+              <div className="absolute inset-0 border-[24px] border-surface-variant/40 rounded-full"></div>
               
               {/* Main image container */}
-              <div className="absolute inset-8 rounded-full overflow-hidden shadow-2xl border-4 border-surface">
+              <div className="absolute inset-6 rounded-full overflow-hidden shadow-2xl border-4 border-surface">
                 <img loading="lazy" src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80" alt="CMC Dhanbad Facility" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-primary/10 mix-blend-multiply"></div>
               </div>
 
               {/* Floating Cards */}
-              <div className="glass-card absolute top-12 -left-8 p-4 rounded-2xl shadow-xl flex items-center gap-3.5 border border-outline-variant/60 bg-surface/90 backdrop-blur-md animate-[bounce_4s_infinite]">
+              <div className="glass-card absolute top-12 -left-4 p-4 rounded-2xl shadow-xl flex items-center gap-3.5 border border-outline-variant/60 bg-surface/90 backdrop-blur-md">
                 <div className="w-12 h-12 rounded-xl bg-secondary text-on-secondary flex items-center justify-center shadow-inner">
                   <span className="material-symbols-outlined text-2xl" style={{ fontVariationSettings: "'FILL' 1" }}>monitor_heart</span>
                 </div>
@@ -101,7 +98,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="glass-card absolute bottom-20 -right-8 p-4 rounded-2xl shadow-xl flex items-center gap-3.5 border border-outline-variant/60 bg-surface/90 backdrop-blur-md animate-[bounce_5s_infinite_0.5s]">
+              <div className="glass-card absolute bottom-20 -right-4 p-4 rounded-2xl shadow-xl flex items-center gap-3.5 border border-outline-variant/60 bg-surface/90 backdrop-blur-md">
                 <div className="w-12 h-12 rounded-xl bg-primary text-on-primary flex items-center justify-center shadow-inner">
                   <span className="material-symbols-outlined text-2xl" style={{ fontVariationSettings: "'FILL' 1" }}>local_hospital</span>
                 </div>
@@ -161,8 +158,8 @@ export default function HomePage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-section-gap px-margin-mobile md:px-gutter bg-surface-container-low border-y border-outline-variant relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-surface-container-highest/30 -skew-x-12 translate-x-32 z-0"></div>
+      <section className="py-section-gap px-margin-mobile md:px-gutter bg-surface-container-low border-y border-outline-variant relative">
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-surface-container-highest/30 -skew-x-12 translate-x-32 z-0 hidden md:block overflow-hidden"></div>
         
         <div className="max-w-container-max mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -207,9 +204,16 @@ export default function HomePage() {
                   </div>
                   
                   <div className="min-h-[100px] md:min-h-[120px] flex flex-col justify-between">
-                    <p className="text-on-surface font-body-sm md:font-body-md italic mb-4 transition-opacity duration-500 line-clamp-3">
-                      "{testimonialsData[currentTestimonial]?.quote}"
-                    </p>
+                    <div className="relative mb-4 h-[80px]">
+                      {testimonialsData.map((testimonial, idx) => (
+                        <p 
+                          key={idx} 
+                          className={`absolute top-0 left-0 w-full text-on-surface font-body-sm md:font-body-md italic transition-opacity duration-500 line-clamp-3 ${idx === currentTestimonial ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+                        >
+                          "{testimonial.quote}"
+                        </p>
+                      ))}
+                    </div>
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-primary/20 flex items-center justify-center overflow-hidden shrink-0">
                         <img src={testimonialsData[currentTestimonial]?.image} alt="Patient" className="w-full h-full object-cover" />
@@ -221,16 +225,31 @@ export default function HomePage() {
                     </div>
                   </div>
 
-                  {/* Carousel Indicators */}
-                  <div className="flex gap-1.5 mt-4">
-                    {testimonialsData.map((_, idx) => (
+                  <div className="flex items-center justify-between mt-4">
+                    <div className="flex gap-1.5">
+                      {testimonialsData.map((_, idx) => (
+                        <button 
+                          key={idx}
+                          onClick={() => setCurrentTestimonial(idx)}
+                          className={`h-2 rounded-full transition-all ${idx === currentTestimonial ? 'w-5 bg-secondary' : 'w-2 bg-outline-variant hover:bg-outline'}`}
+                          aria-label={`Go to testimonial ${idx + 1}`}
+                        />
+                      ))}
+                    </div>
+                    <div className="flex gap-2">
                       <button 
-                        key={idx}
-                        onClick={() => setCurrentTestimonial(idx)}
-                        className={`h-1.5 rounded-full transition-all ${idx === currentTestimonial ? 'w-4 bg-secondary' : 'w-1.5 bg-outline-variant hover:bg-outline'}`}
-                        aria-label={`Go to testimonial ${idx + 1}`}
-                      />
-                    ))}
+                        onClick={() => setCurrentTestimonial(prev => prev === 0 ? testimonialsData.length - 1 : prev - 1)}
+                        className="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors"
+                      >
+                        <span className="material-symbols-outlined text-sm">chevron_left</span>
+                      </button>
+                      <button 
+                        onClick={() => setCurrentTestimonial(prev => (prev + 1) % testimonialsData.length)}
+                        className="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors"
+                      >
+                        <span className="material-symbols-outlined text-sm">chevron_right</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>

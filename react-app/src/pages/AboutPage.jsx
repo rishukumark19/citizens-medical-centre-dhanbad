@@ -7,12 +7,13 @@ export default function AboutPage() {
       <SEO title="About Us | Citizens Medical Centre Dhanbad" description="Citizens Medical Centre is a 109 bedded leading super specialty hospital in Dhanbad providing high end health care." />
       
       {/* Header Banner */}
-      <div className="bg-surface-container-lowest py-16 md:py-24 px-margin-mobile md:px-gutter text-center border-b border-outline-variant relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10"></div>
+      <div className="relative bg-gradient-to-br from-primary to-secondary py-20 px-margin-mobile md:px-gutter text-center overflow-hidden">
+        <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-white/10"></div>
+        <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-white/5"></div>
         <div className="relative z-10 max-w-3xl mx-auto">
-          <span className="text-secondary font-bold text-sm uppercase tracking-widest block mb-2">Citizens Medical Centre</span>
-          <h1 className="text-display-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary mb-4">About Us</h1>
-          <p className="text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+          <span className="inline-flex items-center gap-2 bg-white/15 text-white px-4 py-1.5 rounded-full text-[13px] font-bold mb-4 border border-white/25">Citizens Medical Centre</span>
+          <h1 className="text-display-lg text-white mb-4 drop-shadow-sm">About Us</h1>
+          <p className="text-white/85 text-body-lg max-w-2xl mx-auto">
             Qualified and Experienced Medical Team at CMC Hospital, Dhanbad.
           </p>
         </div>
@@ -54,7 +55,7 @@ export default function AboutPage() {
             { value: '20+', label: 'Specialties', color: 'primary' },
             { value: '24/7', label: 'Accident & Emergency', color: 'secondary' }
           ].map((stat, i) => (
-            <div key={i} className="p-6 rounded-2xl flex flex-col items-center justify-center text-center bg-gradient-to-br from-primary to-secondary text-white shadow-md">
+            <div key={i} className={`p-6 rounded-2xl flex flex-col items-center justify-center text-center text-white shadow-md ${stat.color === 'primary' ? 'bg-gradient-to-br from-primary to-primary/80' : 'bg-gradient-to-br from-secondary to-secondary/80'}`}>
               <span className="text-4xl font-bold mb-1">{stat.value}</span>
               <span className="text-sm font-label-bold uppercase tracking-wider opacity-90">{stat.label}</span>
             </div>
@@ -88,6 +89,24 @@ export default function AboutPage() {
                 <div>
                   <h4 className="font-bold text-on-surface text-base">Compassionate Care</h4>
                   <p className="text-sm text-on-surface-variant">Personal touch in every step of diagnosis &amp; treatment.</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-4 border-t border-outline-variant/60 pt-4">
+                <div className="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined text-2xl" style={{ fontVariationSettings: "'FILL' 1" }}>verified</span>
+                </div>
+                <div>
+                  <h4 className="font-bold text-on-surface text-base">Experienced Team</h4>
+                  <p className="text-sm text-on-surface-variant">Highly qualified specialists across all disciplines.</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-4 border-t border-outline-variant/60 pt-4">
+                <div className="w-12 h-12 rounded-full bg-secondary/10 text-secondary flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined text-2xl" style={{ fontVariationSettings: "'FILL' 1" }}>emergency</span>
+                </div>
+                <div>
+                  <h4 className="font-bold text-on-surface text-base">24/7 Availability</h4>
+                  <p className="text-sm text-on-surface-variant">Round-the-clock emergency and critical care support.</p>
                 </div>
               </div>
             </div>
@@ -146,11 +165,11 @@ export default function AboutPage() {
               <ul className="flex flex-col gap-2 text-sm text-primary-fixed-dim font-medium mb-8">
                 <li className="flex justify-between border-b border-primary-container/40 pb-1.5">
                   <span>Monday - Saturday</span>
-                  <span className="font-bold text-on-primary">10:00 AM - 7:00 PM</span>
+                  <span className="font-bold text-on-primary">10:00 AM - 6:00 PM</span>
                 </li>
                 <li className="flex justify-between border-b border-primary-container/40 pb-1.5">
                   <span>Sunday</span>
-                  <span className="font-bold text-on-primary">10:00 AM - 7:00 PM</span>
+                  <span className="font-bold text-on-primary">Prior Appointment Only</span>
                 </li>
               </ul>
             </div>

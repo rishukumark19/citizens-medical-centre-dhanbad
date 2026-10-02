@@ -29,10 +29,9 @@ export default function Header() {
       {/* Top Info Bar */}
       <div className="bg-primary text-on-primary py-2 px-margin-mobile md:px-gutter text-xs font-bold hidden sm:flex justify-between items-center z-[60] relative shadow-sm">
         <div className="max-w-container-max mx-auto w-full flex justify-between items-center">
-          <p className="flex items-center gap-1.5 opacity-90"><span className="material-symbols-outlined text-[14px]">emergency</span> CMC Dhanbad Emergency: +91 8235540809</p>
+          <p className="flex items-center gap-1.5 opacity-90"><span className="material-symbols-outlined text-[14px]">emergency</span> Emergency (24/7): +91 8235540809</p>
           <div className="flex gap-4 opacity-90">
-            <p className="flex items-center gap-1.5"><span className="material-symbols-outlined text-[14px]">emergency</span> Accident &amp; Emergency 24x7</p>
-            <p className="flex items-center gap-1.5 border-l border-on-primary/30 pl-4"><span className="material-symbols-outlined text-[14px]">location_on</span> Binod Bihari Chowk, Dhanbad</p>
+            <p className="flex items-center gap-1.5 border-on-primary/30"><span className="material-symbols-outlined text-[14px]">location_on</span> Binod Bihari Chowk, Dhanbad</p>
           </div>
         </div>
       </div>
@@ -70,7 +69,7 @@ export default function Header() {
             </div>
 
             <div className="relative group">
-              <button className={`text-label-bold font-label-bold hover:text-tertiary transition-colors duration-200 flex items-center gap-1 py-4 border-b-2 ${isParentActive(['/cardiology', '/ortho', '/neuro', '/gynae', '/pedia', '/surgery', '/kidney', '/uro', '/radio', '/emergency', '/medicine']) ? 'text-tertiary border-tertiary' : 'text-on-surface-variant dark:text-surface-variant border-transparent'}`}>
+              <button className={`text-label-bold font-label-bold hover:text-tertiary transition-colors duration-200 flex items-center gap-1 py-4 border-b-2 ${isParentActive(departmentsData.map(d => '/' + d.slug)) ? 'text-tertiary border-tertiary' : 'text-on-surface-variant dark:text-surface-variant border-transparent'}`}>
                 Centers of Care <span className="material-symbols-outlined text-[16px]">expand_more</span>
               </button>
               <div className="absolute top-[90%] left-1/2 -translate-x-1/2 bg-surface border border-outline-variant rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-[600px] p-4 grid grid-cols-2 gap-2 z-50">
@@ -166,7 +165,7 @@ export default function Header() {
             </div>
 
             <div className="flex flex-col">
-              <button onClick={() => toggleSubmenu('care')} className={`flex justify-between items-center py-3 px-4 rounded-lg font-bold ${isParentActive(['/cardiology', '/ortho', '/neuro', '/gynae', '/pedia', '/surgery', '/kidney', '/uro', '/radio', '/emergency', '/medicine']) ? 'bg-primary/10 text-primary' : 'hover:bg-surface-variant text-on-surface'}`}>
+              <button onClick={() => toggleSubmenu('care')} className={`flex justify-between items-center py-3 px-4 rounded-lg font-bold ${isParentActive(departmentsData.map(d => '/' + d.slug)) ? 'bg-primary/10 text-primary' : 'hover:bg-surface-variant text-on-surface'}`}>
                 Centers of Care
                 <span className="material-symbols-outlined transition-transform duration-200" style={{ transform: activeMobileSubmenu === 'care' ? 'rotate(180deg)' : 'none' }}>expand_more</span>
               </button>

@@ -3,9 +3,11 @@ import { useParams, Link } from 'react-router-dom';
 import { doctorsData } from '../data/doctors';
 import { departmentsData } from '../data/departments';
 import SEO from '../components/SEO';
+import AppointmentModal from '../components/AppointmentModal';
 
 export default function DoctorProfilePage() {
   const { id } = useParams();
+  const [modalOpen, setModalOpen] = React.useState(false);
   const doctor = doctorsData.find(d => d.id.toString() === id);
 
   if (!doctor) {
@@ -28,7 +30,7 @@ export default function DoctorProfilePage() {
       
       {/* Top Banner section */}
       <div className="bg-surface-container-low border-b border-outline-variant pt-12 pb-16">
-        <div className="px-margin-mobile md:px-gutter max-w-[1200px] mx-auto">
+        <div className="px-margin-mobile md:px-gutter max-w-container-max mx-auto">
           <Link to="/doctor" className="inline-flex items-center gap-2 text-on-surface-variant hover:text-primary font-label-bold mb-8 transition-colors">
             <span className="material-symbols-outlined text-sm">arrow_back</span> Back to Doctors
           </Link>
@@ -69,9 +71,15 @@ export default function DoctorProfilePage() {
                   </div>
                 )}
                 {doctor.education && doctor.education.length > 0 && (
-                  <div className="flex flex-col gap-1">
+                  <div className="flex flex-col gap-2">
                     <span className="text-on-surface-variant text-xs uppercase tracking-wider font-bold">Education</span>
-                    <span className="text-on-surface font-medium">{doctor.education.join(', ')}</span>
+                    <div className="flex flex-wrap gap-2">
+                      {doctor.education.map((edu, idx) => (
+                        <span key={idx} className="bg-surface-variant text-on-surface-variant px-3 py-1 rounded-md text-sm font-medium">
+                          {edu}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 )}
                 {doctor.languages && doctor.languages.length > 0 && (
@@ -100,7 +108,7 @@ export default function DoctorProfilePage() {
       </div>
 
       {/* Main Content Area */}
-      <div className="py-10 md:py-16 px-margin-mobile md:px-gutter max-w-[1200px] mx-auto w-full grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-12 items-start">
+      <div className="py-10 md:py-16 px-margin-mobile md:px-gutter max-w-container-max mx-auto w-full grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-12 items-start">
         
         {/* Left Column - Details */}
         <div className="flex flex-col gap-10">
@@ -228,16 +236,23 @@ export default function DoctorProfilePage() {
             </h4>
             <div className="flex justify-between border-b border-outline-variant border-dashed pb-3 mb-3 text-sm">
               <span className="text-on-surface-variant font-medium">Monday - Saturday</span>
-              <span className="font-bold text-on-surface">{doctor.timings || "10:00 AM - 4:00 PM"}</span>
+              <span className="font-bold text-on-surface">{doctor.timings || "10:00 AM - 6:00 PM"}</span>
             </div>
-            <div className="flex justify-between text-sm">
+            <div className="flex justify-between mb-6 text-sm">
               <span className="text-on-surface-variant font-medium">Sunday</span>
               <span className="font-bold text-error">Prior Appointment Only</span>
             </div>
+            <button 
+              onClick={() => setModalOpen(true)}
+              className="w-full bg-gradient-to-r from-primary to-secondary text-white font-label-bold py-3.5 rounded-xl shadow-md hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+            >
+              <span className="material-symbols-outlined text-[18px]">calendar_month</span> Book Appointment
+            </button>
           </div>
         </div>
         
       </div>
+      <AppointmentModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </div>
   );
 }

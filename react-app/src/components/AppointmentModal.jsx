@@ -15,15 +15,22 @@ export default function AppointmentModal({ isOpen, onClose }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
+    
+    // Simulate API delay for UX, then trigger mailto
     setTimeout(() => {
       setLoading(false);
+      
+      const subject = `Appointment Request: ${form.name}`;
+      const body = `Name: ${form.name}%0D%0APhone: ${form.phone}%0D%0AEmail: ${form.email || 'N/A'}%0D%0ADepartment: ${form.department}%0D%0A%0D%0ASymptoms/Message:%0D%0A${form.message || 'None'}`;
+      window.location.href = `mailto:info@cmcdhanbad.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+      
       setSubmitted(true);
       setTimeout(() => {
         setSubmitted(false);
         onClose();
         setForm({ name: "", phone: "", email: "", department: "", message: "" });
       }, 3500);
-    }, 1200);
+    }, 800);
   };
 
   return (

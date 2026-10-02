@@ -26,11 +26,12 @@ export default function GalleryPage() {
       <SEO title="Hospital Gallery | Citizens Medical Centre" />
       
       {/* Header Banner */}
-      <div className="bg-surface-container-lowest py-20 px-margin-mobile md:px-gutter text-center border-b border-outline-variant relative overflow-hidden">
-        <div className="absolute inset-0 bg-primary/5"></div>
+      <div className="relative bg-gradient-to-br from-primary to-secondary py-20 px-margin-mobile md:px-gutter text-center overflow-hidden">
+        <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-white/10"></div>
+        <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-white/5"></div>
         <div className="relative z-10 max-w-2xl mx-auto">
-          <h1 className="text-display-lg text-on-surface mb-4">Hospital Gallery</h1>
-          <p className="text-body-lg text-on-surface-variant max-w-xl mx-auto">
+          <h1 className="text-display-lg text-white mb-4 drop-shadow-sm">Hospital Gallery</h1>
+          <p className="text-white/85 text-body-lg max-w-xl mx-auto">
             Take a virtual tour of our state-of-the-art facilities, advanced equipment, and patient-centric infrastructure.
           </p>
         </div>
@@ -67,8 +68,8 @@ export default function GalleryPage() {
                 alt={item.title} 
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
               />
-              <div className="absolute inset-0 bg-background/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-6 text-on-background">
-                <span className="material-symbols-outlined text-4xl mb-3">image</span>
+              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end items-center text-center p-6 text-on-background">
+                <span className="material-symbols-outlined text-4xl mb-2 text-white">zoom_in</span>
                 <h4 className="text-headline-md text-lg text-white font-bold">{item.title}</h4>
               </div>
             </div>
@@ -84,10 +85,23 @@ export default function GalleryPage() {
         >
           <button 
             className="absolute top-6 right-6 text-on-background hover:text-primary transition-colors bg-surface-container rounded-full p-2"
-            onClick={() => setSelectedImage(null)}
+            onClick={(e) => { e.stopPropagation(); setSelectedImage(null); }}
           >
             <span className="material-symbols-outlined text-3xl">close</span>
           </button>
+          
+          <button 
+            className="absolute left-6 top-1/2 -translate-y-1/2 text-on-background hover:text-primary transition-colors bg-surface-container rounded-full p-3"
+            onClick={(e) => {
+              e.stopPropagation();
+              const currentIndex = filteredItems.findIndex(img => img.url === selectedImage.url);
+              const prevIndex = currentIndex === 0 ? filteredItems.length - 1 : currentIndex - 1;
+              setSelectedImage(filteredItems[prevIndex]);
+            }}
+          >
+            <span className="material-symbols-outlined text-3xl">chevron_left</span>
+          </button>
+
           <img 
             loading="lazy"
             src={selectedImage.url} 
@@ -96,6 +110,18 @@ export default function GalleryPage() {
             onClick={(e) => e.stopPropagation()}
           />
           <h3 className="text-white text-headline-md mt-6 text-center">{selectedImage.title}</h3>
+
+          <button 
+            className="absolute right-6 top-1/2 -translate-y-1/2 text-on-background hover:text-primary transition-colors bg-surface-container rounded-full p-3"
+            onClick={(e) => {
+              e.stopPropagation();
+              const currentIndex = filteredItems.findIndex(img => img.url === selectedImage.url);
+              const nextIndex = (currentIndex + 1) % filteredItems.length;
+              setSelectedImage(filteredItems[nextIndex]);
+            }}
+          >
+            <span className="material-symbols-outlined text-3xl">chevron_right</span>
+          </button>
         </div>
       )}
     </div>

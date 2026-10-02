@@ -19,12 +19,13 @@ export default function GoalsPage() {
       <SEO title="Our Goals | Citizens Medical Centre Dhanbad" description="Discover the 8 key clinical goals and strategic objectives of Citizens Medical Centre, Dhanbad." />
       
       {/* Header Banner */}
-      <div className="bg-surface-container-lowest py-16 md:py-24 px-margin-mobile md:px-gutter text-center border-b border-outline-variant relative overflow-hidden">
-        <div className="absolute inset-0 bg-primary/5"></div>
+      <div className="relative bg-gradient-to-br from-primary to-secondary py-20 px-margin-mobile md:px-gutter text-center overflow-hidden">
+        <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-white/10"></div>
+        <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-white/5"></div>
         <div className="relative z-10 max-w-3xl mx-auto">
-          <span className="text-tertiary-container font-bold text-sm uppercase tracking-widest block mb-2">Strategic Roadmap</span>
-          <h1 className="text-display-lg text-on-surface mb-4">Our Goals</h1>
-          <p className="text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+          <span className="inline-flex items-center gap-2 bg-white/15 text-white px-4 py-1.5 rounded-full text-[13px] font-bold mb-4 border border-white/25">Strategic Roadmap</span>
+          <h1 className="text-display-lg text-white mb-4 drop-shadow-sm">Our Goals</h1>
+          <p className="text-white/85 text-body-lg max-w-2xl mx-auto">
             The 8 core objectives driving clinical care and hospital innovation at CMC Dhanbad.
           </p>
         </div>

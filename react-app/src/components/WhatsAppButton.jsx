@@ -6,16 +6,14 @@ export default function WhatsAppButton() {
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
   return (
-    <div className="fixed bottom-20 md:bottom-6 left-6 z-50 flex items-center justify-center">
-      {/* Pulsing ring behind the button */}
-      <div className="absolute inset-0 bg-secondary rounded-full animate-ping opacity-75"></div>
-      
+    <div className="fixed bottom-20 right-6 z-50 flex items-center justify-center">
       <a 
         href={whatsappUrl}
         target="_blank"
         rel="noreferrer"
-        className="relative bg-[#25D366] text-white w-14 h-14 rounded-full flex justify-center items-center shadow-lg hover:scale-110 transition-transform duration-300 z-10"
+        className="relative bg-[#25D366] text-white w-12 h-12 rounded-full flex justify-center items-center shadow-lg hover:scale-110 transition-transform duration-300 z-10 hover:shadow-[0_0_0_8px_rgba(37,211,102,0.2)]"
         aria-label="Chat on WhatsApp"
+        title="Chat with us on WhatsApp"
       >
         {/* WhatsApp Logo SVG */}
         <svg className="w-8 h-8 fill-current" viewBox="0 0 24 24">

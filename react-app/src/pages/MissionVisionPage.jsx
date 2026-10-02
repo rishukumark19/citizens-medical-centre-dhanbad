@@ -1,19 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
+import AppointmentModal from '../components/AppointmentModal';
 
 export default function MissionVisionPage() {
+  const [modalOpen, setModalOpen] = useState(false);
   return (
     <div className="flex flex-col">
       <SEO title="Mission & Vision | Citizens Medical Centre Dhanbad" description="Read the official mission and vision statements of Citizens Medical Centre, Dhanbad." />
       
       {/* Header Banner */}
-      <div className="bg-surface-container-lowest py-16 md:py-24 px-margin-mobile md:px-gutter text-center border-b border-outline-variant relative overflow-hidden">
-        <div className="absolute inset-0 bg-primary/5"></div>
+      <div className="relative bg-gradient-to-br from-primary to-secondary py-20 px-margin-mobile md:px-gutter text-center overflow-hidden">
+        <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-white/10"></div>
+        <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-white/5"></div>
         <div className="relative z-10 max-w-3xl mx-auto">
-          <span className="text-tertiary-container font-bold text-sm uppercase tracking-widest block mb-2">Our Foundation</span>
-          <h1 className="text-display-lg text-on-surface mb-4">Mission &amp; Vision</h1>
-          <p className="text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+          <span className="inline-flex items-center gap-2 bg-white/15 text-white px-4 py-1.5 rounded-full text-[13px] font-bold mb-4 border border-white/25">Our Foundation</span>
+          <h1 className="text-display-lg text-white mb-4 drop-shadow-sm">Mission &amp; Vision</h1>
+          <p className="text-white/85 text-body-lg max-w-2xl mx-auto">
             Guiding principles driving clinical excellence and community care at CMC Dhanbad.
           </p>
         </div>
@@ -67,8 +70,9 @@ export default function MissionVisionPage() {
             At CMC Hospital, our team of certified and experienced doctors brings unparalleled expertise across various medical specialties. Each physician is committed to delivering exceptional care, staying updated with the latest advancements in medical science. With a patient-first approach, our doctors ensure that every treatment is customized to meet individual health needs, providing reliable, compassionate, and effective care at every step.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <button 
-                            className="bg-primary text-on-primary px-8 py-3 rounded-full font-label-bold hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm"
+             <button 
+              onClick={() => setModalOpen(true)}
+              className="bg-primary text-on-primary px-8 py-3 rounded-full font-label-bold hover:opacity-90 transition-opacity shadow-sm"
             >
               Book Appointment
             </button>
@@ -82,6 +86,7 @@ export default function MissionVisionPage() {
         </div>
 
       </div>
+      <AppointmentModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </div>
   );
 }

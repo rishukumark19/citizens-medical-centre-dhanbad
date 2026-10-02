@@ -26,13 +26,13 @@ export default function Footer() {
               Citizens Medical Centre is a state-of-the-art multi-specialty hospital committed to providing world-class healthcare services with compassion and excellence.
             </p>
             <div className="flex gap-4">
-              <a href="#" aria-label="Facebook" className="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary hover:shadow-md transition-all group">
+              <a href="#" target="_blank" title="Facebook - Coming Soon" aria-label="Facebook" className="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary hover:shadow-md transition-all group">
                 <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.04c-5.5 0-10 4.48-10 10.02 0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.54-4.5-10.02-10-10.02Z"/></svg>
               </a>
-              <a href="#" aria-label="Instagram" className="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary hover:bg-gradient-to-br hover:from-[#833ab4] hover:via-[#fd1d1d] hover:to-[#fcb045] hover:text-white hover:shadow-md transition-all group">
+              <a href="#" target="_blank" title="Instagram - Coming Soon" aria-label="Instagram" className="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary hover:bg-gradient-to-br hover:from-[#833ab4] hover:via-[#fd1d1d] hover:to-[#fcb045] hover:text-white hover:shadow-md transition-all group">
                 <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
               </a>
-              <a href="#" aria-label="YouTube" className="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary hover:bg-[#FF0000] hover:text-white hover:shadow-md transition-all group">
+              <a href="#" target="_blank" title="YouTube - Coming Soon" aria-label="YouTube" className="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary hover:bg-[#FF0000] hover:text-white hover:shadow-md transition-all group">
                 <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M21.58 7.19c-.23-.86-.91-1.54-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42c-.86.23-1.54.91-1.77 1.77C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.91 1.54 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42c.86-.23 1.54-.91 1.77-1.77C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3L10 15z"/></svg>
               </a>
             </div>
@@ -91,8 +91,12 @@ export default function Footer() {
               <h4 className="text-label-bold font-bold text-on-surface text-sm mb-3">Working Hours</h4>
               <ul className="flex flex-col gap-2 text-sm text-on-surface-variant">
                 <li className="flex justify-between border-b border-outline-variant/50 pb-2">
-                  <span>OPD</span>
-                  <span className="font-bold text-on-surface">Mon–Sat, 10AM–6PM</span>
+                  <span>Mon-Sat</span>
+                  <span className="font-bold text-on-surface">10:00 AM – 6:00 PM</span>
+                </li>
+                <li className="flex justify-between border-b border-outline-variant/50 pb-2">
+                  <span>Sunday</span>
+                  <span className="font-bold text-on-surface">Prior Appointment</span>
                 </li>
                 <li className="flex justify-between border-b border-outline-variant/50 pb-2">
                   <span>Emergency</span>
@@ -113,8 +117,8 @@ export default function Footer() {
             &copy; {currentYear} Citizens Medical Centre. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <Link to="/faq" className="text-on-surface-variant hover:text-secondary text-sm font-body-md transition-colors">Privacy Policy</Link>
-            <Link to="/faq" className="text-on-surface-variant hover:text-secondary text-sm font-body-md transition-colors">Terms of Service</Link>
+            <Link to="#" className="text-on-surface-variant hover:text-secondary text-sm font-body-md transition-colors">Privacy Policy</Link>
+            <Link to="#" className="text-on-surface-variant hover:text-secondary text-sm font-body-md transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

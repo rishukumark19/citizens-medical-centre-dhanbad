@@ -7,11 +7,16 @@ export default function InternationalPatientsPage() {
       <SEO title="International Patient Services | Citizens Medical Centre" />
       
       {/* Header Banner */}
-      <div className="bg-surface-container-lowest py-20 px-margin-mobile md:px-gutter text-center border-b border-outline-variant relative overflow-hidden">
-        <div className="absolute inset-0 bg-primary/5"></div>
+      <div className="relative bg-gradient-to-br from-primary to-secondary py-20 px-margin-mobile md:px-gutter text-center overflow-hidden">
+        <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-white/10"></div>
+        <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-white/5"></div>
         <div className="relative z-10 max-w-2xl mx-auto">
-          <h1 className="text-display-lg text-on-surface mb-4">International Patient Services</h1>
-          <p className="text-body-lg text-on-surface-variant max-w-xl mx-auto">
+          <div className="inline-flex items-center gap-2 bg-white/15 text-white px-4 py-1.5 rounded-full text-[13px] font-bold mb-4 border border-white/25">
+            <span className="material-symbols-outlined text-[16px]" style={{ fontVariationSettings: "'FILL' 1" }}>flight</span>
+            For International Patients
+          </div>
+          <h1 className="text-display-lg text-white mb-4 drop-shadow-sm">International Patient Services</h1>
+          <p className="text-white/85 text-body-lg max-w-xl mx-auto">
             Providing world-class medical care and seamless assistance for our patients traveling from abroad.
           </p>
         </div>
