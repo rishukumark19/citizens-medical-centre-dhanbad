@@ -39,7 +39,7 @@ export default function HomePage() {
               Accident &amp; Emergency 24x7
             </div>
             
-            <h1 className="text-4xl md:text-5xl lg:text-display-lg text-on-surface leading-tight font-bold">
+            <h1 className="text-display-lg text-on-surface leading-tight font-bold">
               Healing with <span className="text-primary">Compassion,</span><br />
               Curing with <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Technology.</span>
             </h1>

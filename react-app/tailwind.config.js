@@ -71,7 +71,7 @@ export default {
         "gutter": "24px",
         "stack-sm": "8px",
         "stack-lg": "24px",
-        "section-gap": "80px",
+        "section-gap": "clamp(3rem, 8vw, 5rem)",
         "margin-mobile": "16px",
         "stack-md": "16px"
       },
@@ -86,13 +86,18 @@ export default {
         "sans": ["Plus Jakarta Sans", "sans-serif"]
       },
       "fontSize": {
-        "headline-md": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
-        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
-        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
-        "headline-lg": ["32px", { "lineHeight": "1.3", "fontWeight": "700" }],
-        "label-bold": ["14px", { "lineHeight": "1.2", "fontWeight": "700" }],
-        "headline-lg-mobile": ["28px", { "lineHeight": "1.3", "fontWeight": "700" }],
-        "display-lg": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+        /* 
+          Fluid typography using clamp(min, preferred, max).
+          Scales smoothly from 320px (mobile) to 1280px (desktop).
+          No need to add responsive prefixes to individual elements.
+        */
+        "display-lg":      ["clamp(1.75rem, 5vw, 3rem)",    { "lineHeight": "1.15", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+        "headline-lg":     ["clamp(1.35rem, 3.5vw, 2rem)",  { "lineHeight": "1.3",  "fontWeight": "700" }],
+        "headline-md":     ["clamp(1.1rem,  2.5vw, 1.5rem)",{ "lineHeight": "1.4",  "fontWeight": "600" }],
+        "body-lg":         ["clamp(1rem,    1.5vw, 1.125rem)",{ "lineHeight": "1.6", "fontWeight": "400" }],
+        "body-md":         ["clamp(0.9rem,  1.25vw, 1rem)", { "lineHeight": "1.5",  "fontWeight": "400" }],
+        "label-bold":      ["clamp(0.8rem,  1vw,   0.875rem)",{ "lineHeight": "1.2","fontWeight": "700" }],
+        "headline-lg-mobile": ["clamp(1.2rem, 3vw, 1.75rem)", { "lineHeight": "1.3","fontWeight": "700" }]
       }
     }
   },

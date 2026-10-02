@@ -80,7 +80,7 @@ export default function InternationalPatientsPage() {
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -z-10"></div>
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full blur-3xl -z-10"></div>
           
-          <h3 className="text-display-lg text-3xl mb-4 relative z-10">Plan Your Medical Trip Today</h3>
+          <h3 className="text-display-lg mb-4 relative z-10">Plan Your Medical Trip Today</h3>
           <p className="text-on-primary/90 mb-8 max-w-2xl mx-auto text-lg relative z-10">
             Our international patient coordination team is available 24/7 to answer your queries and help you start your journey.
           </p>

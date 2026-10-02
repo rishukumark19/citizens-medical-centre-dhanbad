@@ -60,7 +60,7 @@ export default function DoctorProfilePage() {
 
             {/* Quick Details */}
             <div className="pt-2">
-              <h1 className="text-display-lg text-on-surface mb-2 text-3xl md:text-5xl">{doctor.name}</h1>
+              <h1 className="text-display-lg text-on-surface mb-2">{doctor.name}</h1>
               <p className="text-primary text-xl font-bold mb-6">{doctor.specialty}</p>
 
               <div className="flex flex-wrap gap-x-8 gap-y-4 mb-6 border-b border-outline-variant/50 pb-6">
