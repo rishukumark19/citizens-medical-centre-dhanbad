@@ -26,14 +26,24 @@ export default function Header() {
 
   return (
     <>
-      {/* Top Info Bar */}
+      {/* Top Info Bar — desktop only */}
       <div className="bg-primary text-on-primary py-2 px-margin-mobile md:px-gutter text-xs font-bold hidden sm:flex justify-between items-center z-[60] relative shadow-sm">
         <div className="max-w-container-max mx-auto w-full flex justify-between items-center">
           <p className="flex items-center gap-1.5 opacity-90"><span className="material-symbols-outlined text-[14px]">emergency</span> Emergency (24/7): +91 8235540809</p>
           <div className="flex gap-4 opacity-90">
-            <p className="flex items-center gap-1.5 border-on-primary/30"><span className="material-symbols-outlined text-[14px]">location_on</span> Binod Bihari Chowk, Dhanbad</p>
+            <p className="flex items-center gap-1.5"><span className="material-symbols-outlined text-[14px]">location_on</span> Binod Bihari Chowk, Dhanbad</p>
           </div>
         </div>
+      </div>
+
+      {/* Mobile Info Strip — visible only on mobile */}
+      <div className="sm:hidden bg-primary text-on-primary px-4 py-1.5 flex justify-between items-center text-[11px] font-bold z-[60] relative">
+        <a href="tel:+918235540809" className="flex items-center gap-1 opacity-90">
+          <span className="material-symbols-outlined text-[13px]">call</span> Emergency: +91 8235540809
+        </a>
+        <span className="flex items-center gap-1 opacity-80">
+          <span className="material-symbols-outlined text-[13px]">schedule</span> Mon-Sat 10AM–6PM
+        </span>
       </div>
 
       {/* Main Navigation Bar */}
@@ -42,10 +52,10 @@ export default function Header() {
           
           {/* Brand */}
           <Link to="/" className="flex items-center gap-3">
-            <img src="/logo-cmc.png" alt="CMC Dhanbad Logo" className="h-12 w-auto" />
-            <div className="hidden sm:flex flex-col justify-center items-center">
-              <span className="text-2xl font-bold text-primary leading-none font-serif tracking-wide" style={{ transform: 'scaleY(1.1)' }}>CITIZENS</span>
-              <span className="text-[11px] font-medium tracking-[0.2em] text-secondary leading-none mt-1.5">MEDICAL CENTER</span>
+            <img src="/logo-cmc.png" alt="CMC Dhanbad Logo" className="h-10 sm:h-12 w-auto" />
+            <div className="flex flex-col justify-center items-start sm:items-center">
+              <span className="text-lg sm:text-2xl font-bold text-primary leading-none font-serif tracking-wide" style={{ transform: 'scaleY(1.1)' }}>CITIZENS</span>
+              <span className="text-[9px] sm:text-[11px] font-medium tracking-[0.15em] sm:tracking-[0.2em] text-secondary leading-none mt-1">MEDICAL CENTER</span>
             </div>
           </Link>
 
