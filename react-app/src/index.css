@@ -1,6 +1,20 @@
 @import "tailwindcss";
 @config "../tailwind.config.js";
 
+/* ─── GLOBAL: prevent horizontal scroll ─────────────────────────── */
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Ensure the root wrapper never causes horizontal scroll either */
+#root,
+.app-container {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 .glass-card {
     background: rgba(253, 252, 255, 0.85); /* surface color tinted */
     backdrop-filter: blur(12px);
