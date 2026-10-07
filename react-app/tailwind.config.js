@@ -67,13 +67,15 @@ export default {
         "full": "9999px"
       },
       "spacing": {
-        "container-max": "1280px",
         "gutter": "24px",
         "stack-sm": "8px",
         "stack-lg": "24px",
         "section-gap": "clamp(3rem, 8vw, 5rem)",
         "margin-mobile": "16px",
         "stack-md": "16px"
+      },
+      "maxWidth": {
+        "container-max": "1280px"
       },
       "fontFamily": {
         "headline-md": ["Plus Jakarta Sans"],
@@ -98,6 +100,16 @@ export default {
         "body-md":         ["clamp(0.9rem,  1.25vw, 1rem)", { "lineHeight": "1.5",  "fontWeight": "400" }],
         "label-bold":      ["clamp(0.8rem,  1vw,   0.875rem)",{ "lineHeight": "1.2","fontWeight": "700" }],
         "headline-lg-mobile": ["clamp(1.2rem, 3vw, 1.75rem)", { "lineHeight": "1.3","fontWeight": "700" }]
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        }
+      },
+      animation: {
+        float: 'float 4s ease-in-out infinite',
+        'float-delayed': 'float 4s ease-in-out 2s infinite',
       }
     }
   },

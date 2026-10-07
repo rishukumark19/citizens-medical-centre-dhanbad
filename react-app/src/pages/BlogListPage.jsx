@@ -21,8 +21,15 @@ export default function BlogListPage() {
       </div>
 
       <div className="py-section-gap px-margin-mobile md:px-gutter max-w-container-max mx-auto w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogsData.map(blog => (
+        {blogsData.length === 0 ? (
+          <div className="text-center py-12">
+            <span className="material-symbols-outlined text-6xl text-outline mb-4">article</span>
+            <h2 className="text-headline-md text-on-surface mb-2">No blogs found</h2>
+            <p className="text-on-surface-variant">Check back later for new articles and health tips.</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {blogsData.map(blog => (
             <article key={blog.id} className="group bg-surface border border-outline-variant rounded-[24px] overflow-hidden hover:shadow-xl hover:border-primary/30 transition-all duration-300 flex flex-col">
               <div className="relative h-60 overflow-hidden">
                 <img loading="lazy" src={blog.image} alt={blog.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
@@ -57,6 +64,7 @@ export default function BlogListPage() {
             </article>
           ))}
         </div>
+        )}
       </div>
     </div>
   );

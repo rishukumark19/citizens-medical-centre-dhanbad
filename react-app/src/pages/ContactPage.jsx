@@ -106,7 +106,7 @@ export default function ContactPage() {
                 const formData = new FormData(e.target);
                 const subject = `Inquiry from ${formData.get('name')}`;
                 const body = `Name: ${formData.get('name')}%0D%0APhone: ${formData.get('phone')}%0D%0AEmail: ${formData.get('email')}%0D%0A%0D%0AMessage:%0D%0A${formData.get('message')}`;
-                window.location.href = `mailto:info@cmcdhanbad.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+                window.open(`mailto:info@cmcdhanbad.com?subject=${encodeURIComponent(subject)}&body=${body}`, '_blank');
                 e.target.reset();
                 alert('Thank you for your message! Your default mail client has been opened.');
               }}>
@@ -135,7 +135,7 @@ export default function ContactPage() {
             </div>
 
             <div className="flex flex-col gap-4">
-              <div className="w-full h-[250px] bg-surface-variant rounded-2xl overflow-hidden shadow-md border border-outline-variant">
+              <div className="w-full h-[250px] md:h-[400px] lg:h-[300px] bg-surface-variant rounded-2xl overflow-hidden shadow-md border border-outline-variant">
                 <iframe
                   title="CMC Dhanbad Map"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14605.529815096503!2d86.41724675!3d23.7694539!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f6bb1e73715d03%3A0xc3c94294a8f946!2sBinod%20Bihari%20Chowk%2C%20Dhanbad%2C%20Jharkhand%20828130!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"

@@ -1,95 +1,34 @@
 import React from 'react';
 import SEO from '../components/SEO';
+import ScrollReveal from '../components/ScrollReveal';
 
 export default function InternationalPatientsPage() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col flex-1">
       <SEO title="International Patient Services | Citizens Medical Centre" />
       
-      {/* Header Banner */}
-      <div className="relative bg-gradient-to-br from-primary to-secondary py-20 px-margin-mobile md:px-gutter text-center overflow-hidden">
-        <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-white/10"></div>
-        <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-white/5"></div>
-        <div className="relative z-10 max-w-2xl mx-auto">
-          <div className="inline-flex items-center gap-2 bg-white/15 text-white px-4 py-1.5 rounded-full text-[13px] font-bold mb-4 border border-white/25">
-            <span className="material-symbols-outlined text-[16px]" style={{ fontVariationSettings: "'FILL' 1" }}>flight</span>
-            For International Patients
+      {/* Hero Banner */}
+      <div className="relative bg-gradient-to-br from-primary via-[#0a6bbf] to-secondary py-24 px-margin-mobile md:px-gutter text-center overflow-hidden min-h-[60vh] flex flex-col justify-center items-center">
+        {/* Subtle grid pattern */}
+        <div className="absolute inset-0 opacity-10" style={{
+          backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
+          backgroundSize: '40px 40px'
+        }} />
+        <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-white/10 blur-3xl" />
+        <div className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full bg-secondary/20 blur-3xl" />
+
+        <ScrollReveal className="relative z-10 max-w-2xl mx-auto flex flex-col items-center">
+          <div className="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center mb-6 shadow-xl backdrop-blur-md">
+            <span className="material-symbols-outlined text-4xl text-white" style={{ fontVariationSettings: "'FILL' 1" }}>flight_takeoff</span>
           </div>
-          <h1 className="text-display-lg text-white mb-4 drop-shadow-sm">International Patient Services</h1>
-          <p className="text-white/85 text-body-lg max-w-xl mx-auto">
-            Providing world-class medical care and seamless assistance for our patients traveling from abroad.
+          <h1 className="text-display-lg text-white mb-6 drop-shadow-sm font-bold">International Patients</h1>
+          <div className="inline-block px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full border border-white/30 text-white font-bold text-lg mb-6">
+            Coming Soon
+          </div>
+          <p className="text-white/80 text-body-lg max-w-lg mx-auto">
+            We are working hard to bring you comprehensive details about our International Patient Services. Please check back later!
           </p>
-        </div>
-      </div>
-
-      {/* Main Content */}
-      <div className="py-section-gap px-margin-mobile md:px-gutter max-w-container-max mx-auto w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
-          <div>
-            <h2 className="text-primary font-label-bold uppercase tracking-widest mb-2">Welcome</h2>
-            <h3 className="text-headline-lg text-on-surface mb-6">Your Journey to Better Health Starts Here</h3>
-            <p className="text-body-lg text-on-surface-variant mb-6 leading-relaxed">
-              Citizens Medical Centre (CMC Dhanbad) is dedicated to offering comprehensive healthcare services to patients worldwide. Our dedicated International Patient Desk ensures a comfortable, safe, and hassle-free medical journey for you and your family.
-            </p>
-            <ul className="flex flex-col gap-4">
-              {[
-                "Pre-arrival online tele-consultation",
-                "Medical Visa invitation letter assistance",
-                "Airport pickup & drop services",
-                "Language interpretation services",
-                "Dedicated relationship manager"
-              ].map((item, idx) => (
-                <li key={idx} className="flex items-center gap-3 text-on-surface font-label-bold">
-                  <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="rounded-[24px] overflow-hidden shadow-2xl h-[300px] md:h-[500px]">
-            <img loading="lazy"
-              src="https://images.unsplash.com/photo-1576091160550-2173ff9e5eb2?auto=format&fit=crop&w=800&q=80"
-              alt="International Patient Services"
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </div>
-
-        {/* Steps */}
-        <h2 className="text-headline-lg text-on-surface text-center mb-12">How It Works</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-          {[
-            { icon: "public", title: "Step 1: Get in Touch", desc: "Share your medical reports and query via email or our online form for a free initial review." },
-            { icon: "support_agent", title: "Step 2: Tele-consultation", desc: "Consult directly with our specialists online to discuss your treatment plan and cost estimates." },
-            { icon: "flight_takeoff", title: "Step 3: Travel & Visa", desc: "Receive your Medical Visa letter and let us help coordinate your travel and accommodation." },
-            { icon: "handshake", title: "Step 4: Treatment & Care", desc: "Arrive at CMC Dhanbad where our team will guide you through your personalized treatment." }
-          ].map((g, i) => (
-            <div key={i} className="bg-surface p-8 rounded-[24px] border border-outline-variant text-center hover:shadow-lg transition-shadow">
-              <div className="w-16 h-16 bg-primary-container rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="material-symbols-outlined text-on-primary-container text-3xl" style={{ fontVariationSettings: "'FILL' 1" }}>{g.icon}</span>
-              </div>
-              <h3 className="text-headline-md text-on-surface mb-3 text-lg">{g.title}</h3>
-              <p className="text-on-surface-variant text-sm">{g.desc}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* CTA */}
-        <div className="bg-primary text-on-primary rounded-[24px] p-12 text-center shadow-xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -z-10"></div>
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full blur-3xl -z-10"></div>
-          
-          <h3 className="text-display-lg mb-4 relative z-10">Plan Your Medical Trip Today</h3>
-          <p className="text-on-primary/90 mb-8 max-w-2xl mx-auto text-lg relative z-10">
-            Our international patient coordination team is available 24/7 to answer your queries and help you start your journey.
-          </p>
-          <button 
-            className="bg-surface text-primary px-8 py-4 rounded-full font-label-bold hover:bg-surface-variant transition-colors shadow-md relative z-10"
-                      >
-            Request a Free Quote
-          </button>
-        </div>
+        </ScrollReveal>
       </div>
     </div>
   );

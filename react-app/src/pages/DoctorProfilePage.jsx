@@ -45,17 +45,6 @@ export default function DoctorProfilePage() {
                   <span className="material-symbols-outlined text-9xl text-primary/20 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" style={{ fontVariationSettings: "'FILL' 1" }}>person</span>
                 )}
               </div>
-              {doctor.regNo ? (
-                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-primary px-3 py-1.5 rounded-full text-xs font-bold flex items-center gap-1 shadow-sm border border-primary/20">
-                  <span className="material-symbols-outlined text-[14px]" style={{ fontVariationSettings: "'FILL' 1" }}>badge</span>
-                  Reg. {doctor.regNo}
-                </div>
-              ) : (
-                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-primary px-3 py-1.5 rounded-full text-xs font-bold flex items-center gap-1 shadow-sm border border-primary/20">
-                  <span className="material-symbols-outlined text-[14px]" style={{ fontVariationSettings: "'FILL' 1" }}>verified</span>
-                  Govt. Registered
-                </div>
-              )}
             </div>
 
             {/* Quick Details */}
@@ -96,11 +85,18 @@ export default function DoctorProfilePage() {
                 )}
               </div>
               
-              <div className="flex items-center gap-4 text-on-surface-variant text-sm font-medium">
-                <span className="flex items-center gap-1.5 bg-surface-variant/50 px-4 py-2 rounded-full">
+              <div className="flex flex-wrap items-center gap-4 text-on-surface-variant text-sm font-medium">
+                <span className="flex items-center gap-1.5 bg-surface-variant/50 px-4 py-2.5 rounded-full">
                   <span className="material-symbols-outlined text-[18px] text-secondary">schedule</span>
                   {doctor.timings || "09:00 AM - 05:00 PM Mon-Sat"}
                 </span>
+                <button 
+                  type="button"
+                  onClick={() => setModalOpen(true)}
+                  className="bg-gradient-to-r from-primary to-secondary text-white font-label-bold px-6 py-2.5 rounded-full shadow-md hover:shadow-lg hover:opacity-95 transition-all flex items-center gap-2 cursor-pointer"
+                >
+                  <span className="material-symbols-outlined text-[18px]">calendar_month</span> Book Appointment
+                </button>
               </div>
             </div>
           </div>
@@ -108,7 +104,7 @@ export default function DoctorProfilePage() {
       </div>
 
       {/* Main Content Area */}
-      <div className="py-10 md:py-16 px-margin-mobile md:px-gutter max-w-container-max mx-auto w-full grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-12 items-start">
+      <div className="py-10 md:py-16 px-margin-mobile md:px-gutter max-w-container-max mx-auto w-full grid grid-cols-1 md:grid-cols-[1fr_280px] lg:grid-cols-[1fr_320px] gap-8 lg:gap-12 items-start">
         
         {/* Left Column - Details */}
         <div className="flex flex-col gap-10">
@@ -204,7 +200,7 @@ export default function DoctorProfilePage() {
         </div>
 
         {/* Right Column - Sidebar */}
-        <div className="flex flex-col gap-6 lg:sticky lg:top-28">
+        <div className="flex flex-col gap-6 md:sticky md:top-28">
           {/* Hospital Location */}
           <div className="bg-surface-container-lowest border border-outline-variant rounded-[20px] p-6 shadow-md">
             <h4 className="text-headline-md text-on-surface mb-5 flex items-center gap-2 text-lg">
@@ -234,13 +230,13 @@ export default function DoctorProfilePage() {
               <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>calendar_today</span>
               Consultation Schedule
             </h4>
-            <div className="flex justify-between border-b border-outline-variant border-dashed pb-3 mb-3 text-sm">
+            <div className="flex flex-col sm:flex-row justify-between gap-1 sm:gap-4 border-b border-outline-variant border-dashed pb-3 mb-3 text-sm">
               <span className="text-on-surface-variant font-medium">Monday - Saturday</span>
-              <span className="font-bold text-on-surface">{doctor.timings || "10:00 AM - 6:00 PM"}</span>
+              <span className="font-bold text-on-surface text-right">{doctor.timings || "10:00 AM - 6:00 PM"}</span>
             </div>
-            <div className="flex justify-between mb-6 text-sm">
+            <div className="flex flex-col sm:flex-row justify-between gap-1 sm:gap-4 mb-6 text-sm">
               <span className="text-on-surface-variant font-medium">Sunday</span>
-              <span className="font-bold text-error">Prior Appointment Only</span>
+              <span className="font-bold text-error text-right">Prior Appointment</span>
             </div>
             <button 
               onClick={() => setModalOpen(true)}
@@ -252,7 +248,12 @@ export default function DoctorProfilePage() {
         </div>
         
       </div>
-      <AppointmentModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
+      <AppointmentModal 
+        isOpen={modalOpen} 
+        onClose={() => setModalOpen(false)} 
+        defaultDepartment={department?.slug || ""}
+        defaultDoctor={doctor.name}
+      />
     </div>
   );
 }

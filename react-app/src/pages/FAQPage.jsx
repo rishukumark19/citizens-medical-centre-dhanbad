@@ -45,7 +45,7 @@ export default function FAQPage() {
               </button>
               
               <div 
-                className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
+                className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'}`}
               >
                 <div className="px-6 pb-6 pt-2 text-on-surface-variant font-body-md border-t border-outline-variant/30 mt-2 mx-6">
                   {faq.answer}

@@ -1,12 +1,51 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { departmentsData } from "../data/departments";
 
-export default function AppointmentModal({ isOpen, onClose }) {
+export default function AppointmentModal({ 
+  isOpen, 
+  onClose, 
+  defaultDepartment = "", 
+  defaultDoctor = "" 
+}) {
   const [form, setForm] = useState({
-    name: "", phone: "", email: "", department: "", message: ""
+    name: "", 
+    phone: "", 
+    email: "", 
+    department: defaultDepartment, 
+    message: defaultDoctor ? `Consultation with ${defaultDoctor}` : ""
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  // Sync form when default props change or modal opens
+  useEffect(() => {
+    if (isOpen) {
+      setForm((prev) => ({
+        ...prev,
+        department: defaultDepartment || prev.department,
+        message: defaultDoctor ? `Consultation with ${defaultDoctor}` : prev.message
+      }));
+    }
+  }, [isOpen, defaultDepartment, defaultDoctor]);
+
+  // Lock body scroll and handle Escape key
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
@@ -19,12 +58,12 @@ export default function AppointmentModal({ isOpen, onClose }) {
     // Simulate API delay for UX, then trigger mailto
     setTimeout(() => {
       setLoading(false);
-      
-      const subject = `Appointment Request: ${form.name}`;
-      const body = `Name: ${form.name}%0D%0APhone: ${form.phone}%0D%0AEmail: ${form.email || 'N/A'}%0D%0ADepartment: ${form.department}%0D%0A%0D%0ASymptoms/Message:%0D%0A${form.message || 'None'}`;
-      window.location.href = `mailto:info@cmcdhanbad.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-      
       setSubmitted(true);
+      
+      const subject = `Appointment Request: ${form.name}${defaultDoctor ? ` (${defaultDoctor})` : ''}`;
+      const body = `Name: ${form.name}%0D%0APhone: ${form.phone}%0D%0AEmail: ${form.email || 'N/A'}%0D%0ADepartment: ${form.department}${defaultDoctor ? `%0D%0ADoctor: ${defaultDoctor}` : ''}%0D%0A%0D%0ASymptoms/Message:%0D%0A${form.message || 'None'}`;
+      window.open(`mailto:info@cmcdhanbad.com?subject=${encodeURIComponent(subject)}&body=${body}`, '_blank');
+      
       setTimeout(() => {
         setSubmitted(false);
         onClose();
@@ -33,28 +72,38 @@ export default function AppointmentModal({ isOpen, onClose }) {
     }, 800);
   };
 
-  return (
+  const modalContent = (
     <div
-      className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[100] flex items-center justify-center p-4"
+      className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9999] flex items-center justify-center p-4 overflow-y-auto"
       onClick={onClose}
+      style={{ margin: 0 }}
+      role="dialog"
+      aria-modal="true"
     >
       <div
-        className="bg-surface w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[95vh]"
+        className="bg-surface w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden flex flex-col my-auto max-h-[90vh] animate-scale-in"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="bg-gradient-to-r from-primary to-secondary p-5 flex justify-between items-center relative overflow-hidden">
-          <div className="absolute -right-8 -top-8 w-28 h-28 rounded-full bg-white/10"></div>
+        <div className="bg-gradient-to-r from-primary to-secondary p-5 flex justify-between items-center relative overflow-hidden shrink-0">
+          <div className="absolute -right-8 -top-8 w-28 h-28 rounded-full bg-white/10 pointer-events-none"></div>
           <div className="relative z-10">
             <h3 className="text-white font-bold text-lg flex items-center gap-2">
               <span className="material-symbols-outlined text-xl" style={{ fontVariationSettings: "'FILL' 1" }}>calendar_month</span>
               Book an Appointment
             </h3>
-            <p className="text-white/80 text-xs mt-0.5">Our front desk will confirm your slot via phone.</p>
+            {defaultDoctor ? (
+              <p className="text-white/90 text-xs mt-0.5 font-medium flex items-center gap-1">
+                <span className="material-symbols-outlined text-[13px]">person</span>
+                Consulting: <span className="font-bold underline decoration-white/40">{defaultDoctor}</span>
+              </p>
+            ) : (
+              <p className="text-white/80 text-xs mt-0.5">Our front desk will confirm your slot via phone.</p>
+            )}
           </div>
           <button
             onClick={onClose}
-            className="relative z-10 text-white/80 hover:text-white hover:bg-white/20 p-1.5 rounded-full transition-all"
+            className="relative z-10 text-white/80 hover:text-white hover:bg-white/20 p-1.5 rounded-full transition-all cursor-pointer"
             aria-label="Close"
           >
             <span className="material-symbols-outlined text-xl">close</span>
@@ -85,6 +134,7 @@ export default function AppointmentModal({ isOpen, onClose }) {
                 <input
                   type="text"
                   required
+                  autoFocus
                   value={form.name}
                   onChange={set("name")}
                   placeholder="e.g. Rahul Sharma"
@@ -162,14 +212,14 @@ export default function AppointmentModal({ isOpen, onClose }) {
                 <button
                   type="button"
                   onClick={onClose}
-                  className="flex-1 py-2.5 rounded-xl border border-outline-variant text-on-surface-variant font-bold text-sm hover:bg-surface-variant transition-colors"
+                  className="flex-1 py-2.5 rounded-xl border border-outline-variant text-on-surface-variant font-bold text-sm hover:bg-surface-variant transition-colors cursor-pointer"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={loading}
-                  className={`flex-1 py-2.5 rounded-xl bg-gradient-to-r from-primary to-secondary text-white font-bold text-sm flex items-center justify-center gap-2 transition-all ${loading ? "opacity-70 cursor-not-allowed" : "hover:opacity-90 shadow-md"}`}
+                  className={`flex-1 py-2.5 rounded-xl bg-gradient-to-r from-primary to-secondary text-white font-bold text-sm flex items-center justify-center gap-2 transition-all cursor-pointer ${loading ? "opacity-70 cursor-not-allowed" : "hover:opacity-90 shadow-md"}`}
                 >
                   {loading ? (
                     <><span className="material-symbols-outlined animate-spin text-[16px]">progress_activity</span> Sending...</>
@@ -184,4 +234,6 @@ export default function AppointmentModal({ isOpen, onClose }) {
       </div>
     </div>
   );
+
+  return createPortal(modalContent, document.body);
 }
