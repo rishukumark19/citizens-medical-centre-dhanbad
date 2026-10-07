@@ -44,34 +44,34 @@ export default function HomePage() {
       <SEO title="Citizens Medical Centre | Best Hospital in Dhanbad" />
       
       {/* Hero Section */}
-      <section className="relative pt-8 pb-10 md:pt-12 md:pb-16 px-margin-mobile md:px-gutter overflow-hidden flex items-center min-h-[480px]">
+      <section className="relative pt-12 pb-16 md:pt-16 md:pb-24 px-margin-mobile md:px-gutter overflow-hidden flex items-center min-h-[480px]">
         {/* Background gradient/pattern */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/10 -z-20"></div>
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px] -z-10 translate-x-1/3 -translate-y-1/4"></div>
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-secondary/15 rounded-full blur-[100px] -z-10 -translate-x-1/4 translate-y-1/4"></div>
 
-        <div className="max-w-container-max mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="flex flex-col gap-6 relative z-10 animate-fade-in">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-secondary/10 text-primary px-4 py-2 rounded-full self-start font-label-bold border border-primary/20">
-              <span className="material-symbols-outlined text-xl">emergency</span>
+        <div className="max-w-container-max mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8 lg:gap-12 items-center">
+          <div className="flex flex-col gap-5 md:gap-6 relative z-10 animate-fade-in order-2 lg:order-1">
+            <div className="inline-flex items-center gap-2 bg-white/70 backdrop-blur-md text-primary px-4 py-2 rounded-full self-start text-xs md:text-sm font-bold border border-white shadow-sm">
+              <span className="material-symbols-outlined text-[16px] md:text-xl">emergency</span>
               Accident &amp; Emergency 24x7
             </div>
             
-            <h1 className="text-display-lg text-on-surface leading-tight font-bold">
+            <h1 className="text-4xl sm:text-5xl md:text-display-lg text-on-surface leading-tight font-bold tracking-tight">
               Healing with <span className="text-primary">Compassion,</span><br />
               Curing with <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Technology.</span>
             </h1>
             
-            <p className="text-body-lg text-on-surface-variant max-w-lg">
+            <p className="text-base sm:text-lg md:text-body-lg text-on-surface-variant max-w-lg">
               Citizens Medical Centre (CMC Dhanbad) brings world-class medical expertise, advanced diagnostics, and 24/7 critical care to your neighborhood.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 mt-4 w-full sm:w-auto">
-              <Link to="/doctor" className="bg-gradient-to-r from-primary to-secondary text-on-primary px-6 sm:px-8 py-4 rounded-full font-label-bold transition-all shadow-md hover:shadow-lg hover:opacity-90 flex items-center justify-center gap-2 group text-sm sm:text-base w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row gap-3 mt-2 w-full sm:w-auto">
+              <Link to="/doctor" className="bg-gradient-to-r from-primary to-secondary text-on-primary px-6 sm:px-8 py-3.5 sm:py-4 rounded-full font-bold transition-all shadow-md hover:shadow-lg hover:opacity-90 flex items-center justify-center gap-2 group text-sm sm:text-base w-full sm:w-auto">
                 Find a Doctor
                 <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </Link>
-              <a href="tel:+918235540809" className="bg-surface hover:bg-surface-variant text-primary border-2 border-outline-variant px-6 sm:px-8 py-4 rounded-full font-label-bold transition-all flex items-center justify-center gap-2 text-sm sm:text-base shadow-sm w-full sm:w-auto">
+              <a href="tel:+918235540809" className="bg-white hover:bg-surface-variant text-primary border border-outline-variant/60 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full font-bold transition-all flex items-center justify-center gap-2 text-sm sm:text-base shadow-sm w-full sm:w-auto">
                 <span className="material-symbols-outlined text-error" style={{ fontVariationSettings: "'FILL' 1" }}>emergency</span>
                 Emergency: +91 8235540809
               </a>
@@ -93,14 +93,14 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="relative z-10 hidden lg:flex h-[600px] items-center justify-center animate-fade-in" style={{ animationDelay: '0.3s' }}>
+          <div className="relative z-10 flex w-full lg:h-[600px] items-center justify-center animate-fade-in order-1 lg:order-2" style={{ animationDelay: '0.3s' }}>
             {/* Abstract Hero Image Composition */}
-            <div className="relative w-full max-w-[500px] aspect-square">
+            <div className="relative w-full max-w-[300px] sm:max-w-[400px] lg:max-w-[500px] aspect-square">
               {/* Decorative rings */}
-              <div className="absolute inset-0 border-[24px] border-surface-variant/40 rounded-full"></div>
+              <div className="absolute inset-0 border-[16px] lg:border-[24px] border-surface-variant/40 rounded-full"></div>
               
               {/* Main image container — crossfade slideshow */}
-              <div className="absolute inset-6 rounded-full overflow-hidden shadow-2xl border-4 border-surface">
+              <div className="absolute inset-4 lg:inset-6 rounded-full overflow-hidden shadow-2xl border-4 border-surface">
                 {heroImages.map((src, idx) => (
                   <img
                     key={idx}
@@ -114,23 +114,23 @@ export default function HomePage() {
               </div>
 
               {/* Floating Cards */}
-              <div className="glass-card absolute top-12 -left-4 p-4 rounded-2xl shadow-xl flex items-center gap-3.5 border border-outline-variant/60 bg-surface/90 backdrop-blur-md animate-float hover:shadow-2xl transition-all duration-300 cursor-default">
-                <div className="w-12 h-12 rounded-xl bg-secondary text-on-secondary flex items-center justify-center shadow-inner">
-                  <span className="material-symbols-outlined text-2xl" style={{ fontVariationSettings: "'FILL' 1" }}>monitor_heart</span>
+              <div className="glass-card absolute top-4 lg:top-12 -left-2 lg:-left-4 p-2.5 lg:p-4 rounded-xl lg:rounded-2xl shadow-xl flex items-center gap-2 lg:gap-3.5 border border-outline-variant/60 bg-surface/90 backdrop-blur-md animate-float hover:shadow-2xl transition-all duration-300 cursor-default">
+                <div className="w-9 h-9 lg:w-12 lg:h-12 rounded-lg lg:rounded-xl bg-secondary text-on-secondary flex items-center justify-center shadow-inner shrink-0">
+                  <span className="material-symbols-outlined text-lg lg:text-2xl" style={{ fontVariationSettings: "'FILL' 1" }}>monitor_heart</span>
                 </div>
                 <div>
-                  <div className="font-bold text-on-surface text-sm">Advanced ICU</div>
-                  <div className="text-xs font-label-bold text-primary">Level III Facilities</div>
+                  <div className="font-bold text-on-surface text-xs lg:text-sm">Advanced ICU</div>
+                  <div className="text-[9px] lg:text-xs font-label-bold text-primary">Level III Facilities</div>
                 </div>
               </div>
 
-              <div className="glass-card absolute bottom-20 -right-4 p-4 rounded-2xl shadow-xl flex items-center gap-3.5 border border-outline-variant/60 bg-surface/90 backdrop-blur-md animate-float-delayed hover:shadow-2xl transition-all duration-300 cursor-default">
-                <div className="w-12 h-12 rounded-xl bg-primary text-on-primary flex items-center justify-center shadow-inner">
-                  <span className="material-symbols-outlined text-2xl" style={{ fontVariationSettings: "'FILL' 1" }}>local_hospital</span>
+              <div className="glass-card absolute bottom-8 lg:bottom-20 -right-2 lg:-right-4 p-2.5 lg:p-4 rounded-xl lg:rounded-2xl shadow-xl flex items-center gap-2 lg:gap-3.5 border border-outline-variant/60 bg-surface/90 backdrop-blur-md animate-float-delayed hover:shadow-2xl transition-all duration-300 cursor-default">
+                <div className="w-9 h-9 lg:w-12 lg:h-12 rounded-lg lg:rounded-xl bg-primary text-on-primary flex items-center justify-center shadow-inner shrink-0">
+                  <span className="material-symbols-outlined text-lg lg:text-2xl" style={{ fontVariationSettings: "'FILL' 1" }}>local_hospital</span>
                 </div>
                 <div>
-                  <div className="font-bold text-on-surface text-sm">ISO Certified</div>
-                  <div className="text-xs font-label-bold text-secondary">Super Speciality Hospital</div>
+                  <div className="font-bold text-on-surface text-xs lg:text-sm">ISO Certified</div>
+                  <div className="text-[9px] lg:text-xs font-label-bold text-secondary">Super Speciality</div>
                 </div>
               </div>
             </div>

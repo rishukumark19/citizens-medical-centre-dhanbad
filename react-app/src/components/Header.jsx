@@ -37,12 +37,12 @@ export default function Header() {
       </div>
 
       {/* Mobile Info Strip — visible only on mobile */}
-      <div className="sm:hidden bg-primary text-on-primary px-4 py-1.5 flex justify-between items-center text-[11px] font-bold z-[60] relative">
-        <a href="tel:+918235540809" className="flex items-center gap-1 opacity-90">
-          <span className="material-symbols-outlined text-[13px]">call</span> Emergency: +91 8235540809
+      <div className="sm:hidden bg-primary text-on-primary px-3 py-1.5 flex justify-between items-center text-[10px] font-bold z-[60] relative">
+        <a href="tel:+918235540809" className="flex items-center gap-1 opacity-90 truncate mr-2">
+          <span className="material-symbols-outlined text-[12px]">call</span> +91 8235540809
         </a>
-        <span className="flex items-center gap-1 opacity-80">
-          <span className="material-symbols-outlined text-[13px]">schedule</span> Mon-Sat 10AM–6PM
+        <span className="flex items-center gap-1 opacity-80 shrink-0">
+          <span className="material-symbols-outlined text-[12px]">schedule</span> 10AM–6PM
         </span>
       </div>
 
@@ -62,7 +62,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Nav Links */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden lg:flex items-center gap-6">
             <Link to="/" className={`text-label-bold font-label-bold hover:text-tertiary transition-colors duration-200 py-4 border-b-2 ${isActive('/') ? 'text-tertiary border-tertiary' : 'text-on-surface-variant dark:text-surface-variant border-transparent'}`}>
               Home
             </Link>
@@ -124,7 +124,7 @@ export default function Header() {
             
             <button 
               onClick={() => setModalOpen(true)} 
-              className="hidden md:inline-flex items-center justify-center bg-gradient-to-r from-primary to-secondary text-on-primary rounded-full px-6 py-2.5 text-label-bold font-label-bold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 transition-all duration-300 gap-2 overflow-hidden relative group"
+              className="hidden lg:inline-flex items-center justify-center bg-gradient-to-r from-primary to-secondary text-on-primary rounded-full px-6 py-2.5 text-label-bold font-label-bold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 transition-all duration-300 gap-2 overflow-hidden relative group"
             >
               <span className="absolute inset-0 bg-white/0 group-hover:bg-white/10 transition-colors duration-300"></span>
               <span className="material-symbols-outlined text-[18px] relative z-10">calendar_month</span>
@@ -132,7 +132,7 @@ export default function Header() {
             </button>
             
             {/* Mobile Menu Toggle */}
-            <button className="md:hidden p-2 text-on-surface flex items-center justify-center" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Toggle Menu">
+            <button className="lg:hidden p-2 text-on-surface flex items-center justify-center" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Toggle Menu">
               <span className="material-symbols-outlined">{mobileMenuOpen ? 'close' : 'menu'}</span>
             </button>
           </div>
