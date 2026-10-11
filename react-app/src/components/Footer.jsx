@@ -119,12 +119,13 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-white/30 text-sm text-center md:text-left">
-            © {currentYear} Citizens Medical Centre. All rights reserved. Crafted with ❤️ for better healthcare.
-          </p>
+          <div className="text-center md:text-left text-xs text-white/40 flex flex-col gap-1">
+            <p>Developed and Maintained by <span className="text-white/70 font-medium">CrossTech</span></p>
+            <p>© {currentYear} CrossTech. All Rights Reserved.</p>
+          </div>
           <div className="flex gap-6">
-            <Link to="#" className="text-white/30 hover:text-secondary text-sm transition-colors">Privacy Policy</Link>
-            <Link to="#" className="text-white/30 hover:text-secondary text-sm transition-colors">Terms of Service</Link>
+            <Link to="/privacy-policy" className="text-white/40 hover:text-secondary text-sm transition-colors">Privacy Policy</Link>
+            <Link to="/terms-and-conditions" className="text-white/40 hover:text-secondary text-sm transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

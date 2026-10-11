@@ -21,6 +21,8 @@ import HealthPackagesPage from "./pages/HealthPackagesPage";
 import DoctorProfilePage from "./pages/DoctorProfilePage";
 import NotFoundPage from "./pages/NotFoundPage";
 import DepartmentsPage from "./pages/DepartmentsPage";
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+import TermsPage from "./pages/TermsPage";
 import WhatsAppButton from "./components/WhatsAppButton";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import ScrollToTop from "./components/ScrollToTop";
@@ -59,6 +61,12 @@ export default function App() {
 
               <Route path="/contact-us" element={<ContactPage />} />
               <Route path="/departments" element={<DepartmentsPage />} />
+
+              <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+              <Route path="/privacy" element={<PrivacyPolicyPage />} />
+              <Route path="/terms-and-conditions" element={<TermsPage />} />
+              <Route path="/terms-of-service" element={<TermsPage />} />
+              <Route path="/terms" element={<TermsPage />} />
 
               <Route path="/:slug" element={<DepartmentDetailPage />} />
               <Route path="*" element={<NotFoundPage />} />
