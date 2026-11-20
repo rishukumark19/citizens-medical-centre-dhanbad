@@ -18,6 +18,6 @@ export default defineConfig({
       }
     }
   ],
-  base: '/',
+  base: '/citizens-medical-centre-dhanbad/',
 })
 
